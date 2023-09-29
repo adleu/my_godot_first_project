@@ -21,4 +21,4 @@
 .vscode
 
 #config file
-.cfg
+*.cfg
