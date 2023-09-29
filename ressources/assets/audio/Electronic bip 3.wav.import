@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2k84l6f45ip0"
+path="res://.godot/imported/Electronic bip 3.wav-f4b7379a9a2a8480962ad4f1f7b3289e.sample"
+
+[deps]
+
+source_file="res://ressources/assets/audio/Electronic bip 3.wav"
+dest_files=["res://.godot/imported/Electronic bip 3.wav-f4b7379a9a2a8480962ad4f1f7b3289e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

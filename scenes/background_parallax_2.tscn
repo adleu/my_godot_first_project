@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfi3d2ri8turd"]
+
+[ext_resource type="Texture2D" uid="uid://cuoltddwa0dm5" path="res://ressources/assets/background/BG-sky.png" id="1_wjf3j"]
+[ext_resource type="Texture2D" uid="uid://b2uwbnf1vngrb" path="res://ressources/assets/background/BG-mountains.png" id="2_juc7j"]
+[ext_resource type="Texture2D" uid="uid://8pdv4t0b4kcm" path="res://ressources/assets/background/BG-ruins.png" id="3_3xvf3"]
+
+[node name="background_parallax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-1857, -202)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(921.6, 0)
+
+[node name="Bg-sky" type="Sprite2D" parent="ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("1_wjf3j")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-1910, -316)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(896, 0)
+
+[node name="Bg-mountains" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_juc7j")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-1910, -384)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(896, 0)
+
+[node name="Bg-ruins" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_3xvf3")
+centered = false

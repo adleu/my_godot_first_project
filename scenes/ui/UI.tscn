@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbi06jaqvxl1m"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_6ipjg"]
+[ext_resource type="FontFile" uid="uid://c23abofpdjj8f" path="res://ressources/assets/fonts/Magero.ttf" id="2_ikyr3"]
+[ext_resource type="Texture2D" uid="uid://dw0yqdsb4jrt8" path="res://ressources/assets/running-man.png" id="3_xktpj"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_6ipjg")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/MarginContainer/HBoxContainer/Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelLabel" type="Label" parent="Control2/MarginContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_ikyr3")
+
+[node name="Control2" type="Control" parent="Control2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/MarginContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="RunIcon" type="TextureRect" parent="Control2/MarginContainer/HBoxContainer/Control2/VBoxContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_xktpj")

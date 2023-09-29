@@ -1,0 +1,270 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpu4j62tro4m3"]
+
+[ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="1_gwird"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_tob77"]
+[ext_resource type="Texture2D" uid="uid://b2uwbnf1vngrb" path="res://ressources/assets/background/BG-mountains.png" id="2_dcbpm"]
+[ext_resource type="PackedScene" uid="uid://xsnvtpf6rn5" path="res://scenes/levels/level_0.tscn" id="2_or05v"]
+[ext_resource type="Texture2D" uid="uid://8pdv4t0b4kcm" path="res://ressources/assets/background/BG-ruins.png" id="3_k3kbr"]
+[ext_resource type="Texture2D" uid="uid://dokftwxwpqw01" path="res://ressources/assets/background/backgrounds.png" id="5_g5pqd"]
+[ext_resource type="PackedScene" uid="uid://cgl30ut86d8od" path="res://scenes/ui/MenuOption.tscn" id="7_pvbc0"]
+[ext_resource type="AudioStream" uid="uid://b2k84l6f45ip0" path="res://ressources/assets/audio/Electronic bip 3.wav" id="7_ri2js"]
+[ext_resource type="AudioStream" uid="uid://brf80krdltbq8" path="res://ressources/assets/audio/JDSherbert - Ambiences Music Pack - Desert Sirocco.mp3" id="8_7m241"]
+
+[sub_resource type="Animation" id="Animation_g6r2k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, 70)]
+}
+
+[sub_resource type="Animation" id="Animation_rtcui"]
+resource_name = "menu_background_clouds"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxLayer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(321, 70), Vector2(-319, 70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cniwo"]
+_data = {
+"RESET": SubResource("Animation_g6r2k"),
+"menu_background_clouds": SubResource("Animation_rtcui")
+}
+
+[sub_resource type="Animation" id="Animation_0qr1t"]
+
+[sub_resource type="Animation" id="Animation_m1j6k"]
+resource_name = "buttons_pop_in"
+length = 0.8
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_egxnl"]
+_data = {
+"RESET": SubResource("Animation_0qr1t"),
+"buttons_pop_in": SubResource("Animation_m1j6k")
+}
+
+[node name="main_menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tob77")
+new_game_scene = ExtResource("2_or05v")
+
+[node name="Bg-mountains" type="Sprite2D" parent="."]
+position = Vector2(320, 188)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_dcbpm")
+
+[node name="Bg-ruins" type="Sprite2D" parent="."]
+position = Vector2(319, 179)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("3_k3kbr")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(321, 70)
+motion_mirroring = Vector2(639.65, 0)
+
+[node name="Backgrounds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_g5pqd")
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground"]
+autoplay = "menu_background_clouds"
+speed_scale = 0.08
+libraries = {
+"": SubResource("AnimationLibrary_cniwo")
+}
+
+[node name="MainButtonContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainButtonContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="LoadButton" type="Button" parent="MainButtonContainer/VBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_gwird")
+disabled = true
+text = "CONTINUE"
+
+[node name="NewGameButton" type="Button" parent="MainButtonContainer/VBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_gwird")
+text = "NEW GAME"
+
+[node name="OptionsButton" type="Button" parent="MainButtonContainer/VBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_gwird")
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="MainButtonContainer/VBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_gwird")
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="MainButtonContainer/VBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_gwird")
+text = "QUIT"
+
+[node name="MainButtonPopAnimation" type="AnimationPlayer" parent="MainButtonContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_egxnl")
+}
+
+[node name="OptionsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkBg" type="Panel" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 110
+
+[node name="HBoxContainer" type="VBoxContainer" parent="OptionsMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="MenuPanel" type="Panel" parent="OptionsMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_gwird")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -39.0
+offset_right = 79.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Fullscreen"
+
+[node name="Label2" type="Label" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Vsync"
+
+[node name="Label3" type="Label" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "Volume"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="CheckBox" type="CheckBox" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="CheckBox2" type="CheckBox" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/MarginContainer/HBoxContainer/MenuPanel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Button" type="Button" parent="OptionsMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_gwird")
+text = "Done"
+
+[node name="MenuOption" parent="." instance=ExtResource("7_pvbc0")]
+visible = false
+
+[node name="HoverButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ri2js")
+volume_db = -25.0
+pitch_scale = 0.7
+
+[node name="MainThemeAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7m241")
+volume_db = -30.0
+
+[connection signal="pressed" from="MainButtonContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MainButtonContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainButtonContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="finished" from="MainThemeAudio" to="." method="_on_main_theme_audio_finished"]

@@ -1,0 +1,77 @@
+extends Node
+
+var vsync = false
+var fullscreen = true
+var volume = 0.5
+
+const SAVE_FILE = "res://param.cfg"
+const BUS_NAME = "Master"
+
+var data = {}
+func _ready():
+	load_data()
+	
+	if fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+	if vsync:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(BUS_NAME), linear_to_db(volume))
+	
+
+func save_data():
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	data = {
+		"vsync" = vsync,
+		"fullscreen" = fullscreen,
+		"volume" = volume,
+	}
+	file.store_var(data)
+	file = null
+
+func load_data():
+	if not FileAccess.file_exists(SAVE_FILE):
+		data = {
+			"vsync" = false,
+			"fullscreen" = false,
+			"volume" = 0.5,
+		}
+		save_data()
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	data = file.get_var()
+	vsync = data.vsync
+	fullscreen = data.fullscreen
+	volume = data.volume
+	file = null
+	
+func get_vsync():
+	return vsync
+
+func get_fullscreen():
+	return fullscreen
+	
+func get_volume():
+	return volume
+	
+func set_vsync(value : bool):
+	vsync = value
+
+func set_fullscreen(value : bool):
+	fullscreen = value
+	
+func set_volume(value : float):
+	volume = value
+
+func set_config(_fullscreen, _vsync, _volume):
+	fullscreen = _fullscreen
+	vsync = _vsync
+	volume = _volume
+	save_data()
+
+
+	
