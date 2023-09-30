@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckjeaagseaoj2"]
+[gd_scene load_steps=11 format=3 uid="uid://ckjeaagseaoj2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_test.gd" id="1_eu41b"]
 [ext_resource type="Texture2D" uid="uid://dxkoh6tfmcvp4" path="res://ressources/assets/sprite/cute mushroom idle.png" id="1_q3hip"]
 [ext_resource type="Texture2D" uid="uid://bnjbqc3olh78t" path="res://ressources/assets/sprite/cute mushroom idle_.png" id="3_buyum"]
 [ext_resource type="Texture2D" uid="uid://ckxeetv3672c6" path="res://ressources/assets/sprite/cute mushroom walk_.png" id="4_fbxtd"]
-[ext_resource type="AudioStream" uid="uid://b8eseeug7ho6u" path="res://ressources/assets/audio/walk 2 medium.wav" id="4_gtegl"]
 [ext_resource type="AudioStream" uid="uid://c0q0ny1pi87dt" path="res://ressources/assets/audio/wind up 3.wav" id="5_xjps8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pve5m"]
@@ -173,7 +172,7 @@ _data = {
 "walk": SubResource("Animation_suw17")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_eu41b")
 
@@ -200,22 +199,17 @@ libraries = {
 "": SubResource("AnimationLibrary_aptec")
 }
 
-[node name="AudioWalkMedium" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_gtegl")
-volume_db = -12.273
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
 [node name="AudioBounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xjps8")
 volume_db = -40.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-88, 63)
+position = Vector2(-88, 56.625)
 target_position = Vector2(0, 33.245)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2(-103, 63)
+position = Vector2(-103, 56.625)
 target_position = Vector2(0, 33.245)
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true

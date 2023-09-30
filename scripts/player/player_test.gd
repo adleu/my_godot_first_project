@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var friction = 50
 @export var acceleration = 30
 
-@export var run_multp = 1.4
+@export var run_multp = 1.3
 @export var y_bounce_velocity = 720
 
 @onready var ap = $AnimationPlayer
@@ -16,6 +16,7 @@ extends CharacterBody2D
 
 var jump_buffer_time = 0.1
 var jump_buffer_timer:  float = 0
+var coyote_time = 0.1
 
 signal run
 
@@ -28,13 +29,16 @@ var bonus_jump_left = 0
 var jumped = false
 
 
+
+
 func _process(delta):
-	if jump_buffer_timer>= 0:
+	if jump_buffer_timer >= 0:
 		jump_buffer_timer -= delta
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
-
+	
+	
 
 func _physics_process(delta):
 		
@@ -145,7 +149,10 @@ func jump():
 #return 1 : can jump beacause on floor
 #return 2 : can jump by bonus jump	
 func can_jump():
-	if ($RayCast2D.is_colliding() or $RayCast2D2.is_colliding()) and not jumped :  
+	if ($RayCast2D.is_colliding() or $RayCast2D2.is_colliding()) and not jumped:  
+		$CoyoteTimer.start(coyote_time)
+		return 1
+	if not $CoyoteTimer.is_stopped() and not jumped:
 		return 1
 	if jumped and bonus_jump_left > 0:
 		return 2
