@@ -14,6 +14,8 @@ extends CharacterBody2D
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+var jump_buffer_time = 0.1
+var jump_buffer_timer:  float = 0
 
 signal run
 
@@ -24,6 +26,20 @@ var gravity = default_gravity
 
 var bonus_jump_left = 0
 var jumped = false
+
+
+#func input_buffer(event: InputEvent):
+#	print('input buffer')
+#	if Input.is_action_just_pressed("jump"):
+#		jump_buffer_timer = jump_buffer_time
+#	return null
+
+func _process(delta):
+	if jump_buffer_timer>= 0:
+		jump_buffer_timer -= delta
+	
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer_timer = jump_buffer_time
 
 
 func _physics_process(delta):
@@ -113,7 +129,7 @@ func input() -> Vector2:
 	return input_dir.normalized()
 	
 func jump():
-	if Input.is_action_just_pressed("jump") and can_jump():
+	if jump_buffer_timer > 0 and can_jump():
 		if can_jump() == 2:
 			bonus_jump_left -= 1
 			
