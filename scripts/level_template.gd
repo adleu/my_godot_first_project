@@ -16,7 +16,6 @@ func run():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	RenderingServer.set_default_clear_color(Color.CORNFLOWER_BLUE)
 	$UI.set_level_label("Level " + str(lvl_id))
 	
 	follow_cam.limit_top = 0
@@ -33,11 +32,9 @@ func _process(delta):
 func _on_ending_level_body_entered(body):
 	if not next_level is String:
 		return
-	#get_tree().change_scene_to_packed(next_level)
 	StageManager.change_stage(next_level)
 	
-
-
+	
 func _on_pause_restart_level():
 	get_tree().reload_current_scene()
 	
