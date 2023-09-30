@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1696016112
+::res://::1696088596
 default_bus_layout.tres::AudioBusLayout::8190911881200714652::1695773915::0::1::::<><>::
 icon.svg::CompressedTexture2D::5167170290900393478::1695432366::1695432372::1::::<><>::
-param.cfg::TextFile::-1::1696012345::0::1::::<><>::
+param.cfg::TextFile::-1::1696050410::0::1::::<><>::
 ::res://ressources/::1695694151
 ::res://ressources/assets/::1695694627
 00Atlas.png::CompressedTexture2D::4435537980741722738::1695432532::1695445486::1::::<><>::
@@ -51,34 +51,34 @@ cute mushroom idle_.png::CompressedTexture2D::3317544489421637661::1695928484::1
 cute mushroom walk.png::CompressedTexture2D::7978451071287707699::1695433050::1695433050::1::::<><>::
 cute mushroom walk_.png::CompressedTexture2D::5522461534956039039::1695928572::1695928593::1::::<><>::
 Purple Portal Sprite Sheet.png::CompressedTexture2D::5831474576555833312::1695512763::1695512763::1::::<><>::
-::res://ressources/assets/tileset/::1696015817
-default_tile_set.tres::TileSet::6496394404490501811::1696015817::0::1::::<><>::uid://b4guwr4ac33ys::::res://ressources/assets/00Atlas.png
+::res://ressources/assets/tileset/::1696088580
+default_tile_set.tres::TileSet::6496394404490501811::1696088580::0::1::::<><>::uid://b4guwr4ac33ys::::res://ressources/assets/00Atlas.png
 ::res://ressources/fonts/::1695696285
 Magero.ttf::FontFile::6475471450891625805::1695432461::1695432461::1::::<><>::
 monogram.ttf::FontFile::5777535348255989554::1695696285::1695696285::1::::<><>::
-::res://ressources/themes/::1696015817
-default_theme.tres::Theme::8607490838271230088::1696015817::0::1::::<><>::uid://cokxfsrucfycg::::res://ressources/fonts/monogram.ttf<>uid://b5u57v2j0gnd::::res://ressources/assets/images/GUI.png
-::res://scenes/::1696016042
-background_parallax.tscn::PackedScene::6913545159073105889::1696015818::0::1::::<><>::uid://cuoltddwa0dm5::::res://ressources/assets/background/BG-sky.png<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png
-background_parallax_2.tscn::PackedScene::2755586801895398781::1696015818::0::1::::<><>::uid://cuoltddwa0dm5::::res://ressources/assets/background/BG-sky.png<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png
-tile_map.tscn::PackedScene::5244919899046518890::1696015818::0::1::::<><>::uid://cys5wwyim04fn::::res://ressources/assets/tileset/default_tile_set.tres
-::res://scenes/charcaters/::1696015818
-player.tscn::PackedScene::5493552081616155781::1696015818::0::1::::<><>::res://scripts/player/player_test.gd<>uid://dxkoh6tfmcvp4::::res://ressources/assets/sprite/cute mushroom idle.png<>uid://bnjbqc3olh78t::::res://ressources/assets/sprite/cute mushroom idle_.png<>uid://ckxeetv3672c6::::res://ressources/assets/sprite/cute mushroom walk_.png<>uid://b8eseeug7ho6u::::res://ressources/assets/audio/walk 2 medium.wav<>uid://c0q0ny1pi87dt::::res://ressources/assets/audio/wind up 3.wav
-::res://scenes/levels/::1696016042
-end_level_area.tscn::PackedScene::5975740313345671917::1696015818::0::1::::<><>::uid://cpc2sfvuwhoro::::res://ressources/assets/sprite/Purple Portal Sprite Sheet.png
-level_0.tscn::PackedScene::48597942565023364::1696015818::0::1::::<><>::uid://b82xmmri74thg::::res://scenes/levels/level_template.tscn<>uid://crjvd3325cc7l::::res://ressources/assets/props/tree04.png<>uid://b72ybt77cbhqt::::res://ressources/assets/props/rocks5.png<>uid://dfl7tofvs885u::::res://ressources/assets/props/tree01.png<>uid://cj5syabastqqv::::res://ressources/assets/Keyboard Extras.png<>uid://bfo5x7lxygkw7::::res://ressources/assets/Keyboard Letters and Symbols.png<>res://scripts/level_0/SignShiftToRun.gd<>uid://cyi1clo5j6hv6::::res://ressources/fonts/Magero.ttf<>res://scripts/level_0/DKey.gd<>res://scripts/level_0/LabelBounce.gd<>res://scripts/level_0/SpaceToJump.gd<>uid://wxxvd6pevu2j::::res://ressources/assets/sprite/1.png<>res://scripts/level_0/guide_orb_1.gd<>uid://djtqt5ue1ir7n::::res://ressources/assets/audio/lofi-hip-hop-11489_beat.mp3<>uid://c5q8cw71clb6h::::res://scenes/background_parallax.tscn
-level_1.tscn::PackedScene::2185015818582233199::1696015818::0::1::::<><>::uid://b82xmmri74thg::::res://scenes/levels/level_template.tscn
-level_template.tscn::PackedScene::4759809300417556072::1696016042::0::1::::<><>::res://scripts/level_template.gd<>uid://cgyxcgq7b0v67::::res://scenes/tile_map.tscn<>uid://ckjeaagseaoj2::::res://scenes/charcaters/player.tscn<>uid://crextm2efnc02::::res://scenes/levels/end_level_area.tscn<>uid://dbi06jaqvxl1m::::res://scenes/ui/UI.tscn<>uid://vsciytrepm8n::::res://scenes/ui/pause.tscn
-::res://scenes/ui/::1696015818
-main_menu.tscn::PackedScene::5868740112793403592::1696015817::0::1::::<><>::uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres<>res://scripts/ui/main_menu.gd<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://xsnvtpf6rn5::::res://scenes/levels/level_0.tscn<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png<>uid://dokftwxwpqw01::::res://ressources/assets/background/backgrounds.png<>uid://cgl30ut86d8od::::res://scenes/ui/MenuOption.tscn<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav<>uid://brf80krdltbq8::::res://ressources/assets/audio/JDSherbert - Ambiences Music Pack - Desert Sirocco.mp3
-MenuOption.tscn::PackedScene::5218428386513376075::1696015817::0::1::::<><>::res://scripts/menu_option.gd<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav<>uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres
-pause.tscn::PackedScene::1511261526998567607::1696015817::0::1::::<><>::uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres<>res://scripts/pause.gd<>uid://cgl30ut86d8od::::res://scenes/ui/MenuOption.tscn<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav
-StageManager.tscn::PackedScene::7925966345909459697::1696015818::0::1::::<><>::res://scripts/StageManager.gd<>uid://cokxfsrucfycg::::res://ressources/fonts/monogram.ttf
-UI.tscn::PackedScene::7247539674646125876::1696015817::0::1::::<><>::res://scripts/UI.gd<>uid://c23abofpdjj8f::::res://ressources/assets/fonts/Magero.ttf<>uid://dw0yqdsb4jrt8::::res://ressources/assets/running-man.png
-::res://scripts/::1696015817
+::res://ressources/themes/::1696088580
+default_theme.tres::Theme::8607490838271230088::1696088580::0::1::::<><>::uid://cokxfsrucfycg::::res://ressources/fonts/monogram.ttf<>uid://b5u57v2j0gnd::::res://ressources/assets/images/GUI.png
+::res://scenes/::1696088581
+background_parallax.tscn::PackedScene::6913545159073105889::1696088581::0::1::::<><>::uid://cuoltddwa0dm5::::res://ressources/assets/background/BG-sky.png<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png
+background_parallax_2.tscn::PackedScene::2755586801895398781::1696088581::0::1::::<><>::uid://cuoltddwa0dm5::::res://ressources/assets/background/BG-sky.png<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png
+tile_map.tscn::PackedScene::5244919899046518890::1696088581::0::1::::<><>::uid://cys5wwyim04fn::::res://ressources/assets/tileset/default_tile_set.tres
+::res://scenes/charcaters/::1696088581
+player.tscn::PackedScene::5493552081616155781::1696088581::0::1::::<><>::res://scripts/player/player_test.gd<>uid://dxkoh6tfmcvp4::::res://ressources/assets/sprite/cute mushroom idle.png<>uid://bnjbqc3olh78t::::res://ressources/assets/sprite/cute mushroom idle_.png<>uid://ckxeetv3672c6::::res://ressources/assets/sprite/cute mushroom walk_.png<>uid://b8eseeug7ho6u::::res://ressources/assets/audio/walk 2 medium.wav<>uid://c0q0ny1pi87dt::::res://ressources/assets/audio/wind up 3.wav
+::res://scenes/levels/::1696088581
+end_level_area.tscn::PackedScene::5975740313345671917::1696088581::0::1::::<><>::uid://cpc2sfvuwhoro::::res://ressources/assets/sprite/Purple Portal Sprite Sheet.png
+level_0.tscn::PackedScene::48597942565023364::1696088581::0::1::::<><>::uid://b82xmmri74thg::::res://scenes/levels/level_template.tscn<>uid://crjvd3325cc7l::::res://ressources/assets/props/tree04.png<>uid://b72ybt77cbhqt::::res://ressources/assets/props/rocks5.png<>uid://dfl7tofvs885u::::res://ressources/assets/props/tree01.png<>uid://cj5syabastqqv::::res://ressources/assets/Keyboard Extras.png<>uid://bfo5x7lxygkw7::::res://ressources/assets/Keyboard Letters and Symbols.png<>res://scripts/level_0/SignShiftToRun.gd<>uid://cyi1clo5j6hv6::::res://ressources/fonts/Magero.ttf<>res://scripts/level_0/DKey.gd<>res://scripts/level_0/LabelBounce.gd<>res://scripts/level_0/SpaceToJump.gd<>uid://wxxvd6pevu2j::::res://ressources/assets/sprite/1.png<>res://scripts/level_0/guide_orb_1.gd<>uid://djtqt5ue1ir7n::::res://ressources/assets/audio/lofi-hip-hop-11489_beat.mp3<>uid://c5q8cw71clb6h::::res://scenes/background_parallax.tscn
+level_1.tscn::PackedScene::2185015818582233199::1696088581::0::1::::<><>::uid://b82xmmri74thg::::res://scenes/levels/level_template.tscn
+level_template.tscn::PackedScene::4759809300417556072::1696088581::0::1::::<><>::res://scripts/level_template.gd<>uid://cgyxcgq7b0v67::::res://scenes/tile_map.tscn<>uid://ckjeaagseaoj2::::res://scenes/charcaters/player.tscn<>uid://crextm2efnc02::::res://scenes/levels/end_level_area.tscn<>uid://dbi06jaqvxl1m::::res://scenes/ui/UI.tscn<>uid://vsciytrepm8n::::res://scenes/ui/pause.tscn
+::res://scenes/ui/::1696088581
+main_menu.tscn::PackedScene::5868740112793403592::1696088581::0::1::::<><>::uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres<>res://scripts/ui/main_menu.gd<>uid://b2uwbnf1vngrb::::res://ressources/assets/background/BG-mountains.png<>uid://xsnvtpf6rn5::::res://scenes/levels/level_0.tscn<>uid://8pdv4t0b4kcm::::res://ressources/assets/background/BG-ruins.png<>uid://dokftwxwpqw01::::res://ressources/assets/background/backgrounds.png<>uid://cgl30ut86d8od::::res://scenes/ui/MenuOption.tscn<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav<>uid://brf80krdltbq8::::res://ressources/assets/audio/JDSherbert - Ambiences Music Pack - Desert Sirocco.mp3
+MenuOption.tscn::PackedScene::5218428386513376075::1696088580::0::1::::<><>::res://scripts/menu_option.gd<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav<>uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres
+pause.tscn::PackedScene::1511261526998567607::1696088581::0::1::::<><>::uid://duvsd7ylqvfdg::::res://ressources/themes/default_theme.tres<>res://scripts/pause.gd<>uid://cgl30ut86d8od::::res://scenes/ui/MenuOption.tscn<>uid://b2k84l6f45ip0::::res://ressources/assets/audio/Electronic bip 3.wav
+StageManager.tscn::PackedScene::7925966345909459697::1696015818::0::1::::<><>::res://scripts/StageManager.gd<>uid://cokxfsrucfycg
+UI.tscn::PackedScene::7247539674646125876::1696088581::0::1::::<><>::res://scripts/UI.gd<>uid://c23abofpdjj8f::::res://ressources/assets/fonts/Magero.ttf<>uid://dw0yqdsb4jrt8::::res://ressources/assets/running-man.png
+::res://scripts/::1696088580
 global.gd::GDScript::-1::1695880179::0::1::::<>Node<>::
-level_template.gd::GDScript::-1::1696015817::0::1::::<>Node2D<>::
-menu_option.gd::GDScript::-1::1696015817::0::1::::<>CanvasLayer<>::
+level_template.gd::GDScript::-1::1696088580::0::1::::<>Node2D<>::
+menu_option.gd::GDScript::-1::1696088580::0::1::::<>CanvasLayer<>::
 pause.gd::GDScript::-1::1696012401::0::1::::<>CanvasLayer<>::
 StageManager.gd::GDScript::-1::1695883991::0::1::::<>CanvasLayer<>::
 UI.gd::GDScript::-1::1695663079::0::1::::<>CanvasLayer<>::
