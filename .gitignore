@@ -11,7 +11,7 @@
 *.zip
 
 # Godot specific folders
-myfolder/
+.godot/
 import/
 
 # Cache files
