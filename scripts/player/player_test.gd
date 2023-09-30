@@ -28,12 +28,6 @@ var bonus_jump_left = 0
 var jumped = false
 
 
-#func input_buffer(event: InputEvent):
-#	print('input buffer')
-#	if Input.is_action_just_pressed("jump"):
-#		jump_buffer_timer = jump_buffer_time
-#	return null
-
 func _process(delta):
 	if jump_buffer_timer>= 0:
 		jump_buffer_timer -= delta
@@ -129,10 +123,12 @@ func input() -> Vector2:
 	return input_dir.normalized()
 	
 func jump():
-	if jump_buffer_timer > 0 and can_jump():
-		if can_jump() == 2:
-			bonus_jump_left -= 1
-			
+	if can_jump() == 1 and jump_buffer_timer > 0:
+		velocity.y = - jump_force
+		jumped = true
+		
+	elif can_jump() == 2 and Input.is_action_just_pressed("jump"):
+		bonus_jump_left -= 1
 		velocity.y = - jump_force
 		jumped = true
 		
