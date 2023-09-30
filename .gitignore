@@ -11,8 +11,8 @@
 *.zip
 
 # Godot specific folders
-.godot
-.import
+myfolder/
+import/
 
 # Cache files
 .cache
@@ -20,5 +20,6 @@
 # IDE specific files
 .vscode
 
-#config file
+# config file
 *.cfg
+
