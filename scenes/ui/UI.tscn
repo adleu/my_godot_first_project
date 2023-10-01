@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbi06jaqvxl1m"]
+[gd_scene load_steps=7 format=3 uid="uid://dbi06jaqvxl1m"]
 
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_6ipjg"]
 [ext_resource type="FontFile" uid="uid://c23abofpdjj8f" path="res://ressources/assets/fonts/Magero.ttf" id="2_ikyr3"]
 [ext_resource type="Texture2D" uid="uid://dw0yqdsb4jrt8" path="res://ressources/assets/running-man.png" id="3_xktpj"]
+
+[sub_resource type="Animation" id="Animation_mpf2x"]
+resource_name = "rearrange_items"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(276, 0), Vector2(260, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sdr3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xmc5l"]
+_data = {
+"RESET": SubResource("Animation_sdr3d"),
+"rearrange_items": SubResource("Animation_mpf2x")
+}
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_6ipjg")
@@ -46,8 +83,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -28.0
-offset_right = 28.0
+offset_left = -44.0
+offset_right = 12.0
 offset_bottom = 16.0
 grow_horizontal = 2
 size_flags_horizontal = 0
@@ -56,6 +93,7 @@ size_flags_vertical = 0
 [node name="Item1" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
 layout_mode = 2
+stretch_mode = 2
 
 [node name="Item2" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
@@ -81,3 +119,9 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_xktpj")
+
+[node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="Control2/MarginContainer/Control"]
+root_node = NodePath("../inventory")
+libraries = {
+"": SubResource("AnimationLibrary_xmc5l")
+}
