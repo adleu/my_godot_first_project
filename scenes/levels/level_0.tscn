@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://xsnvtpf6rn5"]
+[gd_scene load_steps=36 format=3 uid="uid://xsnvtpf6rn5"]
 
 [ext_resource type="PackedScene" uid="uid://b82xmmri74thg" path="res://scenes/levels/level_template.tscn" id="1_3o8ty"]
 [ext_resource type="Texture2D" uid="uid://crjvd3325cc7l" path="res://ressources/assets/props/tree04.png" id="3_88drj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/level_0/guide_orb_1.gd" id="13_iqrli"]
 [ext_resource type="AudioStream" uid="uid://djtqt5ue1ir7n" path="res://ressources/assets/audio/lofi-hip-hop-11489_beat.mp3" id="14_67t8h"]
 [ext_resource type="PackedScene" uid="uid://c5q8cw71clb6h" path="res://scenes/background_parallax.tscn" id="15_4sfva"]
+[ext_resource type="PackedScene" uid="uid://cka7a1rocl4gq" path="res://scenes/entities/items/bonus_jump_orb.tscn" id="16_e5s67"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_u52rq"]
 a = Vector2(3.83607, 14.3213)
@@ -469,7 +470,7 @@ layer_2/z_index = -1
 layer_2/tile_data = PackedInt32Array(786496, 917504, 3, 720960, 851968, 3, 720961, 851968, 3, 720962, 851968, 3, 786497, 917504, 3, 786498, 917504, 3, 786499, 917504, 3, 720963, 851968, 3, 327766, 1048576, 3, 327765, 1048576, 3, 327764, 1048576, 3, 327763, 1048576, 3, 327762, 1048576, 3, 327761, 1048576, 3, 327751, 1048576, 3, 327752, 1048576, 3, 327753, 1048576, 3, 327754, 1048576, 3, 327755, 1048576, 3, 327756, 1048576, 3, 327757, 1048576, 3, 327758, 1048576, 3, 327759, 1048576, 3, 327760, 1048576, 3, 327749, 1048576, 3, 327750, 1048576, 3, 327767, 1048576, 3, 327768, 1048576, 3, 327769, 1048576, 3, 327770, 1048576, 3, 327771, 1048576, 3, 327772, 1048576, 3, 327773, 1048576, 3, 327774, 1048576, 3, 327775, 1048576, 3, 327776, 1048576, 3, 327777, 1048576, 3, 721006, 1048576, 3, 721007, 1048576, 3, 721008, 1048576, 3, 721009, 1048576, 3, 721010, 1048576, 3, 721011, 1048576, 3, 721012, 1048576, 3, 721014, 1048576, 3, 721015, 1048576, 3, 721016, 131072, 4, 721005, 65536, 4, 721013, 1048576, 3, 655474, 589824, 65537, 524403, 1179648, 65537, 589939, 1179648, 65537, 655475, 1245184, 65537, 655476, 786432, 65537, 655505, 1245184, 65537, 589969, 1179648, 65537, 655506, 786432, 65537, 655504, 589824, 65537)
 
 [node name="Player" parent="." index="4"]
-position = Vector2(2668, 20)
+position = Vector2(2684, 36)
 
 [node name="end_level_area" parent="." index="5"]
 position = Vector2(1756, -216)
@@ -607,8 +608,12 @@ shape = SubResource("CircleShape2D_hkrmm")
 [node name="background_parallax" parent="." index="12" instance=ExtResource("15_4sfva")]
 
 [node name="Camera2D" parent="." index="14"]
-position = Vector2(2668, 20)
+position = Vector2(2684, 36)
 
+[node name="BonusJumpOrb" parent="." index="15" instance=ExtResource("16_e5s67")]
+position = Vector2(2908, 196)
+
+[connection signal="run" from="Player" to="." method="run" flags=18]
 [connection signal="body_entered" from="LabelBounce/Area2D" to="LabelBounce" method="_on_area_2d_body_entered"]
 [connection signal="finished" from="SignDKey/MusicTrack1" to="SignDKey" method="_on_music_track_1_finished"]
 [connection signal="body_entered" from="SpaceToJump/Area2D" to="SpaceToJump" method="_on_area_2d_body_entered"]
