@@ -8,6 +8,7 @@ script = ExtResource("1_nyi28")
 
 [node name="Label" type="Label" parent="."]
 z_index = 3
+texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
