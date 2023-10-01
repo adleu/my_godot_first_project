@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 @export var speed = 250
 @export var default_gravity = 30
@@ -19,11 +20,24 @@ var jump_buffer_timer:  float = 0
 var coyote_time = 0.1
 
 signal run
+signal ui_add_bonus
+signal ui_remove_bonus
 
 var running =  false
 var last_y_velocity = 0
 var jump_pressed = false
 var gravity = default_gravity
+
+var bonus = 0
+var max_bonus = 3
+# un bonus a la fois sinon buffer
+var bonus_active = false 
+var bonus_buffer : Array
+
+enum BonusType{
+	JUMP = 1,
+	GLIDE = 2
+	}
 
 var bonus_jump_left = 0
 var jumped = false
@@ -70,8 +84,8 @@ func _physics_process(delta):
 		
 	last_y_velocity = velocity.y
 	
-	if velocity.y > 0:
-		print(velocity.y)
+#	if velocity.y > 0:
+#		print(velocity.y)
 	
 	move_and_slide()
 	jump()
@@ -135,6 +149,7 @@ func jump():
 		bonus_jump_left -= 1
 		velocity.y = - jump_force
 		jumped = true
+		use_bonus()
 		
 	else:
 		if not is_on_floor():
@@ -158,5 +173,35 @@ func can_jump():
 		return 2
 		
 	return 0
+	
+func add_jump():
+	bonus_jump_left += 1
+	
+func add_bonus(type : BonusType, texture : Texture2D) -> bool:
+	if bonus == max_bonus:
+		return false
+	
+	ui_add_bonus.emit(texture)
+	
+	if bonus_active :
+		bonus_buffer.append(type)
+	else:
+		apply_bonus(type)
+			
+	return true
+	
+func apply_bonus(type):
+	match type:
+		BonusType.JUMP:
+			bonus_jump_left += 1
+			bonus += 1
+	bonus_active = true
+		
+func use_bonus():
+	bonus -= 1
+	bonus_active = false
+	ui_remove_bonus.emit()
+	if !bonus_buffer.is_empty():
+		apply_bonus(bonus_buffer.pop_front())
 	
 

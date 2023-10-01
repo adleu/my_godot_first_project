@@ -44,6 +44,7 @@ _data = {
 
 [node name="pause" type="CanvasLayer"]
 process_mode = 3
+layer = 9
 script = ExtResource("1_js0xf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -130,7 +131,6 @@ size_flags_vertical = 10
 text = "QUIT"
 
 [node name="MenuOption" parent="OptionsMenu/MenuPanel" instance=ExtResource("3_x6ptf")]
-layer = 2
 visible = false
 
 [node name="HoverButtonAudio" type="AudioStreamPlayer" parent="."]

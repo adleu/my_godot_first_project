@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="6_mhknh"]
 
 [node name="MenuOption" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_ftqak")
 bus_name = "Master"
 

@@ -613,7 +613,14 @@ position = Vector2(2684, 36)
 [node name="BonusJumpOrb" parent="." index="15" instance=ExtResource("16_e5s67")]
 position = Vector2(2908, 196)
 
+[node name="BonusJumpOrb2" parent="." index="16" instance=ExtResource("16_e5s67")]
+position = Vector2(2716, 220)
+
+[node name="BonusJumpOrb3" parent="." index="17" instance=ExtResource("16_e5s67")]
+position = Vector2(2476, 228)
+
 [connection signal="run" from="Player" to="." method="run" flags=18]
+[connection signal="ui_remove_bonus" from="Player" to="UI" method="remove_item"]
 [connection signal="body_entered" from="LabelBounce/Area2D" to="LabelBounce" method="_on_area_2d_body_entered"]
 [connection signal="finished" from="SignDKey/MusicTrack1" to="SignDKey" method="_on_music_track_1_finished"]
 [connection signal="body_entered" from="SpaceToJump/Area2D" to="SpaceToJump" method="_on_area_2d_body_entered"]
