@@ -88,7 +88,7 @@ func _physics_process(delta):
 #		print(velocity.y)
 	
 	move_and_slide()
-	jump()
+	jump(horizontal_direction)
 	
 func update_animation(horizontal_direction):
 	if horizontal_direction.x != 0:
@@ -140,15 +140,17 @@ func input() -> Vector2:
 	
 	return input_dir.normalized()
 	
-func jump():
+func jump(direction):
 	if can_jump() == 1 and jump_buffer_timer > 0:
 		velocity.y = - jump_force
 		jumped = true
 		
 	elif can_jump() == 2 and Input.is_action_just_pressed("jump"):
 		bonus_jump_left -= 1
-		velocity.y = - jump_force
+		velocity.y = - jump_force * 1.2
 		jumped = true
+		velocity.x = velocity.x * 2
+		$AudioDoubleJump.play()
 		use_bonus()
 		
 	else:
@@ -156,7 +158,7 @@ func jump():
 			velocity.y += gravity
 			if velocity.y > 1500:
 				velocity.y = 1500
-	
+				
 		if is_on_floor():
 			jumped = false
 		

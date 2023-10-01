@@ -108,9 +108,10 @@ anchor_right = 1.0
 offset_left = -32.0
 offset_bottom = 32.0
 grow_horizontal = 0
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.6, 0.6)
 
 [node name="RunIcon" type="TextureRect" parent="Control2/MarginContainer/Control/VBoxContainer2"]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckjeaagseaoj2"]
+[gd_scene load_steps=12 format=3 uid="uid://ckjeaagseaoj2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_test.gd" id="1_eu41b"]
 [ext_resource type="Texture2D" uid="uid://dxkoh6tfmcvp4" path="res://ressources/assets/sprite/cute mushroom idle.png" id="1_q3hip"]
 [ext_resource type="Texture2D" uid="uid://bnjbqc3olh78t" path="res://ressources/assets/sprite/cute mushroom idle_.png" id="3_buyum"]
 [ext_resource type="Texture2D" uid="uid://ckxeetv3672c6" path="res://ressources/assets/sprite/cute mushroom walk_.png" id="4_fbxtd"]
 [ext_resource type="AudioStream" uid="uid://c0q0ny1pi87dt" path="res://ressources/assets/audio/wind up 3.wav" id="5_xjps8"]
+[ext_resource type="AudioStream" uid="uid://byrecelcrp2in" path="res://ressources/assets/audio/Orchestra shot 2.wav" id="6_p60bj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pve5m"]
 size = Vector2(22, 38)
@@ -214,3 +215,7 @@ target_position = Vector2(0, 33.245)
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioDoubleJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p60bj")
+volume_db = -25.0

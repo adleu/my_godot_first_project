@@ -32,5 +32,6 @@ position = Vector2(1, -22)
 
 [connection signal="run" from="Player" to="." method="run"]
 [connection signal="ui_add_bonus" from="Player" to="UI" method="add_item"]
+[connection signal="ui_remove_bonus" from="Player" to="UI" method="remove_item"]
 [connection signal="body_entered" from="end_level_area" to="." method="_on_ending_level_body_entered"]
 [connection signal="restart_level" from="pause" to="." method="_on_pause_restart_level"]
