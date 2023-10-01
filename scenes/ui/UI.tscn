@@ -4,22 +4,6 @@
 [ext_resource type="FontFile" uid="uid://c23abofpdjj8f" path="res://ressources/assets/fonts/Magero.ttf" id="2_ikyr3"]
 [ext_resource type="Texture2D" uid="uid://dw0yqdsb4jrt8" path="res://ressources/assets/running-man.png" id="3_xktpj"]
 
-[sub_resource type="Animation" id="Animation_mpf2x"]
-resource_name = "rearrange_items"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(276, 0), Vector2(260, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_sdr3d"]
 length = 0.001
 tracks/0/type = "value"
@@ -33,6 +17,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(260, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mpf2x"]
+resource_name = "rearrange_items"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(280, 0), Vector2(260, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmc5l"]
@@ -64,13 +64,13 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="Control" type="Control" parent="Control2/MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer/Control"]
-layout_mode = 1
-offset_right = 54.0
+layout_mode = 2
+offset_right = 608.0
 offset_bottom = 14.0
+size_flags_vertical = 0
 
 [node name="LevelLabel" type="Label" parent="Control2/MarginContainer/Control/VBoxContainer"]
 layout_mode = 2
@@ -79,20 +79,17 @@ theme_override_fonts/font = ExtResource("2_ikyr3")
 text = "level"
 
 [node name="inventory" type="HBoxContainer" parent="Control2/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -44.0
-offset_right = 12.0
+layout_mode = 0
+offset_left = 260.0
+offset_right = 308.0
 offset_bottom = 16.0
-grow_horizontal = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Item1" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 4
 stretch_mode = 2
 
 [node name="Item2" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
@@ -111,17 +108,16 @@ anchor_right = 1.0
 offset_left = -32.0
 offset_bottom = 32.0
 grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 
 [node name="RunIcon" type="TextureRect" parent="Control2/MarginContainer/Control/VBoxContainer2"]
-visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_xktpj")
 
-[node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="Control2/MarginContainer/Control"]
-root_node = NodePath("../inventory")
+[node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control2/MarginContainer/Control/inventory")
 libraries = {
 "": SubResource("AnimationLibrary_xmc5l")
 }

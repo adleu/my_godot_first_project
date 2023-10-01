@@ -2,9 +2,14 @@ extends CanvasLayer
 @onready var run_icon = $Control2/MarginContainer/Control/VBoxContainer2/RunIcon
 @onready var level_label = $Control2/MarginContainer/Control/VBoxContainer/LevelLabel
 @onready var inventory = $Control2/MarginContainer/Control/inventory
-@onready var animation_rearrange = $Control2/MarginContainer/Control/RearrangeItemsAnimation
-@onready var inventory_hbox = $Control2/MarginContainer/Control/inventory
+@onready var animation_rearrange = $RearrangeItemsAnimation
 
+func _ready():
+#	animation_rearrange.current_animation = "rearrange_items"
+	inventory.size.x = 48
+	inventory.size.y = 16
+	animation_rearrange.seek(animation_rearrange.current_animation_length, false)
+	
 
 func toggle_run_icon(): 
 	run_icon.visible = ! run_icon.visible

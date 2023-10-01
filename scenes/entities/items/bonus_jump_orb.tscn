@@ -122,7 +122,6 @@ radius = 39.2046
 [node name="BonusJumpOrb" type="StaticBody2D"]
 texture_filter = 1
 script = ExtResource("1_smag8")
-texture_path = "res://ressources/assets/images/items/green_orb.png"
 texture = ExtResource("2_4rq3d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
