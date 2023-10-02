@@ -179,24 +179,28 @@ func can_jump():
 func add_jump():
 	bonus_jump_left += 1
 	
-func add_bonus(type : BonusType, texture : Texture2D) -> bool:
+func add_bonus(bonus_class) -> bool:
+	
 	if bonus == max_bonus:
 		return false
 	
-	ui_add_bonus.emit(texture)
+	var texture = bonus_class.get_texture()
+	var type = bonus_class.get_type()
+	ui_add_bonus.emit(bonus_class)
+	
+	bonus_class.get_audio().play() 
 	
 	if bonus_active :
 		bonus_buffer.append(type)
 	else:
 		apply_bonus(type)
-			
+	bonus += 1
 	return true
 	
 func apply_bonus(type):
 	match type:
 		BonusType.JUMP:
 			bonus_jump_left += 1
-			bonus += 1
 	bonus_active = true
 		
 func use_bonus():

@@ -1,9 +1,38 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbi06jaqvxl1m"]
+[gd_scene load_steps=15 format=3 uid="uid://dbi06jaqvxl1m"]
 
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_6ipjg"]
 [ext_resource type="FontFile" uid="uid://c23abofpdjj8f" path="res://ressources/assets/fonts/Magero.ttf" id="2_ikyr3"]
 [ext_resource type="Texture2D" uid="uid://dw0yqdsb4jrt8" path="res://ressources/assets/running-man.png" id="3_xktpj"]
 [ext_resource type="Texture2D" uid="uid://b5u57v2j0gnd" path="res://ressources/assets/images/GUI.png" id="4_ykjqa"]
+[ext_resource type="FontFile" uid="uid://cyi1clo5j6hv6" path="res://ressources/fonts/Magero.ttf" id="5_s67nx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhse4"]
+texture = ExtResource("4_ykjqa")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 12.0
+expand_margin_top = 7.0
+expand_margin_right = 12.0
+expand_margin_bottom = 7.0
+region_rect = Rect2(0, 96, 48, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np4p2"]
+texture = ExtResource("4_ykjqa")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(48, 96, 32, 32)
+
+[sub_resource type="Theme" id="Theme_jwi4c"]
+default_font = ExtResource("5_s67nx")
+default_font_size = 10
 
 [sub_resource type="Animation" id="Animation_sdr3d"]
 length = 0.001
@@ -33,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(280, 0), Vector2(260, 0)]
+"values": [Vector2(275, 0), Vector2(255, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmc5l"]
@@ -42,29 +71,20 @@ _data = {
 "rearrange_items": SubResource("Animation_mpf2x")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhse4"]
-texture = ExtResource("4_ykjqa")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-expand_margin_left = 12.0
-expand_margin_top = 7.0
-expand_margin_right = 12.0
-expand_margin_bottom = 7.0
-region_rect = Rect2(0, 96, 48, 32)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_np4p2"]
-texture = ExtResource("4_ykjqa")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-region_rect = Rect2(48, 96, 32, 32)
+[sub_resource type="Animation" id="Animation_qf4dh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/VboxPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(296, -25)]
+}
 
 [sub_resource type="Animation" id="Animation_3yruk"]
 resource_name = "slide_in"
@@ -72,29 +92,14 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BonusPanel:position")
+tracks/0/path = NodePath("Control2/VboxPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(281, -28.985), Vector2(281, 15)]
-}
-
-[sub_resource type="Animation" id="Animation_qf4dh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BonusPanel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(281, 15)]
+"values": [Vector2(296, -25), Vector2(296, 15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s07wy"]
@@ -114,6 +119,48 @@ anchor_bottom = 1.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VboxPanel" type="VBoxContainer" parent="Control2"]
+custom_minimum_size = Vector2(48, 50)
+layout_mode = 0
+offset_left = 296.0
+offset_top = -25.0
+offset_right = 346.0
+offset_bottom = 25.0
+theme_override_constants/separation = 10
+
+[node name="BonusPanel" type="Panel" parent="Control2/VboxPanel"]
+z_index = 2
+texture_filter = 1
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bhse4")
+
+[node name="slots" type="HBoxContainer" parent="Control2/VboxPanel/BonusPanel"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+offset_left = -4.0
+offset_right = 52.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot1" type="Panel" parent="Control2/VboxPanel/BonusPanel/slots"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
+
+[node name="slot2" type="Panel" parent="Control2/VboxPanel/BonusPanel/slots"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
+
+[node name="slot3" type="Panel" parent="Control2/VboxPanel/BonusPanel/slots"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control2"]
 custom_minimum_size = Vector2(640, 360)
@@ -144,23 +191,26 @@ text = "level"
 z_index = 3
 layout_mode = 0
 offset_left = 260.0
-offset_right = 308.0
+offset_right = 316.0
 offset_bottom = 16.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Item1" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 stretch_mode = 2
 
 [node name="Item2" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
 [node name="Item3" type="TextureRect" parent="Control2/MarginContainer/Control/inventory"]
 texture_filter = 1
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control2/MarginContainer/Control"]
@@ -180,54 +230,34 @@ layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("3_xktpj")
 
+[node name="Descritpion" type="VBoxContainer" parent="Control2"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 40.0
+offset_right = 352.0
+offset_bottom = 84.0
+theme_override_constants/separation = -5
+
+[node name="desc1" type="Label" parent="Control2/Descritpion"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_jwi4c")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+
 [node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Control2/MarginContainer/Control/inventory")
 libraries = {
 "": SubResource("AnimationLibrary_xmc5l")
 }
 
-[node name="BonusPanel" type="Panel" parent="."]
-z_index = 2
-texture_filter = 1
-offset_left = 281.0
-offset_top = 15.0
-offset_right = 329.0
-offset_bottom = 31.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_bhse4")
-
-[node name="slots" type="HBoxContainer" parent="BonusPanel"]
-custom_minimum_size = Vector2(48, 16)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -8.0
-offset_right = 28.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="slot1" type="Panel" parent="BonusPanel/slots"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
-
-[node name="slot2" type="Panel" parent="BonusPanel/slots"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
-
-[node name="slot3" type="Panel" parent="BonusPanel/slots"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_np4p2")
-
 [node name="BonusPanelAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_s07wy")
 }
+
+[connection signal="mouse_entered" from="Control2/MarginContainer/Control/inventory/Item1" to="." method="_on_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="Control2/MarginContainer/Control/inventory/Item1" to="." method="_on_mouse_exited_slot"]
+[connection signal="mouse_entered" from="Control2/MarginContainer/Control/inventory/Item2" to="." method="_on_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control2/MarginContainer/Control/inventory/Item2" to="." method="_on_mouse_exited_slot"]
+[connection signal="mouse_entered" from="Control2/MarginContainer/Control/inventory/Item3" to="." method="_on_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control2/MarginContainer/Control/inventory/Item3" to="." method="_on_mouse_exited_slot"]

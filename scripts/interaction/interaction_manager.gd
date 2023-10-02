@@ -8,13 +8,16 @@ const base_text = "[E] to "
 var active_areas = []
 var can_interact = true
 
+
 func register_area(area: InteractionsArea):
 	active_areas.append(area)
+	print("registered area")
 	
 func unregister_area(area: InteractionsArea):
 	var index = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
+		print("unregistered area")
 		
 func _process(delta):
 	if active_areas.size()>0 and can_interact:
@@ -29,6 +32,7 @@ func _process(delta):
 		label.hide()
 		
 func _sort_by_distance_to_player(area1, area2):
+	player = get_tree().get_first_node_in_group("player")
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player

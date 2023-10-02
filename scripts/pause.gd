@@ -21,11 +21,9 @@ func _pause_game():
 		$AnimationShowMenu.play("pop_in")
 	self.visible = ! self.visible
 	get_tree().paused = !get_tree().paused
-
-
+	
 func _on_options_button_pressed():
 	$OptionsMenu/MenuPanel/MenuOption.visible = true
-
 
 func _on_quit_button_pressed():
 	#var main_scene = ResourceLoader.load("res://scenes/ui/main_menu.tscn")
