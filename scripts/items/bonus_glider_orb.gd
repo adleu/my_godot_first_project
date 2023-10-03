@@ -25,7 +25,7 @@ func get_descripion() -> String:
 	return "hold jump to glide"
 	
 func get_type() -> Player.BonusType:
-	return Player.BonusType.JUMP
+	return Player.BonusType.GLIDE
 	
 func get_texture() -> Texture2D:
 	return texture

@@ -34,6 +34,8 @@ var max_bonus = 3
 var bonus_active = false 
 var bonus_buffer : Array
 
+
+
 enum BonusType{
 	JUMP = 1,
 	GLIDE = 2
@@ -42,6 +44,15 @@ enum BonusType{
 var bonus_jump_left = 0
 var jumped = false
 var jump_particules = preload("res://scenes/entities/items/animations/jump_particules.tscn")
+var glide_bonus_active = false
+var jump_is_pressed = false
+
+var glide_buffer = 0
+var glide_buffer_timer = 0.2
+const glide_velocity = 100
+var gliding = false
+@onready var glide_particules = $GlideParticules
+@onready var audio_glide = $AudioGlide
 
 
 
@@ -49,22 +60,23 @@ var jump_particules = preload("res://scenes/entities/items/animations/jump_parti
 func _process(delta):
 	if jump_buffer_timer >= 0:
 		jump_buffer_timer -= delta
+		
+	if glide_bonus_active and jump_is_pressed and ! is_on_floor():
+		glide_buffer += delta
 	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
+		jump_is_pressed = true
+		
+	if Input.is_action_just_released("jump") or is_on_floor():
+		glide_buffer = 0
+		jump_is_pressed =  false
+		
 	
 	
 
 func _physics_process(delta):
-		
-################### TODO if planner is on ###################
-#	if jump_pressed and last_y_velocity > 0:
-#		gravity = default_gravity/5
-#	else:
-#		gravity = default_gravity
-#	if Input.is_action_just_released("jump"):
-#		jump_pressed = false
-
+	
 	var horizontal_direction : Vector2 = input()
 	
 	if horizontal_direction != Vector2.ZERO:
@@ -86,11 +98,11 @@ func _physics_process(delta):
 	
 	last_y_velocity = velocity.y
 	
-#	if velocity.y > 0:
-#		print(velocity.y)
-	
 	move_and_slide()
 	jump(horizontal_direction)
+	_glide(horizontal_direction)
+	
+	
 	
 func update_animation(horizontal_direction):
 	if horizontal_direction.x != 0:
@@ -199,6 +211,8 @@ func apply_bonus(type):
 	match type:
 		BonusType.JUMP:
 			bonus_jump_left += 1
+		BonusType.GLIDE:
+			glide_bonus_active = true
 	bonus_active = true
 		
 func use_bonus():
@@ -220,8 +234,29 @@ func _double_jump(direction):
 	var temp_instance = jump_particules.instantiate()
 	add_child(temp_instance) 
 	temp_instance.emit_particules()
+	
 
 
+func _glide(direction):
+	if glide_buffer > glide_buffer_timer and !is_on_floor() and last_y_velocity > 0:
+		disable_glide()
+		print(glide_velocity)
+		velocity.y = glide_velocity
+		rotation = -25 * direction.x   
+		glide_particules.emitting = true
+		gliding = true
+	else:
+		if not gliding:
+			return
+		rotation = 0 
+		glide_particules.emitting = false
+		gliding = false
+
+func disable_glide():
+	if glide_bonus_active:
+		audio_glide.play()
+		glide_bonus_active = false
+		use_bonus()
 	
 	
 	

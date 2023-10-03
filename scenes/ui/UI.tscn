@@ -242,7 +242,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_jwi4c")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "aaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Control2/MarginContainer/Control/inventory")
