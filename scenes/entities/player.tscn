@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckjeaagseaoj2"]
+[gd_scene load_steps=19 format=3 uid="uid://ckjeaagseaoj2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_test.gd" id="1_eu41b"]
 [ext_resource type="Texture2D" uid="uid://dxkoh6tfmcvp4" path="res://ressources/assets/sprite/cute mushroom idle.png" id="1_q3hip"]
@@ -92,6 +92,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_528sp"]
 resource_name = "idle"
@@ -143,6 +155,22 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
+}
+
+[sub_resource type="Animation" id="Animation_2vjxt"]
+resource_name = "rotation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.22886, 6.28319]
 }
 
 [sub_resource type="Animation" id="Animation_suw17"]
@@ -202,6 +230,7 @@ tracks/3/keys = {
 _data = {
 "RESET": SubResource("Animation_1qc10"),
 "idle": SubResource("Animation_528sp"),
+"rotation": SubResource("Animation_2vjxt"),
 "walk": SubResource("Animation_suw17")
 }
 

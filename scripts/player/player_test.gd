@@ -34,8 +34,6 @@ var max_bonus = 3
 var bonus_active = false 
 var bonus_buffer : Array
 
-
-
 enum BonusType{
 	JUMP = 1,
 	GLIDE = 2
@@ -61,14 +59,14 @@ func _process(delta):
 	if jump_buffer_timer >= 0:
 		jump_buffer_timer -= delta
 		
-	if glide_bonus_active and jump_is_pressed and ! is_on_floor():
-		glide_buffer += delta
-	
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
 		jump_is_pressed = true
 		
-	if Input.is_action_just_released("jump") or is_on_floor():
+	if jump_is_pressed and ! is_on_floor():
+		glide_buffer += delta
+		
+	if Input.is_action_just_released("jump"):
 		glide_buffer = 0
 		jump_is_pressed =  false
 		
@@ -144,7 +142,7 @@ func add_friction():
 	
 func accelerate(direction):
 	var run = 1
-	if running:
+	if running and not gliding:
 		run = run_multp
 	velocity.x = velocity.move_toward(speed * direction * run, acceleration).x
 	
@@ -161,7 +159,6 @@ func jump(direction):
 		
 	elif can_jump() == 2 and Input.is_action_just_pressed("jump"):
 		_double_jump(direction)
-		
 		
 	else:
 		if not is_on_floor():
@@ -230,17 +227,28 @@ func _double_jump(direction):
 	$AudioDoubleJump.play()
 	use_bonus()
 	
+	#### rotation animation
+	var dup_ap = ap.duplicate()
+	add_child(dup_ap)
+	if direction.x == -1:
+		dup_ap.play_backwards("rotation")
+	elif direction.x == 1:
+		dup_ap.play("rotation")
+	_free_dup_ap(dup_ap)
+	
 	#temp instance will autodestruct after job done
 	var temp_instance = jump_particules.instantiate()
 	add_child(temp_instance) 
 	temp_instance.emit_particules()
 	
+func _free_dup_ap(dup_ap):
+	await dup_ap.animation_finished
+	dup_ap.queue_free()
 
 
 func _glide(direction):
-	if glide_buffer > glide_buffer_timer and !is_on_floor() and last_y_velocity > 0:
+	if glide_buffer > glide_buffer_timer and !is_on_floor() and last_y_velocity > 0 and (gliding or glide_bonus_active):
 		disable_glide()
-		print(glide_velocity)
 		velocity.y = glide_velocity
 		rotation = -25 * direction.x   
 		glide_particules.emitting = true
