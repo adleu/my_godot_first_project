@@ -221,12 +221,6 @@ func _double_jump(direction):
 	add_child(temp_instance) 
 	temp_instance.emit_particules()
 
-	
-	
-#	double_jump_animation.global_position = self.global_position
-#	add_child(double_jump_animation)
-#	var animation_player = double_jump_animation.get_node("AnimationPlayer")
-#	animation_player.play()
 
 	
 	

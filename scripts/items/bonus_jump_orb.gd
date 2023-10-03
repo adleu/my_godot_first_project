@@ -20,6 +20,8 @@ func _disable_orb():
 	sprite.hide()
 	$InteractionArea.body_exited.emit() 
 	$InteractionArea/CollisionShape2D.disabled = true
+	$Timer.start(5)
+	
 	
 func get_descripion() -> String:
 	return "+1 jump"
@@ -36,4 +38,5 @@ func get_audio():
 func get_animation():
 	return $jump_animation/AnimationPlayer
 	
-	
+func _on_timer_timeout():
+	queue_free()

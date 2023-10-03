@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckjeaagseaoj2"]
+[gd_scene load_steps=16 format=3 uid="uid://ckjeaagseaoj2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_test.gd" id="1_eu41b"]
 [ext_resource type="Texture2D" uid="uid://dxkoh6tfmcvp4" path="res://ressources/assets/sprite/cute mushroom idle.png" id="1_q3hip"]
 [ext_resource type="Texture2D" uid="uid://deelh4f6b4fv0" path="res://ressources/assets/images/particules/pixel_bounce_particules.png" id="2_qclyd"]
 [ext_resource type="Texture2D" uid="uid://bnjbqc3olh78t" path="res://ressources/assets/sprite/cute mushroom idle_.png" id="3_buyum"]
-[ext_resource type="Texture2D" uid="uid://tkssskxydyx5" path="res://ressources/assets/images/particules/pixel_jump_particules.png" id="3_cpd5s"]
 [ext_resource type="Texture2D" uid="uid://ckxeetv3672c6" path="res://ressources/assets/sprite/cute mushroom walk_.png" id="4_fbxtd"]
 [ext_resource type="AudioStream" uid="uid://c0q0ny1pi87dt" path="res://ressources/assets/audio/wind up 3.wav" id="5_xjps8"]
 [ext_resource type="AudioStream" uid="uid://byrecelcrp2in" path="res://ressources/assets/audio/Orchestra shot 2.wav" id="6_p60bj"]
@@ -218,23 +217,6 @@ one_shot = true
 preprocess = 0.1
 explosiveness = 0.55
 
-[node name="JumpTrail" type="GPUParticles2D" parent="."]
-visible = false
-position = Vector2(0, 24)
-emitting = false
-amount = 50
-process_material = SubResource("ParticleProcessMaterial_fognu")
-texture = ExtResource("3_cpd5s")
-lifetime = 0.5
-one_shot = true
-preprocess = 0.1
-speed_scale = 0.5
-explosiveness = 0.8
-randomness = 0.2
-trail_lifetime = 2.0
-trail_sections = 2
-trail_section_subdivisions = 1
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_q3hip")
@@ -243,13 +225,6 @@ hframes = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.759998)
 shape = SubResource("RectangleShape2D_pve5m")
-
-[node name="FollowCam" type="Camera2D" parent="."]
-visible = false
-enabled = false
-zoom = Vector2(0.8, 0.8)
-position_smoothing_speed = 30.0
-editor_draw_limits = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

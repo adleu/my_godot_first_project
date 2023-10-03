@@ -232,9 +232,8 @@ texture = ExtResource("3_xktpj")
 
 [node name="Descritpion" type="VBoxContainer" parent="Control2"]
 layout_mode = 0
-offset_left = 288.0
 offset_top = 40.0
-offset_right = 352.0
+offset_right = 640.0
 offset_bottom = 84.0
 theme_override_constants/separation = -5
 
@@ -243,6 +242,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_jwi4c")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "aaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="RearrangeItemsAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Control2/MarginContainer/Control/inventory")

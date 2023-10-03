@@ -19,6 +19,7 @@ func _disable_orb():
 	sprite.hide()
 	$InteractionArea.body_exited.emit() 
 	$InteractionArea/CollisionShape2D.disabled = true
+	$Timer.start(5)
 	
 func get_descripion() -> String:
 	return "hold jump to glide"
@@ -31,6 +32,6 @@ func get_texture() -> Texture2D:
 
 func get_audio():
 	return audio
-	
-	
 
+func _on_timer_timeout():
+	queue_free()
