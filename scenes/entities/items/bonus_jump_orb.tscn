@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cka7a1rocl4gq"]
 
 [ext_resource type="Script" path="res://scripts/items/bonus_jump_orb.gd" id="1_smag8"]
-[ext_resource type="Texture2D" uid="uid://ch4naaq8x3c5q" path="res://ressources/assets/images/items/green_orb.png" id="2_4rq3d"]
+[ext_resource type="Texture2D" uid="uid://ch4naaq8x3c5q" path="res://ressources/assets/images/green_orb.png" id="2_ajjs1"]
 [ext_resource type="Texture2D" uid="uid://cobn2w66tlaqc" path="res://ressources/assets/sprite/green_orb.png" id="2_doyg6"]
 [ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="3_ok35o"]
 [ext_resource type="AudioStream" uid="uid://dxd21htstgfn4" path="res://ressources/assets/audio/Orchestra shot 1.wav" id="4_2mr4m"]
@@ -122,14 +122,15 @@ radius = 39.2046
 [node name="BonusJumpOrb" type="StaticBody2D"]
 texture_filter = 1
 script = ExtResource("1_smag8")
-texture = ExtResource("2_4rq3d")
+texture = ExtResource("2_ajjs1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.18, 2.18)
 texture = ExtResource("2_doyg6")
 hframes = 30
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_mx07t")

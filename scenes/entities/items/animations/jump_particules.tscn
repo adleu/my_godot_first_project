@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7r2oyopll5v8"]
+
+[ext_resource type="Texture2D" uid="uid://tkssskxydyx5" path="res://ressources/assets/images/particules/pixel_jump_particules.png" id="1_syayb"]
+[ext_resource type="Script" path="res://scripts/items/animations/jump_particules.gd" id="2_dyf2u"]
+
+[sub_resource type="Gradient" id="Gradient_2k7p0"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wxi0n"]
+gradient = SubResource("Gradient_2k7p0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_444af"]
+resource_local_to_scene = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 20, 0)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 165.0
+gravity = Vector3(0, 100, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angular_velocity_max = 329.14
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+linear_accel_max = 10.0
+angle_min = -90.0
+angle_max = -90.0
+scale_min = 0.1
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_wxi0n")
+
+[node name="JumpTrail" type="GPUParticles2D"]
+position = Vector2(0, 24)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_444af")
+texture = ExtResource("1_syayb")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.1
+speed_scale = 0.5
+explosiveness = 0.8
+randomness = 0.2
+trail_lifetime = 2.0
+trail_sections = 2
+trail_section_subdivisions = 1
+script = ExtResource("2_dyf2u")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

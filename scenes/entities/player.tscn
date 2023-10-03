@@ -1,11 +1,39 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckjeaagseaoj2"]
+[gd_scene load_steps=17 format=3 uid="uid://ckjeaagseaoj2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_test.gd" id="1_eu41b"]
 [ext_resource type="Texture2D" uid="uid://dxkoh6tfmcvp4" path="res://ressources/assets/sprite/cute mushroom idle.png" id="1_q3hip"]
+[ext_resource type="Texture2D" uid="uid://deelh4f6b4fv0" path="res://ressources/assets/images/particules/pixel_bounce_particules.png" id="2_qclyd"]
 [ext_resource type="Texture2D" uid="uid://bnjbqc3olh78t" path="res://ressources/assets/sprite/cute mushroom idle_.png" id="3_buyum"]
+[ext_resource type="Texture2D" uid="uid://tkssskxydyx5" path="res://ressources/assets/images/particules/pixel_jump_particules.png" id="3_cpd5s"]
 [ext_resource type="Texture2D" uid="uid://ckxeetv3672c6" path="res://ressources/assets/sprite/cute mushroom walk_.png" id="4_fbxtd"]
 [ext_resource type="AudioStream" uid="uid://c0q0ny1pi87dt" path="res://ressources/assets/audio/wind up 3.wav" id="5_xjps8"]
 [ext_resource type="AudioStream" uid="uid://byrecelcrp2in" path="res://ressources/assets/audio/Orchestra shot 2.wav" id="6_p60bj"]
+
+[sub_resource type="Gradient" id="Gradient_nq5fw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ya3nb"]
+gradient = SubResource("Gradient_nq5fw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fognu"]
+resource_local_to_scene = true
+emission_shape = 3
+emission_box_extents = Vector3(25, 20, 0)
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 165.0
+gravity = Vector3(0, 100, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+angular_velocity_max = 329.14
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+linear_accel_max = 10.0
+angle_min = -90.0
+angle_max = -90.0
+scale_min = 0.1
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_ya3nb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pve5m"]
 size = Vector2(22, 38)
@@ -178,14 +206,42 @@ z_index = 1
 collision_layer = 2
 script = ExtResource("1_eu41b")
 
+[node name="BounceParticules" type="GPUParticles2D" parent="."]
+z_index = -2
+position = Vector2(0, 40)
+emitting = false
+amount = 35
+process_material = SubResource("ParticleProcessMaterial_fognu")
+texture = ExtResource("2_qclyd")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.1
+explosiveness = 0.55
+
+[node name="JumpTrail" type="GPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, 24)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_fognu")
+texture = ExtResource("3_cpd5s")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.1
+speed_scale = 0.5
+explosiveness = 0.8
+randomness = 0.2
+trail_lifetime = 2.0
+trail_sections = 2
+trail_section_subdivisions = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-94, 64)
 texture = ExtResource("1_q3hip")
 hframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-94, 63.865)
+position = Vector2(1, -0.759998)
 shape = SubResource("RectangleShape2D_pve5m")
 
 [node name="FollowCam" type="Camera2D" parent="."]
@@ -206,11 +262,11 @@ stream = ExtResource("5_xjps8")
 volume_db = -40.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-88, 56.625)
+position = Vector2(7, -8)
 target_position = Vector2(0, 33.245)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2(-103, 56.625)
+position = Vector2(-8, -8)
 target_position = Vector2(0, 33.245)
 
 [node name="CoyoteTimer" type="Timer" parent="."]

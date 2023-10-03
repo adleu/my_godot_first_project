@@ -44,7 +44,6 @@ func add_item(item):
 	item_desription.append(item.get_descripion())
 	
 	if inventory.get_children()[0].texture == null:
-		inventory.get_children()[0].visible = false
 		show_panel()
 		
 	for i in inventory.get_children():
@@ -63,7 +62,7 @@ func remove_item():
 		await animation_rearrange.animation_finished
 		inventory.position.x = pos_x
 		
-	if items[1].texture == null:
+	if items[1].texture == null and items[0].texture == null:
 		hide_panel()
 		return
 		
@@ -74,6 +73,7 @@ func remove_item():
 			
 func show_panel():
 	panel_slide_animation.play("slide_in")
+	inventory.get_children()[0].visible = false
 	await panel_slide_animation.animation_finished
 	inventory.get_children()[0].visible = true
 	

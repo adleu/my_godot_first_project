@@ -41,6 +41,7 @@ enum BonusType{
 
 var bonus_jump_left = 0
 var jumped = false
+var jump_particules = preload("res://scenes/entities/items/animations/jump_particules.tscn")
 
 
 
@@ -79,9 +80,10 @@ func _physics_process(delta):
 		
 	if is_ready_to_bounce():
 		velocity.y = - last_y_velocity/1.5
+		$BounceParticules.emitting = true
 		$AudioBounce.play()
 		
-		
+	
 	last_y_velocity = velocity.y
 	
 #	if velocity.y > 0:
@@ -146,12 +148,8 @@ func jump(direction):
 		jumped = true
 		
 	elif can_jump() == 2 and Input.is_action_just_pressed("jump"):
-		bonus_jump_left -= 1
-		velocity.y = - jump_force * 1.2
-		jumped = true
-		velocity.x = velocity.x * 2
-		$AudioDoubleJump.play()
-		use_bonus()
+		_double_jump(direction)
+		
 		
 	else:
 		if not is_on_floor():
@@ -209,5 +207,28 @@ func use_bonus():
 	ui_remove_bonus.emit()
 	if !bonus_buffer.is_empty():
 		apply_bonus(bonus_buffer.pop_front())
+		
+func _double_jump(direction):
+	bonus_jump_left -= 1
+	velocity.y = - jump_force * 1.2
+	jumped = true
+	velocity.x = velocity.x * 2
+	$AudioDoubleJump.play()
+	use_bonus()
+	
+	#temp instance will autodestruct after job done
+	var temp_instance = jump_particules.instantiate()
+	add_child(temp_instance) 
+	temp_instance.emit_particules()
+
+	
+	
+#	double_jump_animation.global_position = self.global_position
+#	add_child(double_jump_animation)
+#	var animation_player = double_jump_animation.get_node("AnimationPlayer")
+#	animation_player.play()
+
+	
+	
 	
 

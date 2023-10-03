@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch4naaq8x3c5q"
-path="res://.godot/imported/green_orb.png-853e3a84cc54f2c610757436ea326f3a.ctex"
+uid="uid://tkssskxydyx5"
+path="res://.godot/imported/pixel_jump_particules.png-5ce949ecccc64fba012fec5a4e88ab13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ressources/assets/images/items/green_orb.png"
-dest_files=["res://.godot/imported/green_orb.png-853e3a84cc54f2c610757436ea326f3a.ctex"]
+source_file="res://ressources/assets/images/particules/pixel_jump_particules.png"
+dest_files=["res://.godot/imported/pixel_jump_particules.png-5ce949ecccc64fba012fec5a4e88ab13.ctex"]
 
 [params]
 

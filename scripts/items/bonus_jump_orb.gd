@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name BonusJumpOrb
 
 @onready var interaction_area = $InteractionArea
 @onready var audio = $AudioStreamPlayer
@@ -31,5 +32,8 @@ func get_texture() -> Texture2D:
 
 func get_audio():
 	return audio
+	
+func get_animation():
+	return $jump_animation/AnimationPlayer
 	
 	
