@@ -1,36 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfi3d2ri8turd"]
+[gd_scene load_steps=5 format=3 uid="uid://bfi3d2ri8turd"]
 
-[ext_resource type="Texture2D" uid="uid://cuoltddwa0dm5" path="res://ressources/assets/background/BG-sky.png" id="1_wjf3j"]
-[ext_resource type="Texture2D" uid="uid://b2uwbnf1vngrb" path="res://ressources/assets/background/BG-mountains.png" id="2_juc7j"]
+[ext_resource type="Texture2D" uid="uid://c1cmn170hgfln" path="res://ressources/assets/background/bg_01/parallax-mountain-bg.png" id="1_hjtaw"]
+[ext_resource type="Texture2D" uid="uid://cnuxmd66gq1ml" path="res://ressources/assets/background/bg_01/parallax-mountain-montain-far.png" id="2_r1eoy"]
 [ext_resource type="Texture2D" uid="uid://8pdv4t0b4kcm" path="res://ressources/assets/background/BG-ruins.png" id="3_3xvf3"]
+[ext_resource type="Texture2D" uid="uid://ba4dxwux4gagk" path="res://ressources/assets/background/bg_01/parallax-mountain-mountains.png" id="3_coslc"]
 
 [node name="background_parallax" type="ParallaxBackground"]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-position = Vector2(-1857, -202)
+position = Vector2(-1857, -131)
 motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(921.6, 0)
+motion_mirroring = Vector2(979.19, 0)
 
 [node name="Bg-sky" type="Sprite2D" parent="ParallaxLayer3"]
 texture_filter = 1
+position = Vector2(-48, 0)
 scale = Vector2(3.6, 3.6)
-texture = ExtResource("1_wjf3j")
+texture = ExtResource("1_hjtaw")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-position = Vector2(-1910, -316)
-motion_scale = Vector2(0.15, 0.15)
-motion_mirroring = Vector2(896, 0)
+position = Vector2(-1924, -217)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(952, 0)
 
-[node name="Bg-mountains" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
 scale = Vector2(3.5, 3.5)
-texture = ExtResource("2_juc7j")
+texture = ExtResource("2_r1eoy")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-1913, -214)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1900, 0)
+
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxLayer4"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_coslc")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-position = Vector2(-1910, -384)
-motion_scale = Vector2(0.3, 0.3)
+position = Vector2(-1910, -344)
+motion_scale = Vector2(0.6, 0.6)
 motion_mirroring = Vector2(896, 0)
 
 [node name="Bg-ruins" type="Sprite2D" parent="ParallaxLayer2"]
