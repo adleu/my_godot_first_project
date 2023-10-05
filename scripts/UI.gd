@@ -27,7 +27,7 @@ func _ready():
 	bonus_panel.position.x = bonus_panel_x
 	
 	
-	animation_rearrange.seek(animation_rearrange.current_animation_length, false)
+	# animation_rearrange.seek(animation_rearrange.current_animation_length, false)
 	#hide_panel()
 	
 	
