@@ -17,6 +17,7 @@ var orb_and_pos = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.set_lvl(lvl_id)
 	if respawning_orb:
 		for node in get_tree().get_nodes_in_group("bonus_orb"):
 			node.visibility_changed.connect(_bonus_taken.bind(node))
