@@ -10,6 +10,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.running = false
 	load_button.disabled = Global.lvl == 0
 	
 	for bouton in get_tree().get_nodes_in_group("menu_button"):

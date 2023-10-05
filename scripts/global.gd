@@ -3,7 +3,6 @@ extends Node
 var vsync = false
 var fullscreen = true
 var volume = 0.5
-
 var lvl = 0
 
 const SAVE_FILE = "res://param.cfg"
@@ -81,5 +80,9 @@ func set_config(_fullscreen, _vsync, _volume):
 func set_lvl(_lvl):
 	lvl = _lvl
 	save_data()
+	
+var running = false
+func change_run_state():
+	running = ! running
 
 	

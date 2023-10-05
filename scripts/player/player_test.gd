@@ -23,7 +23,7 @@ signal run
 signal ui_add_bonus
 signal ui_remove_bonus
 
-var running =  false
+var running =  Global.running
 var last_y_velocity = 0
 var jump_pressed = false
 var gravity = default_gravity
@@ -51,8 +51,6 @@ const glide_velocity = 100
 var gliding = false
 @onready var glide_particules = $GlideParticules
 @onready var audio_glide = $AudioGlide
-
-
 
 
 func _process(delta):
@@ -87,6 +85,7 @@ func _physics_process(delta):
 	#run
 	if Input.is_action_just_pressed("toggle_run"):
 		toggle_run()
+		
 		
 	if is_ready_to_bounce():
 		velocity.y = - last_y_velocity/1.5
@@ -134,6 +133,7 @@ func is_ready_to_bounce():
 		
 func toggle_run():
 	run.emit()
+	Global.change_run_state()
 	running = !running
 		
 		

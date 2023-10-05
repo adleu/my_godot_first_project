@@ -6,15 +6,12 @@ extends Node2D
 @onready var sprite_portal =  $Sprite2D
 @onready var landmark = $Control/landmark
 
-func _ready():
-	
-	play_spawn()
-	
+var player
 
-func play_spawn():
+func _ready():
 	landmark.queue_free()
 	
-	var player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	player.hide()
 	sprite_portal.hide()
 	
@@ -22,6 +19,12 @@ func play_spawn():
 	player.set_process(false)
 	player.set_physics_process(false)
 	
+	
+func _enter_tree():
+	play_spawn()
+	
+
+func play_spawn():
 	await get_tree().create_timer(0.4).timeout
 	
 	sprite_portal.show()

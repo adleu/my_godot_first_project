@@ -26,6 +26,9 @@ func _ready():
 	bonus_panel.position.y = bonus_panel_y
 	bonus_panel.position.x = bonus_panel_x
 	
+	if Global.running:
+		run_icon.show()
+	
 	
 	# animation_rearrange.seek(animation_rearrange.current_animation_length, false)
 	#hide_panel()
