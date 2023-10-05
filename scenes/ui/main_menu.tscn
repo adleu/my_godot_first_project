@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpu4j62tro4m3"]
+[gd_scene load_steps=17 format=3 uid="uid://cpu4j62tro4m3"]
 
 [ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="1_gwird"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_tob77"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xsnvtpf6rn5" path="res://scenes/levels/level_0.tscn" id="2_or05v"]
 [ext_resource type="Texture2D" uid="uid://8pdv4t0b4kcm" path="res://ressources/assets/background/BG-ruins.png" id="3_k3kbr"]
 [ext_resource type="Texture2D" uid="uid://dokftwxwpqw01" path="res://ressources/assets/background/backgrounds.png" id="5_g5pqd"]
+[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="7_cahe2"]
 [ext_resource type="PackedScene" uid="uid://cgl30ut86d8od" path="res://scenes/ui/MenuOption.tscn" id="7_pvbc0"]
 [ext_resource type="AudioStream" uid="uid://b2k84l6f45ip0" path="res://ressources/assets/audio/Electronic bip 3.wav" id="7_ri2js"]
 [ext_resource type="AudioStream" uid="uid://brf80krdltbq8" path="res://ressources/assets/audio/JDSherbert - Ambiences Music Pack - Desert Sirocco.mp3" id="8_7m241"]
@@ -252,6 +253,107 @@ size_flags_horizontal = 4
 theme = ExtResource("1_gwird")
 text = "Done"
 
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkBg" type="Panel" parent="Credits"]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 145
+theme_override_constants/margin_top = 130
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 215
+
+[node name="MenuPanel" type="Panel" parent="Credits/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_gwird")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 21
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(3.415, 174.34)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_cahe2")
+bbcode_enabled = true
+text = "[center]CREDITS
+
+
+[u]audio[/u]
+
+@JDSherbert_
+
+Contains music ©2021 Retro Indie Josh (https://retroindiejosh.itch.io)
+  Licensed under Creative Commons Attribution 4.0 International
+
+
+
+[u]arts[/u]
+
+Caz Creates
+
+oisougabo.itch.io/
+
+@ansimuz
+
+
+
+[u]dev[/u]
+
+z00m3r
+
+
+
+[u]testers[/u]
+
+Grue
+
+
+
+
+
+
+
+
+
+
+
+
+"
+
+[node name="BackButton" type="Button" parent="Credits" groups=["menu_button"]]
+layout_mode = 2
+offset_left = 290.0
+offset_top = 245.0
+offset_right = 354.0
+offset_bottom = 266.0
+size_flags_horizontal = 4
+theme = ExtResource("1_gwird")
+text = "Back"
+
 [node name="MenuOption" parent="." instance=ExtResource("7_pvbc0")]
 visible = false
 
@@ -264,7 +366,10 @@ pitch_scale = 0.7
 stream = ExtResource("8_7m241")
 volume_db = -30.0
 
+[connection signal="pressed" from="MainButtonContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="MainButtonContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MainButtonContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainButtonContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MainButtonContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="finished" from="MainThemeAudio" to="." method="_on_main_theme_audio_finished"]
