@@ -49,7 +49,6 @@ func _on_pause_restart_level():
 	
 func _bonus_taken(node):
 	orb_and_pos.append([node.get_type(), node.position])
-	print("type : ",node.get_type(),"position : ",node.position)
 
 func _bonus_used():
 	var bonus = orb_and_pos.pop_front()
