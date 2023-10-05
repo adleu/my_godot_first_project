@@ -67,5 +67,3 @@ position = Vector2(-1256, 296)
 
 [node name="portal_spawn" parent="." index="13" instance=ExtResource("7_y21hb")]
 position = Vector2(-1520, 176)
-
-[connection signal="run" from="Player" to="." method="run" flags=18]

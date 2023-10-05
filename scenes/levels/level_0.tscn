@@ -622,7 +622,6 @@ scale = Vector2(1.52, 1.52)
 [node name="tree_04" parent="." index="19" instance=ExtResource("2_hifdu")]
 position = Vector2(3844, 60)
 
-[connection signal="run" from="Player" to="." method="run" flags=18]
 [connection signal="body_entered" from="LabelBounce/Area2D" to="LabelBounce" method="_on_area_2d_body_entered"]
 [connection signal="finished" from="SignDKey/MusicTrack1" to="SignDKey" method="_on_music_track_1_finished"]
 [connection signal="body_entered" from="SpaceToJump/Area2D" to="SpaceToJump" method="_on_area_2d_body_entered"]
