@@ -32,7 +32,7 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 position = Vector2(-1913, -214)
-motion_scale = Vector2(0.4, 0.4)
+motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(1900, 0)
 
 [node name="Bg-mountains2" type="Sprite2D" parent="ParallaxLayer4"]
@@ -43,7 +43,7 @@ centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 position = Vector2(-1910, -344)
-motion_scale = Vector2(0.6, 0.6)
+motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(896, 0)
 
 [node name="Bg-ruins" type="Sprite2D" parent="ParallaxLayer2"]

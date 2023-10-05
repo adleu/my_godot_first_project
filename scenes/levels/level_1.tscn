@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6eo5klsufbwx"]
+[gd_scene load_steps=7 format=3 uid="uid://6eo5klsufbwx"]
 
 [ext_resource type="PackedScene" uid="uid://b82xmmri74thg" path="res://scenes/levels/level_template.tscn" id="1_boka2"]
 [ext_resource type="PackedScene" uid="uid://c78gwaqvgvofa" path="res://scenes/entities/props/trees_no_leaves.tscn" id="2_mh32w"]
+[ext_resource type="PackedScene" uid="uid://k7kodubwjnuf" path="res://scenes/entities/items/bonus_glider_orb.tscn" id="2_pauul"]
+[ext_resource type="PackedScene" uid="uid://cka7a1rocl4gq" path="res://scenes/entities/items/bonus_jump_orb.tscn" id="3_fajc7"]
 [ext_resource type="PackedScene" uid="uid://bfi3d2ri8turd" path="res://scenes/background_parallax_2.tscn" id="4_ms1o7"]
 [ext_resource type="AudioStream" uid="uid://cyg5ccpjo5inr" path="res://ressources/assets/audio/music/star-reaction.ogg" id="5_m1byu"]
 
@@ -55,5 +57,11 @@ scale = Vector2(0.73, 0.73)
 stream = ExtResource("5_m1byu")
 volume_db = -20.0
 autoplay = true
+
+[node name="BonusGliderOrb" parent="." index="11" instance=ExtResource("2_pauul")]
+position = Vector2(-856, 176)
+
+[node name="BonusJumpOrb" parent="." index="12" instance=ExtResource("3_fajc7")]
+position = Vector2(-1256, 296)
 
 [connection signal="run" from="Player" to="." method="run" flags=18]
