@@ -228,13 +228,18 @@ func _double_jump(direction):
 	use_bonus()
 	
 	#### rotation animation
-	var dup_ap = ap.duplicate()
-	add_child(dup_ap)
-	if direction.x == -1:
-		dup_ap.play_backwards("rotation")
-	elif direction.x == 1:
-		dup_ap.play("rotation")
-	_free_dup_ap(dup_ap)
+	if direction.x != 0:
+		var dup_ap = ap.duplicate()
+		add_child(dup_ap)
+
+		if direction.x == -1:
+			dup_ap.play_backwards("rotation")
+		else:
+			dup_ap.play("rotation")
+
+		_free_dup_ap(dup_ap)
+	
+	
 	
 	#temp instance will autodestruct after job done
 	var temp_instance = jump_particules.instantiate()
