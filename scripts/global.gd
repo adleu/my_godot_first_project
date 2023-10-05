@@ -4,6 +4,8 @@ var vsync = false
 var fullscreen = true
 var volume = 0.5
 
+var lvl = 0
+
 const SAVE_FILE = "res://param.cfg"
 const BUS_NAME = "Master"
 
@@ -30,6 +32,7 @@ func save_data():
 		"vsync" = vsync,
 		"fullscreen" = fullscreen,
 		"volume" = volume,
+		"lvl" = lvl
 	}
 	file.store_var(data)
 	file = null
@@ -40,6 +43,7 @@ func load_data():
 			"vsync" = false,
 			"fullscreen" = false,
 			"volume" = 0.5,
+			"lvl" = 0
 		}
 		save_data()
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
@@ -47,6 +51,7 @@ func load_data():
 	vsync = data.vsync
 	fullscreen = data.fullscreen
 	volume = data.volume
+	lvl = data.lvl
 	file = null
 	
 func get_vsync():
@@ -72,6 +77,9 @@ func set_config(_fullscreen, _vsync, _volume):
 	vsync = _vsync
 	volume = _volume
 	save_data()
-
+	
+func set_lvl(_lvl):
+	lvl = _lvl
+	save_data()
 
 	
