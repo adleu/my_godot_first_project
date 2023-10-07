@@ -28,7 +28,7 @@ normal = Vector2(-1, 0)
 script = ExtResource("1_gqum2")
 
 [node name="Player" parent="." instance=ExtResource("1_xmift")]
-position = Vector2(103, 354)
+position = Vector2(-115, 352)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -44,7 +44,7 @@ layer_1/tile_data = PackedInt32Array(1376214, 0, 4, 1376213, 1179648, 3, 1376212
 restart_button_on = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(103, 354)
+position = Vector2(-115, 352)
 zoom = Vector2(0.75, 0.75)
 limit_left = -1970
 limit_top = 20
@@ -122,7 +122,8 @@ autoplay = true
 [node name="deco" type="Node2D" parent="."]
 
 [node name="sign" parent="deco" instance=ExtResource("18_intx7")]
-position = Vector2(897, 363)
+z_index = -1
+position = Vector2(894, 366)
 display_text = "Undergoing Construction"
 
 [node name="Tree_no_leaves" parent="deco" instance=ExtResource("12_14kfv")]

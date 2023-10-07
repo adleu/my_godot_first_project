@@ -1,11 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnhvt3cgmy5ei"]
+[gd_scene load_steps=21 format=3 uid="uid://cnhvt3cgmy5ei"]
 
-[ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/props/props.png" id="1_fbdrv"]
 [ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
+[ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/images/props/props.png" id="2_dl1cw"]
 [ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="3_1j4e5"]
+[ext_resource type="Texture2D" uid="uid://b5u57v2j0gnd" path="res://ressources/assets/images/GUI.png" id="4_5c420"]
+[ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="5_4ub2h"]
+[ext_resource type="Texture2D" uid="uid://cqi0oeq7giv1u" path="res://ressources/assets/images/Spritesheet_UI_Flat.png" id="5_lt1y5"]
+[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="6_h56cw"]
+[ext_resource type="Texture2D" uid="uid://bsvyyej3sjyha" path="res://ressources/assets/images/button_arrow.png" id="7_4ds4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnxmb"]
 size = Vector2(61, 123)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yeux"]
+texture = ExtResource("4_5c420")
+texture_margin_left = 8.0
+texture_margin_top = 23.0
+texture_margin_right = 7.0
+texture_margin_bottom = 22.0
+region_rect = Rect2(48, 96, 31, 31)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_du0ts"]
+texture = ExtResource("5_lt1y5")
+expand_margin_left = 25.0
+expand_margin_top = 1.0
+expand_margin_right = 25.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(416, 39, 96, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_df7gl"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(6, 41, 20, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0558"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(38, 41, 20, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kat8a"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(38, 41, 20, 14)
+modulate_color = Color(1, 1, 1, 0.643137)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvjng"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx4kw"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(6, 9, 20, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l810x"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(38, 9, 20, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mqm2"]
+texture = ExtResource("7_4ds4p")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+region_rect = Rect2(38, 9, 20, 14)
+modulate_color = Color(1, 1, 1, 0.631373)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mvfl"]
+
+[sub_resource type="Theme" id="Theme_hesfu"]
+default_font = ExtResource("6_h56cw")
+default_font_size = 16
 
 [node name="LevelSelector" type="Node2D"]
 script = ExtResource("1_mv8lg")
@@ -13,7 +80,7 @@ script = ExtResource("1_mv8lg")
 [node name="Statue" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2.55, 2.55)
-texture = ExtResource("1_fbdrv")
+texture = ExtResource("2_dl1cw")
 region_enabled = true
 region_rect = Rect2(243, 226, 25, 46)
 
@@ -23,3 +90,125 @@ position = Vector2(-46, -52)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(46, 53)
 shape = SubResource("RectangleShape2D_pnxmb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.435294)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -1
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_2yeux")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_du0ts")
+
+[node name="DesintationLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("5_4ub2h")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "Destination"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_4ub2h")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "None"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="left" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_df7gl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_r0558")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kat8a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jvjng")
+
+[node name="right" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_yx4kw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l810x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8mqm2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3mvfl")
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme = SubResource("Theme_hesfu")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2yeux")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "gggg"
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_4ub2h")
+text = "Done"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

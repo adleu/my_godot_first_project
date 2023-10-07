@@ -33,7 +33,7 @@ func _on_quit_button_pressed():
 
 func _on_new_game_button_pressed():
 	if new_game_scene is PackedScene:
-		#get_tree().change_scene_to_packed(new_game_scene)
+		Global.set_lvl(0)
 		StageManager.change_stage("res://scenes/levels/level_0.tscn")
 		
 func _on_main_theme_audio_finished():
@@ -43,8 +43,8 @@ func _on_options_button_pressed():
 	option_menu._set_visible()
 	
 func _on_load_button_pressed():
-	var level = "res://scenes/levels/level_" + str(Global.lvl) +".tscn"
-	StageManager.change_stage(level)
+	#var level = "res://scenes/levels/level_" + str(Global.lvl) +".tscn"
+	StageManager.change_stage("res://scenes/levels/lobby.tscn")
 
 
 func _on_back_button_pressed():

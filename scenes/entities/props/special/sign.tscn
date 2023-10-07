@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsm5obhk18pk1"]
 
 [ext_resource type="Script" path="res://scripts/props/sign.gd" id="1_k4ck7"]
-[ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/props/props.png" id="2_2rt67"]
+[ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/images/props/props.png" id="2_huhi3"]
 [ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="3_ln2o3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x52jj"]
@@ -14,7 +14,7 @@ script = ExtResource("1_k4ck7")
 [node name="sign" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(1.845, 1.845)
-texture = ExtResource("2_2rt67")
+texture = ExtResource("2_huhi3")
 region_enabled = true
 region_rect = Rect2(16, 128, 16, 16)
 

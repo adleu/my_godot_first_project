@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddvlaugdyhum"]
 
-[ext_resource type="Texture2D" uid="uid://crjvd3325cc7l" path="res://ressources/assets/props/tree04.png" id="1_ggqua"]
+[ext_resource type="Texture2D" uid="uid://crjvd3325cc7l" path="res://ressources/assets/images/props/tree04.png" id="1_ggqua"]
 
 [node name="tree_04" type="Sprite2D"]
 z_index = -1

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c78gwaqvgvofa"]
 
-[ext_resource type="Texture2D" uid="uid://dfl7tofvs885u" path="res://ressources/assets/props/tree01.png" id="2_jhd3g"]
+[ext_resource type="Texture2D" uid="uid://dfl7tofvs885u" path="res://ressources/assets/images/props/tree01.png" id="2_jhd3g"]
 [ext_resource type="Script" path="res://scripts/props/tree.gd" id="2_xleum"]
-[ext_resource type="Texture2D" uid="uid://d33nfbuylbmo4" path="res://ressources/assets/props/tree02.png" id="3_o8ee3"]
-[ext_resource type="Texture2D" uid="uid://tpws06gc0ckj" path="res://ressources/assets/props/tree03.png" id="4_5q5wu"]
+[ext_resource type="Texture2D" uid="uid://d33nfbuylbmo4" path="res://ressources/assets/images/props/tree02.png" id="3_o8ee3"]
+[ext_resource type="Texture2D" uid="uid://tpws06gc0ckj" path="res://ressources/assets/images/props/tree03.png" id="4_5q5wu"]
 
 [node name="Tree_no_leaves" type="Node2D"]
 texture_filter = 1
