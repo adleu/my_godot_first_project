@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6eo5klsufbwx"]
+[gd_scene load_steps=9 format=3 uid="uid://6eo5klsufbwx"]
 
 [ext_resource type="PackedScene" uid="uid://b82xmmri74thg" path="res://scenes/levels/level_template.tscn" id="1_boka2"]
 [ext_resource type="PackedScene" uid="uid://c78gwaqvgvofa" path="res://scenes/entities/props/trees_no_leaves.tscn" id="2_mh32w"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bfi3d2ri8turd" path="res://scenes/background_parallax_2.tscn" id="4_ms1o7"]
 [ext_resource type="AudioStream" uid="uid://cyg5ccpjo5inr" path="res://ressources/assets/audio/music/star-reaction.ogg" id="5_m1byu"]
 [ext_resource type="PackedScene" uid="uid://dhelasfcah5gx" path="res://scenes/entities/props/rocks.tscn" id="6_8hsit"]
-[ext_resource type="PackedScene" uid="uid://crextm2efnc02" path="res://scenes/levels/end_level_area.tscn" id="7_og1cc"]
 [ext_resource type="PackedScene" uid="uid://bxx4s67iqa245" path="res://scenes/entities/items/animations/portal_spawn.tscn" id="7_y21hb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f8ht1"]
 normal = Vector2(-1, 0)
 
 [node name="level_template" instance=ExtResource("1_boka2")]
+next_level = "res://scenes/levels/level_2.tscn"
 lvl_id = 1
 player_camera_zoom = 0.75
 camera_bottom_limit = 360
@@ -50,6 +50,9 @@ layer_3/tile_data = PackedInt32Array(1704136, 851968, 3, 1769672, 917504, 3, 170
 position = Vector2(6024, 197)
 scale = Vector2(0.95, 0.95)
 
+[node name="end_level_area" parent="." index="3"]
+position = Vector2(6186, 60)
+
 [node name="Camera2D" parent="." index="6"]
 position = Vector2(6024, 197)
 scale = Vector2(0.95, 0.95)
@@ -64,16 +67,13 @@ stream = ExtResource("5_m1byu")
 volume_db = -20.0
 autoplay = true
 
-[node name="end_level_area2" parent="." index="9" instance=ExtResource("7_og1cc")]
-position = Vector2(6184, 64)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(6728, 216)
 shape = SubResource("WorldBoundaryShape2D_f8ht1")
 
-[node name="props" type="Node2D" parent="." index="11"]
+[node name="props" type="Node2D" parent="." index="10"]
 position = Vector2(-8, -80)
 scale = Vector2(1.25, 1.25)
 
@@ -189,5 +189,7 @@ scale = Vector2(1.6, 1.6)
 position = Vector2(5337.6, 307.2)
 scale = Vector2(1.6, 1.6)
 
-[node name="portal_spawn" parent="." index="12" instance=ExtResource("7_y21hb")]
+[node name="portal_spawn" parent="." index="11" instance=ExtResource("7_y21hb")]
 position = Vector2(-1528, 176)
+
+[connection signal="run" from="Player" to="." method="run" flags=18]

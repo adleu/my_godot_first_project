@@ -10,11 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://byrecelcrp2in" path="res://ressources/assets/audio/Orchestra shot 2.wav" id="6_p60bj"]
 [ext_resource type="AudioStream" uid="uid://bhky5sup4cej6" path="res://ressources/assets/audio/wind up 4.wav" id="9_xdedu"]
 
-[sub_resource type="Gradient" id="Gradient_nq5fw"]
+[sub_resource type="Gradient" id="Gradient_r3ov7"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ya3nb"]
-gradient = SubResource("Gradient_nq5fw")
+gradient = SubResource("Gradient_r3ov7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fognu"]
 resource_local_to_scene = true

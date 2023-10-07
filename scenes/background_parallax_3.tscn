@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsjoqk0x3mdym"]
+
+[ext_resource type="Texture2D" uid="uid://bwys0rurrbpop" path="res://ressources/assets/background/BG_02/parallax-forest-back-trees.png" id="1_1vh0n"]
+[ext_resource type="Texture2D" uid="uid://xb75cdtlpm51" path="res://ressources/assets/background/BG_02/parallax-forest-lights.png" id="2_fpkfk"]
+[ext_resource type="Texture2D" uid="uid://dnhv55tbhuekp" path="res://ressources/assets/background/BG_02/parallax-forest-middle-trees.png" id="3_0b5lm"]
+[ext_resource type="Texture2D" uid="uid://bcbis8yucx3u1" path="res://ressources/assets/background/BG_02/parallax-forest-front-trees.png" id="4_utuba"]
+
+[node name="background_parallax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-1912, -121)
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(979, 0)
+
+[node name="Bg-sky" type="Sprite2D" parent="ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(3.6, 3.6)
+texture = ExtResource("1_1vh0n")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-1901, -123)
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(952, 0)
+
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_fpkfk")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-1920, -123)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(952, 0)
+
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxLayer4"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("3_0b5lm")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-1910, -105)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(952, 0)
+
+[node name="Bg-ruins" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("4_utuba")
+centered = false

@@ -52,7 +52,6 @@ var gliding = false
 @onready var glide_particules = $GlideParticules
 @onready var audio_glide = $AudioGlide
 
-
 func _process(delta):
 	if jump_buffer_timer >= 0:
 		jump_buffer_timer -= delta

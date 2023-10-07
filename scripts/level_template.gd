@@ -12,12 +12,15 @@ extends Node2D
 var jump_bonus_scene = preload("res://scenes/entities/items/bonus_jump_orb.tscn")
 var glide_bonus_scene = preload("res://scenes/entities/items/bonus_glider_orb.tscn")
 
+
 var paused = false
 var orb_and_pos = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.set_lvl(lvl_id)
+	if Global.lvl < lvl_id:
+		Global.set_lvl(lvl_id)
+	
 	if respawning_orb:
 		for node in get_tree().get_nodes_in_group("bonus_orb"):
 			node.visibility_changed.connect(_bonus_taken.bind(node))
@@ -31,12 +34,14 @@ func _ready():
 	follow_cam.zoom = Vector2(player_camera_zoom, player_camera_zoom)
 	
 func run():
-	$UI.toggle_run_icon()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		_on_pause_restart_level()
+	if Input.is_action_just_pressed("finish_level"):
+		_on_ending_level_body_entered(null)
 
 		
 func _on_ending_level_body_entered(body):

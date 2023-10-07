@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://byyg7ajkpkcxo"
+path="res://.godot/imported/The Verdant Grove LOOP.wav-97351c8c7bda9f76264bfbd026e4aedc.sample"
+
+[deps]
+
+source_file="res://ressources/assets/audio/music/The Verdant Grove LOOP.wav"
+dest_files=["res://.godot/imported/The Verdant Grove LOOP.wav-97351c8c7bda9f76264bfbd026e4aedc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

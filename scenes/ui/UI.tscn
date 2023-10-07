@@ -185,7 +185,6 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_ikyr3")
-text = "level"
 
 [node name="inventory" type="HBoxContainer" parent="Control2/MarginContainer/Control"]
 z_index = 3
