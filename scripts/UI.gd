@@ -26,6 +26,8 @@ func _ready():
 	bonus_panel.position.y = bonus_panel_y
 	bonus_panel.position.x = bonus_panel_x
 	
+	
+	
 	if Global.running:
 		run_icon.show()
 	
@@ -33,8 +35,8 @@ func _ready():
 	# animation_rearrange.seek(animation_rearrange.current_animation_length, false)
 	#hide_panel()
 	
-	
-
+func _enter_tree():
+	get_tree().get_first_node_in_group("player").run.connect(toggle_run_icon)
 
 func toggle_run_icon(): 
 	run_icon.visible = ! run_icon.visible
