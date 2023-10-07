@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqq58cpd0qmmr"]
+[gd_scene load_steps=20 format=3 uid="uid://bqq58cpd0qmmr"]
 
 [ext_resource type="Script" path="res://scripts/lobby/lobby.gd" id="1_gqum2"]
 [ext_resource type="PackedScene" uid="uid://ckjeaagseaoj2" path="res://scenes/entities/player.tscn" id="1_xmift"]
@@ -7,25 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://vsciytrepm8n" path="res://scenes/ui/pause.tscn" id="4_rs4x0"]
 [ext_resource type="Texture2D" uid="uid://tsoboby7qj2y" path="res://ressources/assets/background/bg_03/background_layer_1.png" id="6_16c7f"]
 [ext_resource type="Texture2D" uid="uid://bph2p0y8x1xrl" path="res://ressources/assets/background/bg_03/background_layer_2.png" id="7_csa3i"]
-[ext_resource type="Texture2D" uid="uid://bwys0rurrbpop" path="res://ressources/assets/background/BG_02/parallax-forest-back-trees.png" id="7_jdrdt"]
 [ext_resource type="Texture2D" uid="uid://ddjf6hqtqt07h" path="res://ressources/assets/background/bg_03/background_layer_3.png" id="8_47jot"]
-[ext_resource type="Texture2D" uid="uid://xb75cdtlpm51" path="res://ressources/assets/background/BG_02/parallax-forest-lights.png" id="8_a73gx"]
-[ext_resource type="Texture2D" uid="uid://dnhv55tbhuekp" path="res://ressources/assets/background/BG_02/parallax-forest-middle-trees.png" id="9_w1fev"]
 [ext_resource type="Texture2D" uid="uid://bcbis8yucx3u1" path="res://ressources/assets/background/BG_02/parallax-forest-front-trees.png" id="10_4hbnf"]
 [ext_resource type="AudioStream" uid="uid://byyg7ajkpkcxo" path="res://ressources/assets/audio/music/The Verdant Grove LOOP.wav" id="10_y28gy"]
 [ext_resource type="PackedScene" uid="uid://ddvlaugdyhum" path="res://scenes/entities/props/tree_04.tscn" id="11_7i6qh"]
 [ext_resource type="PackedScene" uid="uid://c78gwaqvgvofa" path="res://scenes/entities/props/trees_no_leaves.tscn" id="12_14kfv"]
-[ext_resource type="Texture2D" uid="uid://dc013278l6bpn" path="res://ressources/assets/images/fence_2.png" id="14_bujpy"]
+[ext_resource type="PackedScene" uid="uid://dhelasfcah5gx" path="res://scenes/entities/props/rocks.tscn" id="16_mjl4t"]
+[ext_resource type="PackedScene" uid="uid://cnhvt3cgmy5ei" path="res://scenes/entities/props/special/level_selector.tscn" id="17_63suj"]
 [ext_resource type="PackedScene" uid="uid://bl5s3lwbfhm6g" path="res://scenes/entities/props/special/shop.tscn" id="17_k1x07"]
+[ext_resource type="PackedScene" uid="uid://cnjuqqgvrr66a" path="res://scenes/entities/props/fence.tscn" id="17_pgm32"]
+[ext_resource type="PackedScene" uid="uid://dsm5obhk18pk1" path="res://scenes/entities/props/special/sign.tscn" id="18_intx7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eupsm"]
 normal = Vector2(0.999742, -0.0227214)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mhcf1"]
+normal = Vector2(-1, 0)
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_gqum2")
 
 [node name="Player" parent="." instance=ExtResource("1_xmift")]
-position = Vector2(-1375, 327)
+position = Vector2(103, 354)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -38,102 +41,55 @@ layer_1/tile_data = PackedInt32Array(1376214, 0, 4, 1376213, 1179648, 3, 1376212
 [node name="UI" parent="." instance=ExtResource("3_knktt")]
 
 [node name="pause" parent="." instance=ExtResource("4_rs4x0")]
+restart_button_on = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1375, 327)
+position = Vector2(103, 354)
 zoom = Vector2(0.75, 0.75)
 limit_left = -1970
 limit_top = 20
+limit_right = 1260
 limit_bottom = 360
 drag_horizontal_offset = 0.2
 drag_vertical_offset = 0.2
 
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground2"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-1869, -25)
 motion_scale = Vector2(0.01, 0.01)
 motion_mirroring = Vector2(864, 0)
 
-[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer3"]
+[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 texture_filter = 1
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("6_16c7f")
 centered = false
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-1872, -18)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(864, 0)
 
-[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("7_csa3i")
 centered = false
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground2"]
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-1868, -67)
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(864, 0)
 
-[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 texture_filter = 1
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("8_47jot")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
-visible = false
-position = Vector2(-1977, -199)
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(1088, 0)
-
-[node name="Bg-ruins" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
-texture_filter = 1
-position = Vector2(-6, -1)
-scale = Vector2(4, 4)
-texture = ExtResource("10_4hbnf")
-centered = false
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1978, -181)
-motion_scale = Vector2(0.01, 0.01)
-motion_mirroring = Vector2(1098.88, 0)
-
-[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-texture_filter = 1
-scale = Vector2(4.04, 4.04)
-texture = ExtResource("7_jdrdt")
-centered = false
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1881, -27)
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(1068.96, 0)
-
-[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_filter = 1
-position = Vector2(-135, -47)
-scale = Vector2(3.93, 3.93)
-texture = ExtResource("8_a73gx")
-centered = false
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1977, -137)
-motion_scale = Vector2(0.25, 0.25)
-motion_mirroring = Vector2(1068.96, 0)
-
-[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-texture_filter = 1
-scale = Vector2(3.93, 3.93)
-texture = ExtResource("9_w1fev")
-centered = false
-
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2(-1977, -199)
 motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(1088, 0)
@@ -145,7 +101,29 @@ scale = Vector2(4, 4)
 texture = ExtResource("10_4hbnf")
 centered = false
 
+[node name="shop" parent="." instance=ExtResource("17_k1x07")]
+position = Vector2(-692, 266)
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-1674, 265)
+shape = SubResource("WorldBoundaryShape2D_eupsm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(981, 271)
+shape = SubResource("WorldBoundaryShape2D_mhcf1")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_y28gy")
+volume_db = -20.0
+autoplay = true
+
 [node name="deco" type="Node2D" parent="."]
+
+[node name="sign" parent="deco" instance=ExtResource("18_intx7")]
+position = Vector2(897, 363)
+display_text = "Undergoing Construction"
 
 [node name="Tree_no_leaves" parent="deco" instance=ExtResource("12_14kfv")]
 position = Vector2(-1106, 283)
@@ -156,27 +134,48 @@ position = Vector2(-458, 289)
 [node name="tree_04" parent="deco" instance=ExtResource("11_7i6qh")]
 position = Vector2(-1680, 266)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="deco"]
-stream = ExtResource("10_y28gy")
-volume_db = -20.0
-autoplay = true
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="deco"]
 color = Color(0.00784314, 0.698039, 0.792157, 1)
 energy = 0.2
 blend_mode = 1
 
-[node name="Fence2" type="Sprite2D" parent="deco"]
-texture_filter = 1
-position = Vector2(-1666, 370)
-scale = Vector2(1.225, 1.225)
-texture = ExtResource("14_bujpy")
+[node name="Fence3" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(978, 368)
+skew = -0.0872665
 
-[node name="shop" parent="." instance=ExtResource("17_k1x07")]
-position = Vector2(-692, 266)
+[node name="Fence5" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(1060, 368)
+skew = -0.0872665
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Fence6" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(1140, 367)
+skew = -0.0872665
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1674, 265)
-shape = SubResource("WorldBoundaryShape2D_eupsm")
+[node name="Fence7" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(1222, 366)
+skew = -0.0872665
+
+[node name="Fence2" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(-1678, 367)
+
+[node name="Fence4" parent="deco" instance=ExtResource("17_pgm32")]
+position = Vector2(-1759, 369)
+
+[node name="rocks" parent="deco" instance=ExtResource("16_mjl4t")]
+position = Vector2(497, 365)
+
+[node name="rocks2" parent="deco" instance=ExtResource("16_mjl4t")]
+position = Vector2(-226, 363)
+
+[node name="rocks3" parent="deco" instance=ExtResource("16_mjl4t")]
+position = Vector2(-968, 365)
+
+[node name="rocks4" parent="deco" instance=ExtResource("16_mjl4t")]
+position = Vector2(951, 364)
+
+[node name="Tree_no_leaves3" parent="deco" instance=ExtResource("12_14kfv")]
+position = Vector2(1122, 265)
+scale = Vector2(1.295, 1.295)
+
+[node name="LevelSelector" parent="." instance=ExtResource("17_63suj")]
+position = Vector2(375, 317)

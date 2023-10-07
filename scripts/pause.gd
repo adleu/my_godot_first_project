@@ -1,11 +1,15 @@
 extends CanvasLayer
 
 @onready var hover_audio = $HoverButtonAudio
+@onready var restart_button = $OptionsMenu/MenuPanel/VBoxContainer/RestartButton
+
+@export var restart_button_on = true
 signal restart_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	restart_button.visible = restart_button_on
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

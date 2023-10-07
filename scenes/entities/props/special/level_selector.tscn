@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnhvt3cgmy5ei"]
+
+[ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/props/props.png" id="1_fbdrv"]
+[ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
+[ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="3_1j4e5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnxmb"]
+size = Vector2(61, 123)
+
+[node name="LevelSelector" type="Node2D"]
+script = ExtResource("1_mv8lg")
+
+[node name="Statue" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.55, 2.55)
+texture = ExtResource("1_fbdrv")
+region_enabled = true
+region_rect = Rect2(243, 226, 25, 46)
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_1j4e5")]
+position = Vector2(-46, -52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(46, 53)
+shape = SubResource("RectangleShape2D_pnxmb")

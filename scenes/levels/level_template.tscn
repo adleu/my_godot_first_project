@@ -25,7 +25,6 @@ position = Vector2(266, -154)
 [node name="UI" parent="." instance=ExtResource("5_ty0tf")]
 
 [node name="pause" parent="." instance=ExtResource("6_ol7fk")]
-visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, -22)

@@ -4,3 +4,4 @@ extends Node2D
 
 func _ready():
 	ui.set_level_label("Valley")
+	
