@@ -19,7 +19,9 @@ func _on_resume_button_pressed():
 func _pause_game():
 	if !visible:
 		$AnimationShowMenu.play("pop_in")
-	self.visible = ! self.visible
+	else :
+		$AnimationShowMenu.play_backwards("pop_in")
+	visible = ! visible
 	get_tree().paused = !get_tree().paused
 	
 func _on_options_button_pressed():
@@ -28,6 +30,7 @@ func _on_options_button_pressed():
 func _on_quit_button_pressed():
 	#var main_scene = ResourceLoader.load("res://scenes/ui/main_menu.tscn")
 	#get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	hide()
 	StageManager.change_stage("res://scenes/ui/main_menu.tscn")
 	get_tree().paused = false
 	
