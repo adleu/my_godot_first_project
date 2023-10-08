@@ -5,8 +5,13 @@ var fullscreen = true
 var volume = 0.5
 var lvl = 0
 
+var level_names = ["None","Level 1", "Level 2"]
+var lvl_max = level_names.size() - 1
+
+const DATA_FILE = "res://data.save"
 const SAVE_FILE = "res://param.cfg"
 const BUS_NAME = "Master"
+
 
 var data = {}
 func _ready():
@@ -23,6 +28,7 @@ func _ready():
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(BUS_NAME), linear_to_db(volume))
+	
 	
 
 func save_data():
@@ -78,11 +84,14 @@ func set_config(_fullscreen, _vsync, _volume):
 	save_data()
 	
 func set_lvl(_lvl):
-	lvl = _lvl
-	save_data()
+	if _lvl <= lvl_max:
+		lvl = _lvl
+		save_data()
 	
 var running = false
 func change_run_state():
 	running = ! running
-
 	
+func save():
+	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
+	file.store_var(lvl)

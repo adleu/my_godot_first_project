@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxx4s67iqa245"]
+[gd_scene load_steps=12 format=3 uid="uid://bxx4s67iqa245"]
 
 [ext_resource type="Texture2D" uid="uid://cpc2sfvuwhoro" path="res://ressources/assets/sprite/Purple Portal Sprite Sheet.png" id="1_kogb2"]
 [ext_resource type="Script" path="res://scripts/items/animations/portal_spawn.gd" id="1_t11hw"]
@@ -260,6 +260,16 @@ _data = {
 "portal_idle": SubResource("Animation_aubfl")
 }
 
+[sub_resource type="Gradient" id="Gradient_7w6kj"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pgefo"]
+gradient = SubResource("Gradient_7w6kj")
+width = 144
+height = 159
+fill_from = Vector2(0.514334, 0.119658)
+fill_to = Vector2(0.52849, 0.948718)
+
 [node name="portal_spawn" type="Node2D"]
 texture_filter = 1
 rotation = -1.5708
@@ -304,3 +314,9 @@ position = Vector2(21.65, 25)
 rotation = 1.5708
 texture = ExtResource("2_jwvll")
 hframes = 9
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-67.3685, 8.42081)
+enabled = false
+color = Color(0.870588, 0.270588, 0.823529, 1)
+texture = SubResource("GradientTexture2D_pgefo")

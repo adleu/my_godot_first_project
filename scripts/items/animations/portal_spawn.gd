@@ -5,6 +5,7 @@ extends Node2D
 @onready var sprite_player =  $Control/Sprite2D2
 @onready var sprite_portal =  $Sprite2D
 @onready var landmark = $Control/landmark
+@onready var light = $PointLight2D
 
 var player
 
@@ -31,6 +32,8 @@ func play_spawn():
 	ap.play("portal_emerge")
 	
 	await ap.animation_finished
+	light.enabled = true
+	
 	ap.play("portal_idle")
 	ap_2.play("player_fall")
 	

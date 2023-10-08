@@ -2,8 +2,12 @@ extends Node2D
 
 @export var next_level: String
 @export var lvl_id: int
+
+
+
 @export var player_camera_zoom: float
 @export var camera_bottom_limit = 1000000
+@export var camera_top_limit = 0
 
 @export var respawning_orb = false
 
@@ -18,9 +22,6 @@ var orb_and_pos = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Global.lvl < lvl_id:
-		Global.set_lvl(lvl_id)
-	
 	if respawning_orb:
 		for node in get_tree().get_nodes_in_group("bonus_orb"):
 			node.visibility_changed.connect(_bonus_taken.bind(node))
@@ -29,7 +30,7 @@ func _ready():
 		
 	$UI.set_level_label("Level " + str(lvl_id))
 	
-	follow_cam.limit_top = 0
+	follow_cam.limit_top = camera_top_limit
 	follow_cam.limit_bottom = camera_bottom_limit
 	follow_cam.zoom = Vector2(player_camera_zoom, player_camera_zoom)
 	
@@ -45,9 +46,15 @@ func _process(delta):
 
 		
 func _on_ending_level_body_entered(body):
+	
 	if not next_level is String:
 		return
+	print(Global.lvl)
+	if Global.lvl < lvl_id + 1 and lvl_id > 0:
+		Global.set_lvl(lvl_id + 1)
+		print("set lvl to", lvl_id + 1)
 	StageManager.change_stage(next_level)
+	
 	
 func _on_pause_restart_level():
 	get_tree().reload_current_scene()

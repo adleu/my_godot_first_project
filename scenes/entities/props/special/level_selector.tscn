@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cnhvt3cgmy5ei"]
+[gd_scene load_steps=30 format=3 uid="uid://cnhvt3cgmy5ei"]
 
 [ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
 [ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/images/props/props.png" id="2_dl1cw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqi0oeq7giv1u" path="res://ressources/assets/images/Spritesheet_UI_Flat.png" id="5_lt1y5"]
 [ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="6_h56cw"]
 [ext_resource type="Texture2D" uid="uid://bsvyyej3sjyha" path="res://ressources/assets/images/button_arrow.png" id="7_4ds4p"]
+[ext_resource type="Texture2D" uid="uid://cpc2sfvuwhoro" path="res://ressources/assets/sprite/Purple Portal Sprite Sheet.png" id="9_o1w6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnxmb"]
 size = Vector2(61, 123)
@@ -74,6 +75,187 @@ modulate_color = Color(1, 1, 1, 0.631373)
 default_font = ExtResource("6_h56cw")
 default_font_size = 16
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtmuk"]
+size = Vector2(28, 63)
+
+[sub_resource type="Animation" id="Animation_l0koi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_o1w6q")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_r7j0v"]
+resource_name = "disapear"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18, 19, 20, 21, 22]
+}
+
+[sub_resource type="Animation" id="Animation_7ha88"]
+resource_name = "emerge"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_lmf0g"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_o1w6q")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ojhf"]
+_data = {
+"RESET": SubResource("Animation_l0koi"),
+"disapear": SubResource("Animation_r7j0v"),
+"emerge": SubResource("Animation_7ha88"),
+"idle": SubResource("Animation_lmf0g")
+}
+
+[sub_resource type="Gradient" id="Gradient_awgwx"]
+offsets = PackedFloat32Array(0.440433, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rj3yy"]
+gradient = SubResource("Gradient_awgwx")
+fill = 1
+fill_from = Vector2(0.538462, 0.529915)
+fill_to = Vector2(1, 1)
+
 [node name="LevelSelector" type="Node2D"]
 script = ExtResource("1_mv8lg")
 
@@ -92,6 +274,7 @@ position = Vector2(46, 53)
 shape = SubResource("RectangleShape2D_pnxmb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -209,6 +392,37 @@ text = "Done"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-5, 6)
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(98, 12)
+scale = Vector2(1.65, 1.65)
+texture = ExtResource("9_o1w6q")
+hframes = 8
+vframes = 3
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(98, 18.5)
+shape = SubResource("RectangleShape2D_jtmuk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_7ojhf")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2, -8)
+enabled = false
+color = Color(0.478431, 0.294118, 0.686275, 1)
+texture = SubResource("GradientTexture2D_rj3yy")
+texture_scale = 3.1
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/right" to="." method="_on_right_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
