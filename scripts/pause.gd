@@ -14,8 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("escape") and ! $OptionsMenu/MenuPanel/MenuOption.visible:
-		_pause_game()
+	if not Global.interface :
+		if Input.is_action_just_pressed("escape") and ! $OptionsMenu/MenuPanel/MenuOption.visible:
+			_pause_game()
 	
 func _on_resume_button_pressed():
 	_pause_game()

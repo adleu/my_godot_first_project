@@ -17,13 +17,22 @@ var last_selection = current_selection
 func _ready():
 	interaction_area.interact = Callable(self, "_open_level_menu")
 	portal_animation.play("disapear")
-
+	
+func _process(delta):
+	if Input.is_action_just_pressed("escape"):
+		if interface.visible:
+			interface.hide()
+			player.set_physics_process(true)
+			Global.interface = false
+			
 func _open_level_menu():
 	interface.show()
+	Global.interface = true
 	player.set_physics_process(false)
 
 func _on_button_pressed():
 	interface.hide()
+	Global.interface = false
 	player.set_physics_process(true)
 	if last_selection == 0 and current_selection != 0:
 		light.enabled = true
