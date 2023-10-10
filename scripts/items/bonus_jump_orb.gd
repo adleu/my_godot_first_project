@@ -17,7 +17,7 @@ func _take_orb():
 		
 func _disable_orb():
 	hide()
-	interaction_area.body_exited.emit() 
+	#interaction_area.body_exited.emit() 
 	$InteractionArea/CollisionShape2D.disabled = true
 	await get_tree().create_timer(5).timeout
 	queue_free()
