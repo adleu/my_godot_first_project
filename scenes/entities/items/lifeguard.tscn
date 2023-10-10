@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=3 uid="uid://cpemi3mvxpslt"]
+
+[ext_resource type="Script" path="res://scripts/items/lifeguard.gd" id="1_362vm"]
+[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="2_50nrt"]
+[ext_resource type="Texture2D" uid="uid://cilf4kwxk2uro" path="res://ressources/assets/sprite/cute mushroom idle ghost_.png" id="3_hccej"]
+
+[sub_resource type="Animation" id="Animation_jdfng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q40yx"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.113725), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8ebk"]
+_data = {
+"RESET": SubResource("Animation_jdfng"),
+"blink": SubResource("Animation_q40yx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hc3v1"]
+
+[sub_resource type="Animation" id="Animation_55iv0"]
+resource_name = "idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5.9), Vector2(0, -6.575), Vector2(0, -5.9)]
+}
+
+[sub_resource type="Animation" id="Animation_auqam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0lk5s"]
+_data = {
+"RESET": SubResource("Animation_auqam"),
+"idle": SubResource("Animation_55iv0")
+}
+
+[node name="Lifeguard" type="Area2D" groups=["lifeguard"]]
+collision_mask = 3
+script = ExtResource("1_362vm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_50nrt")
+text = "[g]  to join the ghost"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MarginContainer/Label"]
+autoplay = "blink"
+libraries = {
+"": SubResource("AnimationLibrary_a8ebk")
+}
+
+[node name="SaveSpot" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveSpot"]
+shape = SubResource("RectangleShape2D_hc3v1")
+debug_color = Color(0.694118, 0.411765, 0.721569, 0.419608)
+
+[node name="Ghost" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.286275)
+texture_filter = 1
+position = Vector2(0, -5.9)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_hccej")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ghost"]
+autoplay = "idle"
+speed_scale = 0.8
+libraries = {
+"": SubResource("AnimationLibrary_0lk5s")
+}
+
+[connection signal="body_entered" from="." to="." method="_failed"]
+[connection signal="body_entered" from="SaveSpot" to="." method="_on_save_spot_body_entered"]
+[connection signal="body_exited" from="SaveSpot" to="." method="_on_save_spot_body_exited"]

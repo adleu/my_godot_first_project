@@ -1,10 +1,11 @@
 extends Node
 
 var vsync = false
-var fullscreen = true
+var fullscreen = false
 var volume = 0.5
 var lvl = 0
 
+var interface = false
 var level_names = ["None","Level 1", "Level 2"]
 var lvl_max = level_names.size() - 1
 
