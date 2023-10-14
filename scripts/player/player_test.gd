@@ -156,7 +156,7 @@ func jump(direction):
 		velocity.y = - jump_force
 		jumped = true
 		
-	elif can_jump() == 2 and Input.is_action_just_pressed("jump"):
+	elif can_jump() == 2 and Input.is_action_just_pressed("jump") && (!$RayCast2D.is_colliding() and !$RayCast2D2.is_colliding()):
 		_double_jump(direction)
 		
 	else:
