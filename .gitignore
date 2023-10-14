@@ -30,3 +30,4 @@ export_presets.cfg
 # config file
 *.cfg
 
+save.ini
