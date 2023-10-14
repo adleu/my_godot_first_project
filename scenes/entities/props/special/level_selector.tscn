@@ -1,79 +1,140 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnhvt3cgmy5ei"]
+[gd_scene load_steps=36 format=3 uid="uid://cnhvt3cgmy5ei"]
 
 [ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
 [ext_resource type="Texture2D" uid="uid://7x3apajnpdx4" path="res://ressources/assets/images/props/props.png" id="2_dl1cw"]
 [ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="3_1j4e5"]
-[ext_resource type="Texture2D" uid="uid://b5u57v2j0gnd" path="res://ressources/assets/images/GUI.png" id="4_5c420"]
-[ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="5_4ub2h"]
-[ext_resource type="Texture2D" uid="uid://cqi0oeq7giv1u" path="res://ressources/assets/images/Spritesheet_UI_Flat.png" id="5_lt1y5"]
 [ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="6_h56cw"]
-[ext_resource type="Texture2D" uid="uid://bsvyyej3sjyha" path="res://ressources/assets/images/button_arrow.png" id="7_4ds4p"]
+[ext_resource type="Texture2D" uid="uid://co6vwaehyiak8" path="res://ressources/assets/images/One_Sheet.png" id="9_bqflj"]
 [ext_resource type="Texture2D" uid="uid://cpc2sfvuwhoro" path="res://ressources/assets/sprite/Purple Portal Sprite Sheet.png" id="9_o1w6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnxmb"]
 size = Vector2(61, 123)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yeux"]
-texture = ExtResource("4_5c420")
-texture_margin_left = 8.0
-texture_margin_top = 23.0
-texture_margin_right = 7.0
-texture_margin_bottom = 22.0
-region_rect = Rect2(48, 96, 31, 31)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmhbk"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 6.0
+texture = ExtResource("9_bqflj")
+texture_margin_left = 5.04615
+texture_margin_top = 5.61994
+texture_margin_right = 3.44098
+texture_margin_bottom = 8.90301
+region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_du0ts"]
-texture = ExtResource("5_lt1y5")
-expand_margin_left = 25.0
-expand_margin_top = 1.0
-expand_margin_right = 25.0
-expand_margin_bottom = 4.0
-region_rect = Rect2(416, 39, 96, 22)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58787"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 5.04615
+texture_margin_top = 5.61994
+texture_margin_right = 3.44098
+texture_margin_bottom = 8.90301
+region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_df7gl"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(6, 41, 20, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prok3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0558"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(38, 41, 20, 14)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eel81"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.32418
+texture_margin_top = 3.64853
+texture_margin_right = 2.56748
+texture_margin_bottom = 2.56748
+region_rect = Rect2(119.616, 86.1757, 16.9751, 16.7575)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kat8a"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(38, 41, 20, 14)
-modulate_color = Color(1, 1, 1, 0.643137)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hnrqr"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 3.86474
+texture_margin_top = 4.05392
+texture_margin_right = 2.83774
+texture_margin_bottom = 1.78372
+region_rect = Rect2(136, 86, 16, 17)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvjng"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_357uu"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 3.82998
+texture_margin_top = 4.40376
+texture_margin_right = 3.0
+texture_margin_bottom = 2.41674
+region_rect = Rect2(136, 86, 16, 17)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx4kw"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(6, 9, 20, 14)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hshjw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l810x"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(38, 9, 20, 14)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqm5k"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 3.0
+texture_margin_top = 4.67538
+texture_margin_right = 2.69788
+texture_margin_bottom = 2.51802
+region_rect = Rect2(153.872, 16.1371, 42.0428, 12.2304)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mqm2"]
-texture = ExtResource("7_4ds4p")
-texture_margin_left = 20.0
-texture_margin_top = 15.0
-region_rect = Rect2(38, 9, 20, 14)
-modulate_color = Color(1, 1, 1, 0.631373)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu3k1"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.05392
+texture_margin_top = 3.78366
+texture_margin_right = 2.16209
+texture_margin_bottom = 1.62157
+region_rect = Rect2(119.543, 69.0765, 16.8913, 15.9454)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mvfl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5etxr"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 3.78366
+texture_margin_top = 3.91879
+texture_margin_right = 2.43235
+texture_margin_bottom = 2.29722
+region_rect = Rect2(136, 68, 17, 17)
 
-[sub_resource type="Theme" id="Theme_hesfu"]
-default_font = ExtResource("6_h56cw")
-default_font_size = 16
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1kwj"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.64076
+texture_margin_top = 4.26863
+texture_margin_right = 2.35993
+texture_margin_bottom = 2.14648
+region_rect = Rect2(136.693, 68.7305, 16.3508, 16.6211)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deopx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvtd1"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.05392
+texture_margin_top = 4.18905
+texture_margin_right = 2.29722
+texture_margin_bottom = 2.16209
+region_rect = Rect2(119.318, 119.94, 17.0866, 16.7269)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5djc"]
+texture = ExtResource("9_bqflj")
+region_rect = Rect2(136.822, 120.081, 15.8103, 15.4049)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtbcv"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.64076
+texture_margin_top = 4.26863
+texture_margin_right = 2.35993
+texture_margin_bottom = 2.14648
+region_rect = Rect2(119.533, 120.347, 16.0805, 15.9454)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75xvv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bshjq"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 3.91879
+texture_margin_top = 3.37826
+texture_margin_right = 2.56748
+texture_margin_bottom = 1.89183
+region_rect = Rect2(119.663, 103.459, 16.8913, 16.0805)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64knw"]
+texture = ExtResource("9_bqflj")
+region_rect = Rect2(136.554, 103.057, 16.4859, 15.9454)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxiqn"]
+texture = ExtResource("9_bqflj")
+texture_margin_left = 4.64076
+texture_margin_top = 4.26863
+texture_margin_right = 2.35993
+texture_margin_bottom = 2.14648
+region_rect = Rect2(136.825, 102.921, 16.3508, 17.0265)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6tupn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtmuk"]
 size = Vector2(28, 63)
@@ -274,7 +335,6 @@ position = Vector2(46, 53)
 shape = SubResource("RectangleShape2D_pnxmb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -285,6 +345,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.435294)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -297,98 +358,100 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 200
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_qmhbk")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer2/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_h56cw")
+text = "DESTINATION"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_58787")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_prok3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = -1
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 150)
+[node name="left" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_eel81")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hnrqr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_357uu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hshjw")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_qqm5k")
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(90, 4.085)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_2yeux")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 40
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_du0ts")
-
-[node name="DesintationLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme = ExtResource("5_4ub2h")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
-text = "Destination"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("5_4ub2h")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 17
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_h56cw")
 text = "None"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer"]
+[node name="right" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nu3k1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5etxr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k1kwj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_deopx")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="left" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-texture_filter = 1
+[node name="ok" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_df7gl")
-theme_override_styles/hover = SubResource("StyleBoxTexture_r0558")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_kat8a")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jvjng")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jvtd1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_c5djc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dtbcv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_75xvv")
 
-[node name="right" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-texture_filter = 1
+[node name="cancel" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_yx4kw")
-theme_override_styles/hover = SubResource("StyleBoxTexture_l810x")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_8mqm2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3mvfl")
-
-[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(200, 150)
-layout_mode = 2
-theme = SubResource("Theme_hesfu")
-theme_override_styles/panel = SubResource("StyleBoxTexture_2yeux")
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "gggg"
-
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("5_4ub2h")
-text = "Done"
+theme_override_styles/normal = SubResource("StyleBoxTexture_bshjq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_64knw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cxiqn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6tupn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -422,7 +485,8 @@ color = Color(0.478431, 0.294118, 0.686275, 1)
 texture = SubResource("GradientTexture2D_rj3yy")
 texture_scale = 3.1
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer/right" to="." method="_on_right_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

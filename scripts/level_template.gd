@@ -28,7 +28,7 @@ func _ready():
 		get_tree().get_first_node_in_group("player").ui_remove_bonus.connect(_bonus_used)
 #	
 		
-	$UI.set_level_label("Level " + str(lvl_id))
+	$UI.set_level_label(LevelsManager.get_level_name(lvl_id))
 	
 	follow_cam.limit_top = camera_top_limit
 	follow_cam.limit_bottom = camera_bottom_limit
@@ -46,13 +46,12 @@ func _process(delta):
 
 		
 func _on_ending_level_body_entered(body):
+	if not LevelsManager.is_objective_done(lvl_id, "completed"):
+		LevelsManager.level_objective_done(lvl_id, "completed")
 	
 	if not next_level is String:
 		return
-	print(Global.lvl)
-	if Global.lvl < lvl_id + 1 and lvl_id > 0:
-		Global.set_lvl(lvl_id + 1)
-		print("set lvl to", lvl_id + 1)
+		
 	StageManager.change_stage(next_level)
 	
 	

@@ -11,7 +11,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.running = false
-	load_button.disabled = Global.lvl == 0
+	load_button.disabled = not LevelsManager.is_objective_done(0,"completed")
 	
 	for bouton in get_tree().get_nodes_in_group("menu_button"):
 		if !bouton.disabled:
@@ -33,7 +33,7 @@ func _on_quit_button_pressed():
 
 func _on_new_game_button_pressed():
 	if new_game_scene is PackedScene:
-		Global.set_lvl(0)
+		LevelsManager.reset_levels()
 		StageManager.change_stage("res://scenes/levels/level_0.tscn")
 		
 func _on_main_theme_audio_finished():
