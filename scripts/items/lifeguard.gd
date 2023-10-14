@@ -13,6 +13,7 @@ var active = false
 var tried = false
 
 var _player
+var _player_inside = false
 
 
 func _ready():
@@ -42,6 +43,7 @@ func disable():
 		attempt = min_attempt - 1
 
 func _on_save_spot_body_entered(body):
+	_player_inside = true
 	if active :
 		ghost.hide()
 		label.hide()
@@ -56,9 +58,11 @@ func _failed(body):
 			lifeguard()
 
 func _on_save_spot_body_exited(body):
+	_player_inside = false
 	if active :
 		await get_tree().create_timer(4).timeout
-		ghost.show()
+		if not _player_inside :
+			ghost.show()
 		
 func transition():
 	color_rect.global_position = _player.position - color_rect.size / 2
