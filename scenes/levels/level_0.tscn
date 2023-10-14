@@ -482,6 +482,7 @@ libraries = {
 [node name="Camera2D" parent="." index="7"]
 position = Vector2(-1340, 76)
 offset = Vector2(80, 0)
+process_callback = 0
 limit_right = 3630
 
 [node name="Node2D" type="Node2D" parent="." index="8"]

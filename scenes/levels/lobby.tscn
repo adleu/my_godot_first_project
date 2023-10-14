@@ -179,4 +179,4 @@ position = Vector2(1122, 265)
 scale = Vector2(1.295, 1.295)
 
 [node name="LevelSelector" parent="." instance=ExtResource("17_63suj")]
-position = Vector2(375, 317)
+position = Vector2(593, 314)

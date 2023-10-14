@@ -57,6 +57,7 @@ position = Vector2(6186, 60)
 position = Vector2(6096, 248)
 scale = Vector2(0.95, 0.95)
 offset = Vector2(80, 0)
+process_callback = 0
 limit_right = 6688
 limit_smoothed = true
 

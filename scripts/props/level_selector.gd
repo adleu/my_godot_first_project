@@ -7,12 +7,15 @@ class_name  LevelSelector
 @onready var portal_animation = $Area2D/AnimationPlayer
 @onready var portal_col = $Area2D/CollisionShape2D
 @onready var light = $PointLight2D
+@onready var machine_door_animation = $machine/machine_door/AnimationMachineDoor
+@onready var audio_machine = $machine/AudioMachine
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var level_names = Global.level_names
 var current_selection = 0
 var last_selection = current_selection
+var ongoing_animation = false
 
 func _ready():
 	interface.hide()
@@ -25,6 +28,9 @@ func _process(delta):
 			_on_cancel_pressed()
 			
 func _open_level_menu():
+	if ongoing_animation:
+		audio_machine.play()
+		return
 	interface.show()
 	Global.interface = true
 	player.set_physics_process(false)
@@ -48,7 +54,7 @@ func _update_label():
 		if LevelsManager.is_level_unlocked(current_selection):
 			dest.modulate = Color(1, 1, 1)
 		else :
-			dest.modulate = Color(0, 0, 0, 0.533)
+			dest.modulate = Color(1, 1, 1, 0.337)
 
 
 func _on_area_2d_body_entered(body):
@@ -59,6 +65,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_ok_pressed():
 	if ! LevelsManager.is_level_unlocked(current_selection):
+		audio_machine.play()
 		return
 		
 	interface.hide()
@@ -66,19 +73,28 @@ func _on_ok_pressed():
 	
 	player.set_physics_process(true)
 	
+	
 	if last_selection == 0 and current_selection != 0:
-		light.enabled = true
+		ongoing_animation = true
+		machine_door_animation.play_backwards("close")
+		await machine_door_animation.animation_finished
 		portal_animation.play("emerge")
+		light.enabled = true
 		portal_col.disabled = true
 		
 		await portal_animation.animation_finished
 		portal_animation.play("idle")
 		portal_col.disabled = false	
+		ongoing_animation = false
 		
 	elif last_selection != 0 and current_selection == 0:
+		ongoing_animation = true
 		portal_animation.play("disapear")
 		portal_col.disabled = true
 		light.enabled = false
+		machine_door_animation.play("close")
+		await portal_animation.animation_finished
+		ongoing_animation = false
 		
 	last_selection = current_selection
 
