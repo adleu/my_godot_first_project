@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dobtwnyi43y4v"
+path="res://.godot/imported/Synthwave  Cyberpunk Chill Synth - Fantasy by Karl Casey  Royalty Free No Copyright Music.mp3-39cd6fd5c4cec75a24300008b169f160.mp3str"
+
+[deps]
+
+source_file="res://ressources/assets/audio/music/Synthwave  Cyberpunk Chill Synth - Fantasy by Karl Casey  Royalty Free No Copyright Music.mp3"
+dest_files=["res://.godot/imported/Synthwave  Cyberpunk Chill Synth - Fantasy by Karl Casey  Royalty Free No Copyright Music.mp3-39cd6fd5c4cec75a24300008b169f160.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -19,7 +19,7 @@ func _default_levels():
 	},
 	1: {
 		"name" : "Sunset Peaks",
-		"time": null,
+		"time": -1,
 		"objectives": {
 			"completed": {
 				"statut" : false,
@@ -29,7 +29,7 @@ func _default_levels():
 	},
 	2: {
 		"name" : "Serenity Summit",
-		"time": null,
+		"time": -1,
 		"objectives": {
 			"completed": {
 				"statut" : false,
@@ -63,7 +63,7 @@ func get_level_name(level_id):
 		return "Level " + str(level_id)
 
 func get_level_time(level_id):
-	if levels.has(level_id):
+	if levels.has(level_id) and levels[level_id].has("time"):
 		return levels[level_id]["time"]
 	else:
 		return null
@@ -92,17 +92,29 @@ func reset_levels():
 
 	
 func objectives_to_unlock_level(level_id) -> Array:
+	var required_objc = []
 	match level_id:
 		1:
-			return []
+			pass
 		2: 
-			return [levels[1]["objectives"]["completed"]]
+			required_objc.append([1,"completed"])
 		_: 
-			return []
+			pass
+			
+	return required_objc
 
 
 func is_level_unlocked(level_id) -> bool:
 	for obj in objectives_to_unlock_level(level_id):
-		if ! obj["statut"] :
+		var required_level_id = obj[0]
+		var required_objective_name = obj[1]
+
+		if !is_objective_done(required_level_id, required_objective_name):
 			return false
+
 	return true
+		
+#	for obj in objectives_to_unlock_level(level_id):
+#		if ! obj["statut"] :
+#			return false
+#	return true

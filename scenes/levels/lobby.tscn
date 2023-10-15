@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bqq58cpd0qmmr"]
+[gd_scene load_steps=25 format=3 uid="uid://bqq58cpd0qmmr"]
 
 [ext_resource type="Script" path="res://scripts/lobby/lobby.gd" id="1_gqum2"]
 [ext_resource type="PackedScene" uid="uid://ckjeaagseaoj2" path="res://scenes/entities/player.tscn" id="1_xmift"]
@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dbi06jaqvxl1m" path="res://scenes/ui/UI.tscn" id="3_knktt"]
 [ext_resource type="PackedScene" uid="uid://vsciytrepm8n" path="res://scenes/ui/pause.tscn" id="4_rs4x0"]
 [ext_resource type="Texture2D" uid="uid://tsoboby7qj2y" path="res://ressources/assets/background/bg_03/background_layer_1.png" id="6_16c7f"]
+[ext_resource type="Texture2D" uid="uid://d3shhtttucabf" path="res://ressources/assets/background/bg_05/far-buildings.png" id="6_seydg"]
 [ext_resource type="Texture2D" uid="uid://bph2p0y8x1xrl" path="res://ressources/assets/background/bg_03/background_layer_2.png" id="7_csa3i"]
 [ext_resource type="Texture2D" uid="uid://ddjf6hqtqt07h" path="res://ressources/assets/background/bg_03/background_layer_3.png" id="8_47jot"]
+[ext_resource type="Texture2D" uid="uid://fuboi06w0nri" path="res://ressources/assets/background/bg_05/back-buildings.png" id="8_p58b5"]
 [ext_resource type="Texture2D" uid="uid://bcbis8yucx3u1" path="res://ressources/assets/background/BG_02/parallax-forest-front-trees.png" id="10_4hbnf"]
-[ext_resource type="AudioStream" uid="uid://byyg7ajkpkcxo" path="res://ressources/assets/audio/music/The Verdant Grove LOOP.wav" id="10_y28gy"]
 [ext_resource type="PackedScene" uid="uid://ddvlaugdyhum" path="res://scenes/entities/props/tree_04.tscn" id="11_7i6qh"]
+[ext_resource type="Texture2D" uid="uid://bogtpwgosdvwt" path="res://ressources/assets/background/bg_04/trees.png" id="11_ehe5i"]
 [ext_resource type="PackedScene" uid="uid://c78gwaqvgvofa" path="res://scenes/entities/props/trees_no_leaves.tscn" id="12_14kfv"]
+[ext_resource type="AudioStream" uid="uid://dobtwnyi43y4v" path="res://ressources/assets/audio/music/Synthwave  Cyberpunk Chill Synth - Fantasy by Karl Casey  Royalty Free No Copyright Music.mp3" id="13_iil5s"]
 [ext_resource type="PackedScene" uid="uid://dhelasfcah5gx" path="res://scenes/entities/props/rocks.tscn" id="16_mjl4t"]
 [ext_resource type="PackedScene" uid="uid://cnhvt3cgmy5ei" path="res://scenes/entities/props/special/level_selector.tscn" id="17_63suj"]
 [ext_resource type="PackedScene" uid="uid://bl5s3lwbfhm6g" path="res://scenes/entities/props/special/shop.tscn" id="17_k1x07"]
@@ -24,11 +27,20 @@ normal = Vector2(0.999742, -0.0227214)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mhcf1"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="Gradient" id="Gradient_s0pdf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fxawh"]
+gradient = SubResource("Gradient_s0pdf")
+width = 44
+height = 39
+fill_from = Vector2(0.383743, 0.931624)
+fill_to = Vector2(0.376068, 0.230769)
+
 [node name="Lobby" type="Node2D"]
 script = ExtResource("1_gqum2")
 
 [node name="Player" parent="." instance=ExtResource("1_xmift")]
-position = Vector2(4, 263)
+position = Vector2(141, 351)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -44,7 +56,7 @@ layer_1/tile_data = PackedInt32Array(1376214, 0, 4, 1376213, 1179648, 3, 1376212
 restart_button_on = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4, 263)
+position = Vector2(141, 351)
 zoom = Vector2(0.75, 0.75)
 limit_left = -1970
 limit_top = 20
@@ -56,28 +68,53 @@ drag_vertical_offset = 0.2
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1866, 1)
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(870.4, 0)
+
+[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("6_seydg")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2(-1869, -25)
 motion_scale = Vector2(0.01, 0.01)
 motion_mirroring = Vector2(864, 0)
 
-[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Bg-sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
 texture_filter = 1
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("6_16c7f")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-1872, -18)
+position = Vector2(-1724, 63)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(864, 0)
 
 [node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
 scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_p58b5")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1872, -18)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(864, 0)
+
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+visible = false
+texture_filter = 1
+scale = Vector2(2.7, 2.7)
 texture = ExtResource("7_csa3i")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 position = Vector2(-1868, -67)
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(864, 0)
@@ -88,16 +125,26 @@ scale = Vector2(2.7, 2.7)
 texture = ExtResource("8_47jot")
 centered = false
 
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1866, -420)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(840, 0)
+
+[node name="Bg-mountains2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("11_ehe5i")
+centered = false
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 visible = false
-position = Vector2(-1977, -199)
+position = Vector2(-1886, -154)
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(1088, 0)
+motion_mirroring = Vector2(924.8, 0)
 
 [node name="Bg-ruins" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_filter = 1
-position = Vector2(-6, -1)
-scale = Vector2(4, 4)
+scale = Vector2(3.4, 3.4)
 texture = ExtResource("10_4hbnf")
 centered = false
 
@@ -115,8 +162,8 @@ position = Vector2(981, 271)
 shape = SubResource("WorldBoundaryShape2D_mhcf1")
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_y28gy")
-volume_db = -20.0
+stream = ExtResource("13_iil5s")
+volume_db = -30.0
 autoplay = true
 
 [node name="deco" type="Node2D" parent="."]
@@ -136,8 +183,8 @@ position = Vector2(-458, 289)
 position = Vector2(-1680, 266)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="deco"]
-color = Color(0.00784314, 0.698039, 0.792157, 1)
-energy = 0.2
+color = Color(0.92549, 0.486275, 0.12549, 1)
+energy = 0.25
 blend_mode = 1
 
 [node name="Fence3" parent="deco" instance=ExtResource("17_pgm32")]
@@ -179,4 +226,10 @@ position = Vector2(1122, 265)
 scale = Vector2(1.295, 1.295)
 
 [node name="LevelSelector" parent="." instance=ExtResource("17_63suj")]
-position = Vector2(593, 314)
+position = Vector2(606, 325)
+
+[node name="PointLight2D2" type="PointLight2D" parent="LevelSelector"]
+position = Vector2(-1.00006, -5)
+color = Color(0.658824, 0.2, 0.701961, 1)
+energy = 0.79
+texture = SubResource("GradientTexture2D_fxawh")
