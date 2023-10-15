@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqq58cpd0qmmr"]
+[gd_scene load_steps=36 format=3 uid="uid://bqq58cpd0qmmr"]
 
 [ext_resource type="Script" path="res://scripts/lobby/lobby.gd" id="1_gqum2"]
 [ext_resource type="PackedScene" uid="uid://ckjeaagseaoj2" path="res://scenes/entities/player.tscn" id="1_xmift"]
@@ -17,15 +17,104 @@
 [ext_resource type="AudioStream" uid="uid://dobtwnyi43y4v" path="res://ressources/assets/audio/music/Synthwave  Cyberpunk Chill Synth - Fantasy by Karl Casey  Royalty Free No Copyright Music.mp3" id="13_iil5s"]
 [ext_resource type="PackedScene" uid="uid://dhelasfcah5gx" path="res://scenes/entities/props/rocks.tscn" id="16_mjl4t"]
 [ext_resource type="PackedScene" uid="uid://cnhvt3cgmy5ei" path="res://scenes/entities/props/special/level_selector.tscn" id="17_63suj"]
-[ext_resource type="PackedScene" uid="uid://bl5s3lwbfhm6g" path="res://scenes/entities/props/special/shop.tscn" id="17_k1x07"]
 [ext_resource type="PackedScene" uid="uid://cnjuqqgvrr66a" path="res://scenes/entities/props/fence.tscn" id="17_pgm32"]
 [ext_resource type="PackedScene" uid="uid://dsm5obhk18pk1" path="res://scenes/entities/props/special/sign.tscn" id="18_intx7"]
+[ext_resource type="Texture2D" uid="uid://bhk3r6tdh1ssi" path="res://ressources/assets/images/props/Vendor4.png" id="20_4ma1m"]
+[ext_resource type="Texture2D" uid="uid://deirkvbgoon27" path="res://ressources/assets/images/props/Signboard1.png" id="20_tslhr"]
+[ext_resource type="Script" path="res://scripts/items/props/pumpkin_neon.gd" id="21_3efne"]
+[ext_resource type="Texture2D" uid="uid://dcty3cfr5i62" path="res://ressources/assets/sprite/Shop1.png" id="22_3d267"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eupsm"]
 normal = Vector2(0.999742, -0.0227214)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mhcf1"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="Gradient" id="Gradient_w8hw8"]
+offsets = PackedFloat32Array(0, 0.504202, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ms4hn"]
+gradient = SubResource("Gradient_w8hw8")
+fill = 1
+fill_from = Vector2(0.495726, 0.538462)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_ueskx"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ndx60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aulhu"]
+_data = {
+"RESET": SubResource("Animation_ndx60"),
+"idle": SubResource("Animation_ueskx")
+}
+
+[sub_resource type="Animation" id="Animation_hqrah"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_en1f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17u1n"]
+_data = {
+"RESET": SubResource("Animation_en1f2"),
+"idle": SubResource("Animation_hqrah")
+}
 
 [sub_resource type="Gradient" id="Gradient_s0pdf"]
 
@@ -148,9 +237,6 @@ scale = Vector2(3.4, 3.4)
 texture = ExtResource("10_4hbnf")
 centered = false
 
-[node name="shop" parent="." instance=ExtResource("17_k1x07")]
-position = Vector2(-692, 266)
-
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
@@ -224,6 +310,46 @@ position = Vector2(951, 364)
 [node name="Tree_no_leaves3" parent="deco" instance=ExtResource("12_14kfv")]
 position = Vector2(1122, 265)
 scale = Vector2(1.295, 1.295)
+
+[node name="pumpkinLamp" type="Sprite2D" parent="deco"]
+texture_filter = 1
+position = Vector2(-742, 267)
+scale = Vector2(1.58, 1.58)
+texture = ExtResource("20_tslhr")
+script = ExtResource("21_3efne")
+
+[node name="PointLight2D" type="PointLight2D" parent="deco/pumpkinLamp"]
+position = Vector2(-1.8988, 1.26584)
+color = Color(0.882353, 0.447059, 0.0509804, 1)
+energy = 0.63
+texture = SubResource("GradientTexture2D_ms4hn")
+
+[node name="Shop" type="Sprite2D" parent="deco"]
+texture_filter = 1
+position = Vector2(-724, 340)
+scale = Vector2(1.515, 1.515)
+texture = ExtResource("20_4ma1m")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="deco/Shop"]
+autoplay = "idle"
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_aulhu")
+}
+
+[node name="Vendor" type="Sprite2D" parent="deco"]
+texture_filter = 1
+position = Vector2(-744, 333)
+scale = Vector2(1.415, 1.415)
+texture = ExtResource("22_3d267")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="deco/Vendor"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_17u1n")
+}
 
 [node name="LevelSelector" parent="." instance=ExtResource("17_63suj")]
 position = Vector2(606, 325)
