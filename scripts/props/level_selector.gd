@@ -27,6 +27,7 @@ var all_level_panel = []
 
 func _ready():
 	interface.hide()
+	portal_col.disabled = true
 #	$CanvasLayer/LevelInfo/AnimationPlayer.play("pop_in")
 	interaction_area.interact = Callable(self, "_open_level_menu")
 	portal_animation.play("disapear")
@@ -158,7 +159,7 @@ func generate_level_info(lvl):
 			if time == -1:
 				info += "???"
 			else:
-				info += str(time)
+				info += str(time) + " secondes"
 			info += "\n \n"
 		else:
 			print("time null")

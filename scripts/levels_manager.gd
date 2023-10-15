@@ -68,6 +68,12 @@ func get_level_time(level_id):
 	else:
 		return null
 		
+func set_level_time(level_id, time):
+	if levels.has(level_id) and levels[level_id].has("time"):
+		if levels[level_id]["time"] == -1 or levels[level_id]["time"] > time:
+			levels[level_id]["time"] = time
+			_save()
+		
 func get_level_objectives(level_id):
 	if levels.has(level_id):
 		return levels[level_id]["objectives"]

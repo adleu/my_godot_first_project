@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MVFG - Marcelin"
-run/main_scene="res://scenes/levels/lobby.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://ressources/assets/images/splash_stfg.png"

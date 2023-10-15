@@ -16,6 +16,9 @@ extends Node2D
 var jump_bonus_scene = preload("res://scenes/entities/items/bonus_jump_orb.tscn")
 var glide_bonus_scene = preload("res://scenes/entities/items/bonus_glider_orb.tscn")
 
+var level_time = 0.0
+var start_level_msec = 0.0
+
 
 var paused = false
 var orb_and_pos = []
@@ -34,8 +37,7 @@ func _ready():
 	follow_cam.limit_bottom = camera_bottom_limit
 	follow_cam.zoom = Vector2(player_camera_zoom, player_camera_zoom)
 	
-func run():
-	pass
+	start_level_msec = Time.get_ticks_msec()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,6 +50,7 @@ func _process(delta):
 func _on_ending_level_body_entered(body):
 	if not LevelsManager.is_objective_done(lvl_id, "completed"):
 		LevelsManager.level_objective_done(lvl_id, "completed")
+	LevelsManager.set_level_time(lvl_id, (Time.get_ticks_msec() - start_level_msec) / 1000.0)
 	
 	if not next_level is String:
 		return
