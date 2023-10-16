@@ -71,6 +71,8 @@ func _process(delta):
 	
 
 func _physics_process(delta):
+	if DialogManager.is_dialog_active:
+		return
 	
 	var horizontal_direction : Vector2 = input()
 	

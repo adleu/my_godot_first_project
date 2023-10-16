@@ -1,0 +1,150 @@
+[gd_scene load_steps=16 format=3 uid="uid://ccxcv3812w77k"]
+
+[ext_resource type="Script" path="res://scripts/props/shop_halloween.gd" id="1_tcga3"]
+[ext_resource type="Texture2D" uid="uid://deirkvbgoon27" path="res://ressources/assets/images/props/Signboard1.png" id="2_lrtkf"]
+[ext_resource type="Script" path="res://scripts/items/props/pumpkin_neon.gd" id="3_jdjuw"]
+[ext_resource type="Texture2D" uid="uid://bhk3r6tdh1ssi" path="res://ressources/assets/images/props/Vendor4.png" id="4_372qd"]
+[ext_resource type="Texture2D" uid="uid://dcty3cfr5i62" path="res://ressources/assets/sprite/Shop1.png" id="5_iwud8"]
+[ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="6_lmk2m"]
+
+[sub_resource type="Gradient" id="Gradient_w8hw8"]
+offsets = PackedFloat32Array(0, 0.504202, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efmic"]
+gradient = SubResource("Gradient_w8hw8")
+fill = 1
+fill_from = Vector2(0.495726, 0.538462)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Animation" id="Animation_ndx60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ueskx"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aulhu"]
+_data = {
+"RESET": SubResource("Animation_ndx60"),
+"idle": SubResource("Animation_ueskx")
+}
+
+[sub_resource type="Animation" id="Animation_en1f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hqrah"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17u1n"]
+_data = {
+"RESET": SubResource("Animation_en1f2"),
+"idle": SubResource("Animation_hqrah")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irgjj"]
+size = Vector2(97.5, 71)
+
+[node name="shop_halloween" type="Node2D"]
+script = ExtResource("1_tcga3")
+
+[node name="pumpkinLamp" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -66)
+scale = Vector2(1.58, 1.58)
+texture = ExtResource("2_lrtkf")
+script = ExtResource("3_jdjuw")
+
+[node name="PointLight2D" type="PointLight2D" parent="pumpkinLamp"]
+position = Vector2(-1.8988, 1.26584)
+color = Color(0.882353, 0.447059, 0.0509804, 1)
+energy = 0.63
+texture = SubResource("GradientTexture2D_efmic")
+
+[node name="Vendor" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19, 7)
+scale = Vector2(1.515, 1.515)
+texture = ExtResource("4_372qd")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vendor"]
+autoplay = "idle"
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_aulhu")
+}
+
+[node name="Shop" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.415, 1.415)
+texture = ExtResource("5_iwud8")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Shop"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_17u1n")
+}
+
+[node name="InteractionArea" parent="." instance=ExtResource("6_lmk2m")]
+visible = false
+position = Vector2(58, -30)
+action_name = "talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-53.75, 35.5)
+shape = SubResource("RectangleShape2D_irgjj")
+
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

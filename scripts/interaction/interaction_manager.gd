@@ -3,10 +3,12 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
-const base_text = "[left click] to "
+const base_text = "[e] to "
 
 var active_areas = []
 var can_interact = true
+var hide_label = false
+var interacting = false
 
 
 func register_area(area: InteractionsArea):
@@ -25,7 +27,10 @@ func _process(delta):
 		label.global_position.y -= 40
 		label.global_position.x += 40
 		label.global_position.x -= label.size.x / 2
-		label.show()
+		if !hide_label:
+			label.show()
+		else:
+			label.hide()
 	else:
 		label.hide()
 		
@@ -44,4 +49,15 @@ func _input(event):
 			await active_areas[0].interact.call()
 			
 			can_interact = true
+	
+func _change_label_visibility():
+	hide_label = ! hide_label
+	
+func update_interact_state(turn_on):
+	if !interacting and turn_on:
+		_change_label_visibility()
+		interacting = true
+	elif !turn_on and interacting:
+		_change_label_visibility()
+		interacting = false
 	

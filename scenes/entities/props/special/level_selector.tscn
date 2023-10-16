@@ -232,6 +232,21 @@ region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
 [sub_resource type="Theme" id="Theme_aa5wd"]
 default_font = ExtResource("6_h56cw")
 
+[sub_resource type="Animation" id="Animation_5nkkf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(442, -175)]
+}
+
 [sub_resource type="Animation" id="Animation_a3513"]
 resource_name = "pop_in"
 length = 0.4
@@ -246,21 +261,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(442, -175), Vector2(442, -29.2), Vector2(442, 82), Vector2(442, 73)]
-}
-
-[sub_resource type="Animation" id="Animation_5nkkf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(442, -175)]
 }
 
 [sub_resource type="Animation" id="Animation_8q26b"]
