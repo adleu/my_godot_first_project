@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cnhvt3cgmy5ei"]
+[gd_scene load_steps=56 format=3 uid="uid://cnhvt3cgmy5ei"]
 
 [ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
 [ext_resource type="Texture2D" uid="uid://cbrph4hnaku8n" path="res://ressources/assets/sprite/level_selector_machine.png" id="2_njcjx"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://co6vwaehyiak8" path="res://ressources/assets/images/One_Sheet.png" id="9_bqflj"]
 [ext_resource type="Script" path="res://scripts/props/LevelInfoPanel.gd" id="9_lirx1"]
 [ext_resource type="Texture2D" uid="uid://cpc2sfvuwhoro" path="res://ressources/assets/sprite/Purple Portal Sprite Sheet.png" id="9_o1w6q"]
+[ext_resource type="FontFile" uid="uid://b5vwpt0v684hb" path="res://ressources/fonts/Silver.ttf" id="11_75g2t"]
+[ext_resource type="FontFile" uid="uid://cyi1clo5j6hv6" path="res://ressources/fonts/Magero.ttf" id="12_vrf2x"]
 
 [sub_resource type="Animation" id="Animation_m6su3"]
 length = 0.001
@@ -229,8 +231,8 @@ texture_margin_right = 3.44098
 texture_margin_bottom = 8.90301
 region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
 
-[sub_resource type="Theme" id="Theme_aa5wd"]
-default_font = ExtResource("6_h56cw")
+[sub_resource type="Theme" id="Theme_lx7fr"]
+default_font = ExtResource("11_75g2t")
 
 [sub_resource type="Animation" id="Animation_5nkkf"]
 length = 0.001
@@ -649,7 +651,7 @@ anchor_bottom = 0.5
 offset_left = 442.0
 offset_top = -175.0
 offset_right = 652.0
-offset_bottom = 45.0002
+offset_bottom = 45.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -667,11 +669,9 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_52h0f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelInfoPanel/PanelContainer"]
-texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = SubResource("Theme_aa5wd")
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelInfoPanel/PanelContainer/VBoxContainer"]
 visible = false
@@ -682,12 +682,17 @@ size_flags_horizontal = 0
 texture_filter = 1
 custom_minimum_size = Vector2(140, 90)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("6_h56cw")
+theme = SubResource("Theme_lx7fr")
+theme_override_fonts/bold_font = ExtResource("12_vrf2x")
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
 text = "
 
 "
+fit_content = true
 scroll_active = false
+autowrap_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/LevelInfoPanel"]
 libraries = {

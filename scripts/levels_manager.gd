@@ -120,7 +120,20 @@ func is_level_unlocked(level_id) -> bool:
 
 	return true
 		
-#	for obj in objectives_to_unlock_level(level_id):
-#		if ! obj["statut"] :
-#			return false
-#	return true
+func add_level_objective(level_id, objective_name, objective_desc):
+	if levels.has(level_id):  # Vérifie si le niveau existe
+		if !levels[level_id].has("objectives"):
+			levels[level_id]["objectives"] = {}  # Crée un dictionnaire d'objectifs s'il n'existe pas
+
+		# Vérifie si l'objectif du même nom existe déjà
+		if !levels[level_id]["objectives"].has(objective_name):
+			# Crée un dictionnaire pour l'objectif
+			var objective = {
+				"statut": false,
+				"desc": objective_desc
+			}
+			
+			levels[level_id]["objectives"][objective_name] = objective
+			
+			_save()
+

@@ -35,6 +35,7 @@ func _on_options_button_pressed():
 func _on_quit_button_pressed():
 	#var main_scene = ResourceLoader.load("res://scenes/ui/main_menu.tscn")
 	#get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	DialogManager.kill_dialog()
 	hide()
 	StageManager.change_stage("res://scenes/ui/main_menu.tscn")
 	get_tree().paused = false

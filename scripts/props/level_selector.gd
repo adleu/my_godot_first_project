@@ -28,14 +28,11 @@ var all_level_panel = []
 func _ready():
 	interface.hide()
 	portal_col.disabled = true
-#	$CanvasLayer/LevelInfo/AnimationPlayer.play("pop_in")
 	interaction_area.interact = Callable(self, "_open_level_menu")
-	portal_animation.play("disapear")
 	for lvl in LevelsManager.levels:
 		if lvl != 0:
 			all_level_panel.append(level_info_panel.duplicate())
 			interface.add_child(all_level_panel[lvl-1])
-			all_level_panel[lvl-1].set_content(generate_level_info(lvl))
 	
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):
@@ -43,6 +40,9 @@ func _process(delta):
 			_on_cancel_pressed()
 			
 func _open_level_menu():
+	
+	_update_panel_content()
+			
 	if ongoing_animation:
 		audio_machine.play()
 		return
@@ -78,12 +78,10 @@ func _update_label():
 		else :
 			dest.modulate = Color(1, 1, 1, 0.337)
 
-
 func _on_area_2d_body_entered(body):
 	if current_selection != 0:
 		var level = "res://scenes/levels/level_" + str(current_selection) +".tscn"
 		StageManager.change_stage(level)
-
 
 func _on_ok_pressed():
 	if ! LevelsManager.is_level_unlocked(current_selection):
@@ -138,6 +136,11 @@ func _on_cancel_pressed():
 				
 	_update_label()
 	
+func _update_panel_content():
+	for lvl in LevelsManager.levels:
+		if lvl != 0:
+			all_level_panel[lvl-1].set_content(generate_level_info(lvl))
+			
 func _update_level_panel(direction):
 	if direction == 1:
 		all_level_panel[current_selection-1].move_down()
@@ -148,14 +151,13 @@ func _update_level_panel(direction):
 		all_level_panel[current_selection-2].move_up()
 	if direction == 0:
 		all_level_panel[current_selection].move_up()
-		
-	
+
 func generate_level_info(lvl):
 	var info = ""
 	if LevelsManager.is_level_unlocked(lvl):
 		var time = LevelsManager.get_level_time(lvl)
 		if time != null:
-			info += "[u]Time[/u]  "
+			info += "[b]Time[/b]  "
 			if time == -1:
 				info += "???"
 			else:
@@ -164,18 +166,18 @@ func generate_level_info(lvl):
 		else:
 			print("time null")
 		
-		info += "[u]Challenges [/u]\n\n"
+		info += "[b]Challenges [/b]\n"
 		for obj_name in LevelsManager.get_level_objectives(lvl):
 			var obj_data = LevelsManager.get_level_objectives(lvl)[obj_name]
 			if obj_data.has("statut") and obj_data["statut"] == true:
-				info += "[font color ='grey'] ✓  [/font]"
+				info += "[font color ='grey'][OK]  [/font]"
 			if obj_data.has("desc"):
 				if obj_data["statut"] == true:
 					info +="[font color ='grey']" + obj_data["desc"] + "[/font]"+ "\n"
 				else:
 					info += obj_data["desc"] + "\n"
 	else:
-		info += "[u]Required  [/u]\n\n"
+		info += "[b]Required  :[/b]\n\n"
 		var otu = LevelsManager.objectives_to_unlock_level(lvl)
 		for objective in otu:
 			var level_id = objective[0]

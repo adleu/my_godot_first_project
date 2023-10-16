@@ -57,3 +57,10 @@ func _continue_dialog():
 			return 
 	
 		_show_text_box()
+
+func kill_dialog():
+	if is_instance_valid(text_box):
+		text_box.queue_free()
+	is_dialog_active = false
+	current_line_index = 0
+	is_dialog_finished = true

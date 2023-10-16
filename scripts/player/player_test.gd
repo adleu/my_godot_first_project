@@ -72,6 +72,10 @@ func _process(delta):
 
 func _physics_process(delta):
 	if DialogManager.is_dialog_active:
+		velocity.x = 0
+		velocity.y += gravity
+		ap.play("idle")
+		move_and_slide()
 		return
 	
 	var horizontal_direction : Vector2 = input()
