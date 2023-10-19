@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbi06jaqvxl1m"]
+[gd_scene load_steps=17 format=3 uid="uid://dbi06jaqvxl1m"]
 
-[ext_resource type="Script" path="res://scripts/UI.gd" id="1_6ipjg"]
+[ext_resource type="Script" path="res://scripts/ui/UI.gd" id="1_u0oqa"]
 [ext_resource type="FontFile" uid="uid://c23abofpdjj8f" path="res://ressources/assets/fonts/Magero.ttf" id="2_ikyr3"]
 [ext_resource type="Texture2D" uid="uid://dw0yqdsb4jrt8" path="res://ressources/assets/running-man.png" id="3_xktpj"]
 [ext_resource type="Texture2D" uid="uid://b5u57v2j0gnd" path="res://ressources/assets/images/GUI.png" id="4_ykjqa"]
+[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="5_e2m8t"]
 [ext_resource type="FontFile" uid="uid://cyi1clo5j6hv6" path="res://ressources/fonts/Magero.ttf" id="5_s67nx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhse4"]
@@ -29,6 +30,9 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 region_rect = Rect2(48, 96, 32, 32)
+
+[sub_resource type="Theme" id="Theme_g8vqo"]
+default_font = ExtResource("5_e2m8t")
 
 [sub_resource type="Theme" id="Theme_jwi4c"]
 default_font = ExtResource("5_s67nx")
@@ -108,8 +112,8 @@ _data = {
 "slide_in": SubResource("Animation_3yruk")
 }
 
-[node name="UI" type="CanvasLayer"]
-script = ExtResource("1_6ipjg")
+[node name="UI" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_u0oqa")
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
@@ -175,7 +179,7 @@ theme_override_constants/margin_bottom = 16
 [node name="Control" type="Control" parent="Control2/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/MarginContainer/Control"]
 layout_mode = 2
 offset_right = 608.0
 offset_bottom = 14.0
@@ -185,6 +189,12 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("2_ikyr3")
+
+[node name="Label" type="Label" parent="Control2/MarginContainer/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
 
 [node name="inventory" type="HBoxContainer" parent="Control2/MarginContainer/Control"]
 z_index = 3
@@ -221,6 +231,7 @@ offset_left = -32.0
 offset_bottom = 32.0
 grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_g8vqo")
 
 [node name="RunIcon" type="TextureRect" parent="Control2/MarginContainer/Control/VBoxContainer2"]
 visible = false

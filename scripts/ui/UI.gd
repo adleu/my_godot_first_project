@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var bonus_panel = $Control2/VboxPanel
 @onready var panel_slide_animation = $BonusPanelAnimation
 @onready var label_description = $Control2/Descritpion/desc1
+@onready var label_top_right = $Control2/MarginContainer/Control/VBoxContainer/Label
 
 @onready var slot1 = $Control2/VboxPanel/BonusPanel/slots/slot1
 @onready var slot2 = $Control2/VboxPanel/BonusPanel/slots/slot2
@@ -39,7 +40,8 @@ func _enter_tree():
 	get_tree().get_first_node_in_group("player").run.connect(toggle_run_icon)
 
 func toggle_run_icon(): 
-	run_icon.visible = ! run_icon.visible
+	pass
+#	run_icon.visible = ! run_icon.visible
 	
 func set_level_label(text):
 	level_label.text = text
@@ -106,4 +108,12 @@ func _on_slot_2_mouse_entered():
 
 func _on_slot_3_mouse_entered():
 	_slot_mouse_enterded(2)
+	
+func edit_text_top_right(text : String):
+	if text == "" or text == null:
+		label_top_right.hide()
+	else:
+		label_top_right.text = text
+		label_top_right.show()
+		
 

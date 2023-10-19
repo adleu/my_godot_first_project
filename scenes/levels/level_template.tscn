@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b82xmmri74thg"]
 
-[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_g2fvb"]
+[ext_resource type="Script" path="res://scripts/levels/level_template.gd" id="1_4o74q"]
 [ext_resource type="PackedScene" uid="uid://cgyxcgq7b0v67" path="res://scenes/tile_map.tscn" id="1_j3emh"]
 [ext_resource type="PackedScene" uid="uid://ckjeaagseaoj2" path="res://scenes/entities/player.tscn" id="2_33u1t"]
 [ext_resource type="PackedScene" uid="uid://crextm2efnc02" path="res://scenes/levels/end_level_area.tscn" id="3_1x22n"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vsciytrepm8n" path="res://scenes/ui/pause.tscn" id="6_ol7fk"]
 
 [node name="level_template" type="Node2D"]
-script = ExtResource("1_g2fvb")
+script = ExtResource("1_4o74q")
 player_camera_zoom = 0.8
 
 [node name="TileMap" parent="." instance=ExtResource("1_j3emh")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://vsciytrepm8n"]
 
 [ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="1_bwx2g"]
-[ext_resource type="Script" path="res://scripts/pause.gd" id="1_js0xf"]
+[ext_resource type="Script" path="res://scripts/ui/pause.gd" id="1_ic5wy"]
 [ext_resource type="PackedScene" uid="uid://cgl30ut86d8od" path="res://scenes/ui/MenuOption.tscn" id="3_x6ptf"]
 [ext_resource type="AudioStream" uid="uid://b2k84l6f45ip0" path="res://ressources/assets/audio/Electronic bip 3.wav" id="4_8rqh3"]
 
@@ -46,7 +46,7 @@ _data = {
 process_mode = 3
 layer = 9
 visible = false
-script = ExtResource("1_js0xf")
+script = ExtResource("1_ic5wy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgl30ut86d8od"]
 
-[ext_resource type="Script" path="res://scripts/menu_option.gd" id="1_ftqak"]
+[ext_resource type="Script" path="res://scripts/ui/menu_option.gd" id="1_ftqak"]
 [ext_resource type="AudioStream" uid="uid://b2k84l6f45ip0" path="res://ressources/assets/audio/Electronic bip 3.wav" id="3_w4le7"]
 [ext_resource type="Theme" uid="uid://duvsd7ylqvfdg" path="res://ressources/themes/default_theme.tres" id="6_mhknh"]
 

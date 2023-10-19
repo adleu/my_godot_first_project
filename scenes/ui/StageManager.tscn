@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dk6nri6nd6frt"]
 
-[ext_resource type="Script" path="res://scripts/StageManager.gd" id="1_k5i2w"]
+[ext_resource type="Script" path="res://scripts/global/StageManager.gd" id="1_k5i2w"]
 [ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="2_ysaa2"]
 
 [sub_resource type="Animation" id="Animation_kdmqp"]

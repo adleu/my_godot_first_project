@@ -52,6 +52,12 @@ func _on_ending_level_body_entered(body):
 		LevelsManager.level_objective_done(lvl_id, "completed")
 	LevelsManager.set_level_time(lvl_id, (Time.get_ticks_msec() - start_level_msec) / 1000.0)
 	
+	var nodes = get_tree().get_nodes_in_group("before_ending_level")
+	for node in nodes:
+		if node.has_method("before_ending_level"):
+			var node_data = node.call("before_ending_level")
+		
+	
 	if not next_level is String:
 		return
 		
