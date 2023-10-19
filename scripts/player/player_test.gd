@@ -23,7 +23,7 @@ signal run
 signal ui_add_bonus
 signal ui_remove_bonus
 
-var running =  Global.running
+var running =  true
 var last_y_velocity = 0
 var jump_pressed = false
 var gravity = default_gravity
@@ -88,8 +88,8 @@ func _physics_process(delta):
 	update_animation(horizontal_direction)
 	
 	#run
-	if Input.is_action_just_pressed("toggle_run"):
-		toggle_run()
+#	if Input.is_action_just_pressed("toggle_run"):
+#		toggle_run()
 		
 		
 	if is_ready_to_bounce():
@@ -137,9 +137,10 @@ func is_ready_to_bounce():
 		
 		
 func toggle_run():
-	run.emit()
-	Global.change_run_state()
-	running = !running
+	pass
+#	run.emit()
+#	Global.change_run_state()
+#	running = !running
 		
 		
 func add_friction():

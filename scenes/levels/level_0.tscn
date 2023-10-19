@@ -510,6 +510,7 @@ position = Vector2(-164, 4)
 position = Vector2(3556, 86)
 
 [node name="SignShiftToRun" type="Sprite2D" parent="Node2D" index="7"]
+visible = false
 texture_filter = 1
 position = Vector2(-520, 137)
 scale = Vector2(2, 2)
