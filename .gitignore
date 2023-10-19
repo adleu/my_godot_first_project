@@ -31,3 +31,5 @@ export_presets.cfg
 *.cfg
 
 save.ini
+levels.ini
+*.save

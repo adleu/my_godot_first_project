@@ -12,11 +12,16 @@ class_name  LevelSelector
 @onready var audio_machine_on = $machine/AudioMachineOn
 @onready var audio_machine_scroll = $machine/AudioMachineScroll
 @onready var level_info_panel  = $CanvasLayer/LevelInfoPanel
-
-
 @onready var player = get_tree().get_first_node_in_group("player")
 
-var level_names = Global.level_names
+var level_name_mapping := {
+	"levels": LevelsManager.levels,
+	"special" : LevelsManager.special_levels
+}
+
+@export var level_type_export_string : String = "levels"
+var level_type
+
 var current_selection = 0
 var last_selection = current_selection
 var ongoing_animation = false
@@ -26,10 +31,11 @@ var all_level_panel = []
 
 
 func _ready():
+	level_type = level_name_mapping[level_type_export_string]
 	interface.hide()
 	portal_col.disabled = true
 	interaction_area.interact = Callable(self, "_open_level_menu")
-	for lvl in LevelsManager.levels:
+	for lvl in level_type:
 		if lvl != 0:
 			all_level_panel.append(level_info_panel.duplicate())
 			interface.add_child(all_level_panel[lvl-1])
@@ -61,7 +67,7 @@ func _on_left_pressed():
 			_update_level_panel(-1)
 
 func _on_right_pressed():
-	if current_selection < LevelsManager.levels.size() - 1: # -1 for level 0
+	if current_selection < level_type.size() - 1: # -1 for level 0
 		audio_machine_scroll.play()
 		current_selection += 1
 		_update_label()
@@ -72,19 +78,20 @@ func _update_label():
 		dest.text = "None"
 		dest.modulate = Color(1, 1, 1)
 	else :
-		dest.text = LevelsManager.get_level_name(current_selection)
-		if LevelsManager.is_level_unlocked(current_selection):
+		dest.text = LevelsManager.get_level_name(current_selection, level_type)
+		if LevelsManager.is_level_unlocked(current_selection, level_type):
 			dest.modulate = Color(1, 1, 1)
 		else :
 			dest.modulate = Color(1, 1, 1, 0.337)
 
 func _on_area_2d_body_entered(body):
 	if current_selection != 0:
-		var level = "res://scenes/levels/level_" + str(current_selection) +".tscn"
+		
+		var level = "res://scenes/levels/" + LevelsManager.get_prefix(level_type)+ "level_" + str(current_selection) +".tscn"
 		StageManager.change_stage(level)
 
 func _on_ok_pressed():
-	if ! LevelsManager.is_level_unlocked(current_selection):
+	if ! LevelsManager.is_level_unlocked(current_selection, level_type):
 		audio_machine.play()
 		return
 		
@@ -137,7 +144,7 @@ func _on_cancel_pressed():
 	_update_label()
 	
 func _update_panel_content():
-	for lvl in LevelsManager.levels:
+	for lvl in level_type:
 		if lvl != 0:
 			all_level_panel[lvl-1].set_content(generate_level_info(lvl))
 			
@@ -154,36 +161,46 @@ func _update_level_panel(direction):
 
 func generate_level_info(lvl):
 	var info = ""
-	if LevelsManager.is_level_unlocked(lvl):
-		var time = LevelsManager.get_level_time(lvl)
-		if time != null:
-			info += "[b]Time[/b]  "
-			if time == -1:
-				info += "???"
+	if LevelsManager.is_level_unlocked(lvl, level_type):
+		var time = LevelsManager.get_level_time(lvl, level_type)
+			
+		if time != null and time != -1:
+			var minutes = int(time / 60)
+			var seconds = int(time) % 60
+			var milliseconds = int((time - int(time)) * 100)
+			var time_text = ""
+			
+			if minutes == 0:
+				var rounded_seconds = int(seconds * 100) / 100  # Arrondir à deux décimales
+				time_text = str(rounded_seconds) + " s " + str(milliseconds)
 			else:
-				info += str(time) + " secondes"
+				var rounded_seconds = int(seconds * 100) / 100  # Arrondir à deux décimales
+				time_text = str(minutes) + " m  " + str(rounded_seconds) + " s " + str(milliseconds)
+			
+			info += "[b]Time[/b]  "
+			info += time_text
+#			info += str(time) + " secondes"
 			info += "\n \n"
-		else:
-			print("time null")
 		
-		info += "[b]Challenges [/b]\n"
-		for obj_name in LevelsManager.get_level_objectives(lvl):
-			var obj_data = LevelsManager.get_level_objectives(lvl)[obj_name]
-			if obj_data.has("statut") and obj_data["statut"] == true:
-				info += "[font color ='grey'][OK]  [/font]"
-			if obj_data.has("desc"):
-				if obj_data["statut"] == true:
-					info +="[font color ='grey']" + obj_data["desc"] + "[/font]"+ "\n"
-				else:
-					info += obj_data["desc"] + "\n"
+		if level_type[lvl].has("objectives"):
+			info += "[b]Challenges [/b]\n"
+			for obj_name in LevelsManager.get_level_objectives(lvl, level_type):
+				var obj_data = LevelsManager.get_level_objectives(lvl, level_type)[obj_name]
+				if obj_data.has("statut") and obj_data["statut"] == true:
+					info += "[font color ='grey'][OK]  [/font]"
+				if obj_data.has("desc"):
+					if obj_data["statut"] == true:
+						info +="[font color ='grey']" + obj_data["desc"] + "[/font]"+ "\n"
+					else:
+						info += obj_data["desc"] + "\n"
 	else:
 		info += "[b]Required  :[/b]\n\n"
-		var otu = LevelsManager.objectives_to_unlock_level(lvl)
+		var otu = LevelsManager.objectives_to_unlock_level(lvl, level_type)
 		for objective in otu:
 			var level_id = objective[0]
 			var objective_name = objective[1]
-			var level_name = LevelsManager.get_level_name(level_id)
-			var objective_desc = LevelsManager.get_level_objectives(level_id)[objective_name]["desc"]
+			var level_name = LevelsManager.get_level_name(level_id, level_type)
+			var objective_desc = LevelsManager.get_level_objectives(level_id, level_type)[objective_name]["desc"]
 			info += level_name + " : " + objective_desc + "\n"
 			
 	return info

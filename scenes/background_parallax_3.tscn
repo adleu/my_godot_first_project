@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsjoqk0x3mdym"]
+[gd_scene load_steps=5 format=3 uid="uid://cl65omb1q6okb"]
 
 [ext_resource type="Texture2D" uid="uid://bwys0rurrbpop" path="res://ressources/assets/background/BG_02/parallax-forest-back-trees.png" id="1_1vh0n"]
 [ext_resource type="Texture2D" uid="uid://xb75cdtlpm51" path="res://ressources/assets/background/BG_02/parallax-forest-lights.png" id="2_fpkfk"]

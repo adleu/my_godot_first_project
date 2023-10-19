@@ -7,9 +7,14 @@ extends Node2D
 @onready var landmark = $Control/landmark
 @onready var light = $PointLight2D
 
+@export var on = true
+
 var player
 
 func _ready():
+	if ! on:
+		queue_free()
+		return
 	landmark.queue_free()
 	
 	player = get_tree().get_first_node_in_group("player")

@@ -1,18 +1,18 @@
-[gd_scene load_steps=56 format=3 uid="uid://cnhvt3cgmy5ei"]
+[gd_scene load_steps=56 format=3 uid="uid://d15fpvdx8846f"]
 
-[ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_mv8lg"]
-[ext_resource type="Texture2D" uid="uid://cbrph4hnaku8n" path="res://ressources/assets/sprite/level_selector_machine.png" id="2_njcjx"]
-[ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="3_1j4e5"]
-[ext_resource type="Texture2D" uid="uid://2emjmnc2yc3a" path="res://ressources/assets/sprite/level_selector_machine_door.png" id="3_w3efr"]
-[ext_resource type="AudioStream" uid="uid://dr2ps7gyh4ark" path="res://ressources/assets/audio/effect/interface_rejected.wav" id="4_t6me4"]
-[ext_resource type="AudioStream" uid="uid://dinf2sw5kpnab" path="res://ressources/assets/audio/effect/machine_on.wav" id="5_nemb4"]
-[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="6_h56cw"]
-[ext_resource type="AudioStream" uid="uid://bhvogjcwt2lvt" path="res://ressources/assets/audio/effect/machine_scroll.wav" id="6_my32g"]
-[ext_resource type="Texture2D" uid="uid://co6vwaehyiak8" path="res://ressources/assets/images/One_Sheet.png" id="9_bqflj"]
-[ext_resource type="Script" path="res://scripts/props/LevelInfoPanel.gd" id="9_lirx1"]
-[ext_resource type="Texture2D" uid="uid://cpc2sfvuwhoro" path="res://ressources/assets/sprite/Purple Portal Sprite Sheet.png" id="9_o1w6q"]
-[ext_resource type="FontFile" uid="uid://b5vwpt0v684hb" path="res://ressources/fonts/Silver.ttf" id="11_75g2t"]
-[ext_resource type="FontFile" uid="uid://cyi1clo5j6hv6" path="res://ressources/fonts/Magero.ttf" id="12_vrf2x"]
+[ext_resource type="Script" path="res://scripts/props/level_selector.gd" id="1_bskcl"]
+[ext_resource type="Texture2D" uid="uid://cwolnxb6fjp7d" path="res://ressources/assets/images/props/level_selectore_special.png" id="2_bybcg"]
+[ext_resource type="Texture2D" uid="uid://2emjmnc2yc3a" path="res://ressources/assets/sprite/level_selector_machine_door.png" id="3_f2txf"]
+[ext_resource type="AudioStream" uid="uid://dr2ps7gyh4ark" path="res://ressources/assets/audio/effect/interface_rejected.wav" id="4_rqmj4"]
+[ext_resource type="AudioStream" uid="uid://dinf2sw5kpnab" path="res://ressources/assets/audio/effect/machine_on.wav" id="5_v1iov"]
+[ext_resource type="AudioStream" uid="uid://bhvogjcwt2lvt" path="res://ressources/assets/audio/effect/machine_scroll.wav" id="6_al2sm"]
+[ext_resource type="PackedScene" uid="uid://bv60ljro0i1uk" path="res://scenes/interaction/interaction area/interaction_area.tscn" id="7_r80i2"]
+[ext_resource type="Texture2D" uid="uid://co6vwaehyiak8" path="res://ressources/assets/images/One_Sheet.png" id="8_5pvkf"]
+[ext_resource type="FontFile" uid="uid://cokxfsrucfycg" path="res://ressources/fonts/monogram.ttf" id="9_hefk7"]
+[ext_resource type="Script" path="res://scripts/props/LevelInfoPanel.gd" id="10_khuwu"]
+[ext_resource type="FontFile" uid="uid://b5vwpt0v684hb" path="res://ressources/fonts/Silver.ttf" id="11_gco8t"]
+[ext_resource type="FontFile" uid="uid://cyi1clo5j6hv6" path="res://ressources/fonts/Magero.ttf" id="12_2utn3"]
+[ext_resource type="Texture2D" uid="uid://cw77xmnckwu1u" path="res://ressources/assets/sprite/Green Portal Sprite Sheet.png" id="13_ue475"]
 
 [sub_resource type="Animation" id="Animation_m6su3"]
 length = 0.001
@@ -31,7 +31,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_y85jw"]
 resource_name = "idle"
-length = 7.7
+length = 3.35
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -40,10 +40,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lulp"]
@@ -97,25 +97,27 @@ content_margin_left = 14.0
 content_margin_top = 8.0
 content_margin_right = 14.0
 content_margin_bottom = 6.0
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 5.04615
 texture_margin_top = 5.61994
 texture_margin_right = 3.44098
 texture_margin_bottom = 8.90301
 region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
+modulate_color = Color(0.607843, 1, 0.639216, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58787"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 5.04615
 texture_margin_top = 5.61994
 texture_margin_right = 3.44098
 texture_margin_bottom = 8.90301
 region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
+modulate_color = Color(0.607843, 1, 0.639216, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_prok3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eel81"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.32418
 texture_margin_top = 3.64853
 texture_margin_right = 2.56748
@@ -123,7 +125,7 @@ texture_margin_bottom = 2.56748
 region_rect = Rect2(119.616, 86.1757, 16.9751, 16.7575)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hnrqr"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 3.86474
 texture_margin_top = 4.05392
 texture_margin_right = 2.83774
@@ -131,7 +133,7 @@ texture_margin_bottom = 1.78372
 region_rect = Rect2(136, 86, 16, 17)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_357uu"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 3.82998
 texture_margin_top = 4.40376
 texture_margin_right = 3.0
@@ -141,15 +143,16 @@ region_rect = Rect2(136, 86, 16, 17)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hshjw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqm5k"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 3.0
 texture_margin_top = 4.67538
 texture_margin_right = 2.69788
 texture_margin_bottom = 2.51802
 region_rect = Rect2(153.872, 16.1371, 42.0428, 12.2304)
+modulate_color = Color(0.607843, 1, 0.639216, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nu3k1"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.05392
 texture_margin_top = 3.78366
 texture_margin_right = 2.16209
@@ -157,7 +160,7 @@ texture_margin_bottom = 1.62157
 region_rect = Rect2(119.543, 69.0765, 16.8913, 15.9454)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5etxr"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 3.78366
 texture_margin_top = 3.91879
 texture_margin_right = 2.43235
@@ -165,7 +168,7 @@ texture_margin_bottom = 2.29722
 region_rect = Rect2(136, 68, 17, 17)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k1kwj"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.64076
 texture_margin_top = 4.26863
 texture_margin_right = 2.35993
@@ -175,7 +178,7 @@ region_rect = Rect2(136.693, 68.7305, 16.3508, 16.6211)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deopx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvtd1"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.05392
 texture_margin_top = 4.18905
 texture_margin_right = 2.29722
@@ -183,11 +186,11 @@ texture_margin_bottom = 2.16209
 region_rect = Rect2(119.318, 119.94, 17.0866, 16.7269)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5djc"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 region_rect = Rect2(136.822, 120.081, 15.8103, 15.4049)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtbcv"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.64076
 texture_margin_top = 4.26863
 texture_margin_right = 2.35993
@@ -197,7 +200,7 @@ region_rect = Rect2(119.533, 120.347, 16.0805, 15.9454)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75xvv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bshjq"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 3.91879
 texture_margin_top = 3.37826
 texture_margin_right = 2.56748
@@ -205,11 +208,11 @@ texture_margin_bottom = 1.89183
 region_rect = Rect2(119.663, 103.459, 16.8913, 16.0805)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64knw"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 region_rect = Rect2(136.554, 103.057, 16.4859, 15.9454)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxiqn"]
-texture = ExtResource("9_bqflj")
+texture = ExtResource("8_5pvkf")
 texture_margin_left = 4.64076
 texture_margin_top = 4.26863
 texture_margin_right = 2.35993
@@ -232,7 +235,7 @@ texture_margin_bottom = 8.90301
 region_rect = Rect2(153.266, 28.1224, 111.782, 56.7814)
 
 [sub_resource type="Theme" id="Theme_lx7fr"]
-default_font = ExtResource("11_75g2t")
+default_font = ExtResource("11_gco8t")
 
 [sub_resource type="Animation" id="Animation_5nkkf"]
 length = 0.001
@@ -308,34 +311,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_o1w6q")]
+"values": [8]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/path = NodePath("Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -405,46 +396,10 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("9_o1w6q")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -460,24 +415,25 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_awgwx"]
-offsets = PackedFloat32Array(0.440433, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.0374332, 0.973262, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.133793, 0.133793, 0.133793, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rj3yy"]
 gradient = SubResource("Gradient_awgwx")
 fill = 1
-fill_from = Vector2(0.538462, 0.529915)
+fill_from = Vector2(0.5, 0.538462)
 fill_to = Vector2(1, 1)
 
-[node name="LevelSelector" type="Node2D"]
-script = ExtResource("1_mv8lg")
+[node name="SpecialLevelSelector" type="Node2D"]
+script = ExtResource("1_bskcl")
+level_type_export_string = "special"
 
 [node name="machine" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2.06, 2.06)
-texture = ExtResource("2_njcjx")
-hframes = 9
-vframes = 9
+texture = ExtResource("2_bybcg")
+hframes = 6
+vframes = 6
 
 [node name="AnimationMachine" type="AnimationPlayer" parent="machine"]
 autoplay = "idle"
@@ -486,7 +442,7 @@ libraries = {
 }
 
 [node name="machine_door" type="Sprite2D" parent="machine"]
-texture = ExtResource("3_w3efr")
+texture = ExtResource("3_f2txf")
 hframes = 4
 vframes = 5
 frame = 19
@@ -500,25 +456,25 @@ libraries = {
 [node name="AudioMachine" type="AudioStreamPlayer2D" parent="machine"]
 position = Vector2(-0.970874, -4.85437)
 scale = Vector2(0.485437, 0.485437)
-stream = ExtResource("4_t6me4")
+stream = ExtResource("4_rqmj4")
 volume_db = -25.0
 
 [node name="AudioMachineOn" type="AudioStreamPlayer2D" parent="machine"]
 position = Vector2(-0.970874, -4.85437)
 scale = Vector2(0.485437, 0.485437)
-stream = ExtResource("5_nemb4")
+stream = ExtResource("5_v1iov")
 volume_db = -25.0
 
 [node name="AudioMachineScroll" type="AudioStreamPlayer2D" parent="machine"]
 position = Vector2(-0.485437, -1.45631)
-stream = ExtResource("6_my32g")
+stream = ExtResource("6_al2sm")
 volume_db = -25.0
 
-[node name="InteractionArea" parent="." instance=ExtResource("3_1j4e5")]
-position = Vector2(25, -35)
+[node name="InteractionArea" parent="." instance=ExtResource("7_r80i2")]
+position = Vector2(16, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-24, 68)
+position = Vector2(-16, 48)
 shape = SubResource("RectangleShape2D_pnxmb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -537,6 +493,10 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -107.5
+offset_right = -1.0
+offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -561,7 +521,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qmhbk")
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("6_h56cw")
+theme_override_fonts/font = ExtResource("9_hefk7")
 text = "DESTINATION"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2"]
@@ -588,6 +548,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = -1
 
 [node name="left" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.607843, 1, 0.639216, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_eel81")
@@ -607,12 +568,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_h56cw")
+theme_override_fonts/font = ExtResource("9_hefk7")
 text = "None"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="right" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.607843, 1, 0.639216, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_nu3k1")
@@ -621,6 +583,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_k1kwj")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_deopx")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer2/HBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color(0.607843, 1, 0.639216, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -648,10 +611,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 442.0
-offset_top = -175.0
-offset_right = 652.0
-offset_bottom = 45.0
+offset_left = -198.0
+offset_top = -355.0
+offset_right = 12.0
+offset_bottom = -135.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -659,9 +622,10 @@ size_flags_vertical = 8
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
-script = ExtResource("9_lirx1")
+script = ExtResource("10_khuwu")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LevelInfoPanel"]
+self_modulate = Color(0.607843, 1, 0.639216, 1)
 custom_minimum_size = Vector2(160, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -683,7 +647,7 @@ texture_filter = 1
 custom_minimum_size = Vector2(140, 90)
 layout_mode = 2
 theme = SubResource("Theme_lx7fr")
-theme_override_fonts/bold_font = ExtResource("12_vrf2x")
+theme_override_fonts/bold_font = ExtResource("12_2utn3")
 theme_override_font_sizes/normal_font_size = 13
 theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
@@ -708,7 +672,7 @@ collision_mask = 3
 texture_filter = 1
 position = Vector2(98, 12)
 scale = Vector2(1.65, 1.65)
-texture = ExtResource("9_o1w6q")
+texture = ExtResource("13_ue475")
 hframes = 8
 vframes = 3
 frame = 23
@@ -725,7 +689,7 @@ libraries = {
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, -8)
 enabled = false
-color = Color(0.478431, 0.294118, 0.686275, 1)
+color = Color(0, 0.52549, 0, 1)
 texture = SubResource("GradientTexture2D_rj3yy")
 texture_scale = 3.1
 

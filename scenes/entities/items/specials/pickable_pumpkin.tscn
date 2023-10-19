@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://3l7as03ebr77"]
+[gd_scene load_steps=8 format=3 uid="uid://3l7as03ebr77"]
 
-[node name="pickable_pumpkin" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/props/pickable_pumpkin.gd" id="1_5utkx"]
+[ext_resource type="Texture2D" uid="uid://b7xphpjsr6i7k" path="res://ressources/assets/images/props/Pumpkin1.png" id="2_03k8s"]
+[ext_resource type="AudioStream" uid="uid://bv63a0oi8s4y2" path="res://ressources/assets/audio/effect/pickup_1.wav" id="3_a6bv8"]
+
+[sub_resource type="Animation" id="Animation_arvsf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dbnr2"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0phtp"]
+_data = {
+"RESET": SubResource("Animation_arvsf"),
+"idle": SubResource("Animation_dbnr2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7fxuo"]
+
+[node name="PickablePumpkin" type="Area2D" groups=["Persist", "pickable_pumpkin"]]
+texture_filter = 1
+collision_mask = 3
+input_pickable = false
+script = ExtResource("1_5utkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.384314, 0, 1)
+scale = Vector2(0.825, 0.825)
+texture = ExtResource("2_03k8s")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_0phtp")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_7fxuo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a6bv8")
+volume_db = -20.0
+pitch_scale = 1.29
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

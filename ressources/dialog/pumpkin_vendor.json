@@ -33,5 +33,31 @@
 		[
 			"You can do it !"
 		]
-	]
+	],
+	"4": [
+		[
+			"Well done my best friend the shroom !",
+			"...",
+			"Yes yes the surprise, ahaghahahaha",
+			"I have another request before that if you don't mind... and I know you don't eheh.",
+			"There are some pumpkins left on Serenity Summit, can you grab them for me ?",
+			"See you soon."	
+		]
+	],
+	"5": [
+		[
+			"I'll be waiting, don't worry."
+		],
+		[
+			"Do my special challenge on Serenity Summit for a suprise!",
+			"Bye."
+		],
+		[
+			"You can do it, best friend."
+		]
+	],
+	"6":
+		[
+			"good"
+		]
 }
