@@ -1,0 +1,10 @@
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":56,"pos_y":256,"visible":true,"z_index":-2}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":8,"pos_y":-40,"visible":true,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":360,"pos_y":240,"visible":false,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":4064,"pos_y":16,"visible":true,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":2256,"pos_y":168,"visible":true,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":3728,"pos_y":384,"visible":true,"z_index":-2}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":3712,"pos_y":312,"visible":true,"z_index":-2}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":4560,"pos_y":48,"visible":true,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":5056,"pos_y":-104,"visible":true,"z_index":0}
+{"filename":"res://scenes/entities/items/specials/pickable_pumpkin.tscn","parent":"/root/level_template/PumpkinChallenge","pos_x":-760,"pos_y":136,"visible":false,"z_index":0}

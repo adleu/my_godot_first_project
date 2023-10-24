@@ -14,7 +14,7 @@ class_name  LevelSelector
 @onready var level_info_panel  = $CanvasLayer/LevelInfoPanel
 @onready var player = get_tree().get_first_node_in_group("player")
 
-var level_name_mapping := {
+@onready var level_name_mapping := {
 	"levels": LevelsManager.levels,
 	"special" : LevelsManager.special_levels
 }

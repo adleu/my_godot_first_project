@@ -8,6 +8,7 @@ extends Node2D
 @export var player_camera_zoom: float
 @export var camera_bottom_limit = 1000000
 @export var camera_top_limit = 0
+@export var level_type_string = "levels"
 
 @export var respawning_orb = false
 
@@ -15,6 +16,10 @@ extends Node2D
 @onready var follow_cam = $Camera2D
 var jump_bonus_scene = preload("res://scenes/entities/items/bonus_jump_orb.tscn")
 var glide_bonus_scene = preload("res://scenes/entities/items/bonus_glider_orb.tscn")
+const utils_level_name_preload = preload("res://scripts/utils/level_name_mapping.gd")
+
+
+var level_type
 
 var level_time = 0.0
 var start_level_msec = 0.0
@@ -25,17 +30,18 @@ var orb_and_pos = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	level_type = utils_level_name_preload.new().get_level_from_string(level_type_string)
 	if respawning_orb:
 		for node in get_tree().get_nodes_in_group("bonus_orb"):
 			node.visibility_changed.connect(_bonus_taken.bind(node))
 		get_tree().get_first_node_in_group("player").ui_remove_bonus.connect(_bonus_used)
 #	
 		
-	$UI.set_level_label(LevelsManager.get_level_name(lvl_id))
+	$UI.set_level_label(LevelsManager.get_level_name(lvl_id, level_type))
 	
-	follow_cam.limit_top = camera_top_limit
-	follow_cam.limit_bottom = camera_bottom_limit
-	follow_cam.zoom = Vector2(player_camera_zoom, player_camera_zoom)
+#	follow_cam.limit_top = camera_top_limit
+#	follow_cam.limit_bottom = camera_bottom_limit
+#	follow_cam.zoom = Vector2(player_camera_zoom, player_camera_zoom)
 	
 	start_level_msec = Time.get_ticks_msec()
 

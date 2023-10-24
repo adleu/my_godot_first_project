@@ -50,8 +50,11 @@ position = Vector2(6186, 60)
 position = Vector2(1694.2, 198.383)
 scale = Vector2(0.95, 0.95)
 offset = Vector2(80, 0)
+zoom = Vector2(0.75, 0.75)
 process_callback = 0
+limit_top = 360
 limit_right = 6688
+limit_bottom = 0
 limit_smoothed = true
 
 [node name="Music" type="AudioStreamPlayer" parent="." index="6" groups=["music"]]

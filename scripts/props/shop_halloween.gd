@@ -31,9 +31,9 @@ func _interact():
 	handle_state(get_state())
 
 func get_state():
-	if ! LevelsManager.is_objective_done(1,"completed") and not talked:
+	if ! LevelsManager.is_objective_done(2,"completed") and not talked:
 		return STATE.first_objective_not_completed
-	elif ! LevelsManager.is_objective_done(1,"completed") and talked:
+	elif ! LevelsManager.is_objective_done(2,"completed") and talked:
 		return STATE.first_objective_not_completed_and_talked
 	elif LevelsManager.is_objective_done(1,"completed") and ! LevelsManager.levels[1]["objectives"].has("pumpkin_special"):
 		return STATE.first_objective_completed

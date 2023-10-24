@@ -109,8 +109,10 @@ func _physics_process(delta):
 func update_animation(horizontal_direction):
 	if horizontal_direction.x != 0:
 		sprite.flip_h = (horizontal_direction.x == -1)
+	
 		
 	if is_on_floor():
+		
 		if horizontal_direction.x == 0:
 			ap.play("idle")
 		else:
@@ -125,7 +127,7 @@ func update_animation(horizontal_direction):
 	if velocity.y > y_bounce_velocity:
 		sprite.flip_v = true
 	else :
-		if velocity.y > 0:
+		if velocity.y >= 0:
 			sprite.flip_v = false
 		
 
