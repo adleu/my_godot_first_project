@@ -9,6 +9,8 @@ const utils_dialog = preload("res://scripts/utils/dialog_utils.gd")
 const DIALOG_PATH = "res://ressources/dialog/pumpkin_vendor.json"
 var json_dialog = preload(DIALOG_PATH)
 
+@onready var special_level_selector = $SpecialLevelSelector
+
 enum STATE{
 	first_objective_not_completed = 0,
 	first_objective_not_completed_and_talked = 1,
@@ -17,9 +19,11 @@ enum STATE{
 	second_objective_completed = 4,
 	third_objective_not_completed = 5,
 	third_objective_completed = 6,
+	third_objective_completed_and_talked = 7,
 }
 
 var talked = false
+var talked_2 = false
 var dialog : Array[String]
 var dialog_data 
 
@@ -45,8 +49,10 @@ func get_state():
 			return STATE.second_objective_completed
 		elif LevelsManager.levels[2]["objectives"].has("pumpkin_special") and ! LevelsManager.is_objective_done(2,"pumpkin_special"):
 			return STATE.third_objective_not_completed
-		elif LevelsManager.levels[2]["objectives"].has("pumpkin_special") and LevelsManager.is_objective_done(2,"pumpkin_special"):
+		elif LevelsManager.levels[2]["objectives"].has("pumpkin_special") and LevelsManager.is_objective_done(2,"pumpkin_special") and ! special_level_selector.visible:
 			return STATE.third_objective_completed
+		elif LevelsManager.levels[2]["objectives"].has("pumpkin_special") and LevelsManager.is_objective_done(2,"pumpkin_special") and special_level_selector.visible:
+			return STATE.third_objective_completed_and_talked
 	return null
 		
 func handle_state(state):
@@ -74,6 +80,11 @@ func handle_state(state):
 			_tell()
 		6:
 			dialog = utils_dialog.get_lines(state, dialog_data)
+			talked_2 = true
+			_tell()
+		7:
+			dialog = utils_dialog.get_lines(state, dialog_data)
+			special_level_selector.visible = true
 			_tell()
 		_:
 			pass
@@ -87,3 +98,5 @@ func _tell():
 
 func _get_random_lines(lines_tab):
 	return lines_tab[randi() % lines_tab.size()]
+	
+

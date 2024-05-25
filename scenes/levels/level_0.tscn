@@ -484,7 +484,7 @@ position = Vector2(-1340, 76)
 offset = Vector2(80, 0)
 zoom = Vector2(0.75, 0.75)
 process_callback = 0
-limit_top = 360
+limit_top = -5
 limit_right = 3630
 limit_bottom = 0
 

@@ -46,7 +46,7 @@ func _default_special_levels():
 	0:{
 	},
 	1: {
-		"name" : "comming soon",
+		"name" : "TBD",
 		"time": -1,
 		"objectives": {
 			"completed": {

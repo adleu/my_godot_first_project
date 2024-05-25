@@ -35,8 +35,7 @@ func _ready():
 		for node in get_tree().get_nodes_in_group("bonus_orb"):
 			node.visibility_changed.connect(_bonus_taken.bind(node))
 		get_tree().get_first_node_in_group("player").ui_remove_bonus.connect(_bonus_used)
-#	
-		
+	
 	$UI.set_level_label(LevelsManager.get_level_name(lvl_id, level_type))
 	
 #	follow_cam.limit_top = camera_top_limit
@@ -84,12 +83,9 @@ func _bonus_used():
 			new_bonus = jump_bonus_scene.instantiate()
 		2 :
 			new_bonus = glide_bonus_scene.instantiate()
-		
+	
 	
 	await get_tree().create_timer(2.0).timeout
 	add_child(new_bonus)
 	new_bonus.position = bonus[1]
 	new_bonus.visibility_changed.connect(_bonus_taken.bind(new_bonus))
-	
-	
-	

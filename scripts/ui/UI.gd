@@ -59,7 +59,6 @@ func add_item(item):
 			return
 
 func remove_item():
-	
 	var items = inventory.get_children()
 	item_desription.pop_front()
 	items[0].texture = null

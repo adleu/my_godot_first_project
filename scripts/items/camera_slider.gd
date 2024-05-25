@@ -24,6 +24,12 @@ var cam_is_moving = false
 func _ready():
 	camera = get_tree().get_first_node_in_group("camera")
 	
+func _input(event):
+	if Input.is_key_pressed(KEY_RIGHT):
+		_move_camera_right()
+		
+	if Input.is_key_pressed(KEY_LEFT):
+		_move_camera_left()
 
 func _on_body_entered(body):
 	pos = body.position
@@ -81,3 +87,5 @@ func block_area():
 			new_col.scale = Vector2(3,3)
 			
 			get_node(static_body.get_path()).add_child(new_col)
+			
+

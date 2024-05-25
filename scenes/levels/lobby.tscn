@@ -233,13 +233,13 @@ color = Color(0.658824, 0.2, 0.701961, 1)
 energy = 0.79
 texture = SubResource("GradientTexture2D_fxawh")
 
-[node name="shop_halloween" parent="." instance=ExtResource("20_b3q8p")]
+[node name="shop_halloween" parent="." groups=["Persist"] instance=ExtResource("20_b3q8p")]
 position = Vector2(-290, 331)
 
-[node name="SpecialLevelSelector" parent="." instance=ExtResource("21_j56ae")]
-position = Vector2(-604, 325)
+[node name="SpecialLevelSelector" parent="shop_halloween" instance=ExtResource("21_j56ae")]
+position = Vector2(-1193, -6)
 
-[node name="PointLight2D2" type="PointLight2D" parent="SpecialLevelSelector"]
+[node name="PointLight2D2" type="PointLight2D" parent="shop_halloween/SpecialLevelSelector"]
 position = Vector2(-0.999999, 7.99999)
 scale = Vector2(1, 0.461538)
 color = Color(0, 0.521569, 0.384314, 1)
