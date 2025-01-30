@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MVFG - Marcelin"
 run/main_scene="res://scenes/ui/main_menu.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://ressources/assets/images/splash_stfg.png"
 config/icon="res://icon.svg"
@@ -33,6 +33,7 @@ window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://ressources/assets/images/cursor_default.png"
 

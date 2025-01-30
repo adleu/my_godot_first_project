@@ -141,7 +141,7 @@ theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="AnimationLoading" type="AnimationPlayer" parent="."]
-autoplay = "loading"
 libraries = {
 "": SubResource("AnimationLibrary_jyprq")
 }
+autoplay = "loading"

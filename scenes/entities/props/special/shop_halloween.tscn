@@ -120,11 +120,11 @@ texture = ExtResource("4_372qd")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Vendor"]
-autoplay = "idle"
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_aulhu")
 }
+autoplay = "idle"
+speed_scale = 0.5
 
 [node name="Shop" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -133,10 +133,10 @@ texture = ExtResource("5_iwud8")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Shop"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_17u1n")
 }
+autoplay = "idle"
 
 [node name="InteractionArea" parent="." instance=ExtResource("6_lmk2m")]
 visible = false

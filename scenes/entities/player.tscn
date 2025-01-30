@@ -19,20 +19,20 @@ gradient = SubResource("Gradient_r3ov7")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fognu"]
 resource_local_to_scene = true
 lifetime_randomness = 0.39
+particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 39.56
-particle_flag_disable_z = true
+angle_min = -90.0
+angle_max = -90.0
 direction = Vector3(0, 0, 0)
 spread = 102.69
-gravity = Vector3(0, -25, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
 angular_velocity_max = 329.14
 orbit_velocity_min = -0.1
 orbit_velocity_max = 0.1
+gravity = Vector3(0, -25, 0)
 linear_accel_max = 10.0
-angle_min = -90.0
-angle_max = -90.0
 scale_min = 0.1
 scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_ya3nb")
@@ -269,10 +269,10 @@ position = Vector2(1, -0.759998)
 shape = SubResource("RectangleShape2D_pve5m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_aptec")
 }
+autoplay = "idle"
 
 [node name="AudioBounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xjps8")

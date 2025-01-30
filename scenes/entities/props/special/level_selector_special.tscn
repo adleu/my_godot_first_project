@@ -436,10 +436,10 @@ hframes = 6
 vframes = 6
 
 [node name="AnimationMachine" type="AnimationPlayer" parent="machine"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_7lulp")
 }
+autoplay = "idle"
 
 [node name="machine_door" type="Sprite2D" parent="machine"]
 texture = ExtResource("3_f2txf")
@@ -448,10 +448,10 @@ vframes = 5
 frame = 19
 
 [node name="AnimationMachineDoor" type="AnimationPlayer" parent="machine/machine_door"]
-speed_scale = 1.5
 libraries = {
 "": SubResource("AnimationLibrary_ovyp7")
 }
+speed_scale = 1.5
 
 [node name="AudioMachine" type="AudioStreamPlayer2D" parent="machine"]
 position = Vector2(-0.970874, -4.85437)

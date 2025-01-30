@@ -79,10 +79,10 @@ texture = ExtResource("3_xurav")
 hframes = 30
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_mx07t")
 }
+autoplay = "idle"
 
 [node name="InteractionArea" parent="." instance=ExtResource("4_dljht")]
 position = Vector2(0, 3)

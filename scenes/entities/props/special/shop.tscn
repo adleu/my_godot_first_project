@@ -136,10 +136,10 @@ hframes = 6
 script = ExtResource("2_xavqx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "shop_idle"
 libraries = {
 "": SubResource("AnimationLibrary_jtxop")
 }
+autoplay = "shop_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-47.9108, 33.9833)

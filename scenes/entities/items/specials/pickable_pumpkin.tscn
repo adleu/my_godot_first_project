@@ -57,10 +57,10 @@ texture = ExtResource("2_03k8s")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_0phtp")
 }
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -177,10 +177,10 @@ theme_override_fonts/font = ExtResource("2_50nrt")
 text = "[g]  to join the ghost"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MarginContainer/Label"]
-autoplay = "blink"
 libraries = {
 "": SubResource("AnimationLibrary_a8ebk")
 }
+autoplay = "blink"
 
 [node name="SaveSpot" type="Area2D" parent="."]
 collision_mask = 3
@@ -199,11 +199,11 @@ texture = ExtResource("3_hccej")
 hframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ghost"]
-autoplay = "idle"
-speed_scale = 0.8
 libraries = {
 "": SubResource("AnimationLibrary_0lk5s")
 }
+autoplay = "idle"
+speed_scale = 0.8
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
